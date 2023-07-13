@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ce2324b9f760764a8fb24436ce68418
+guid: e90f66d7ac229c04380724db8da75088
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: defence zombie_0
+      name: stength zombie_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 7
         y: 2
-        width: 28
-        height: 47
+        width: 27
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6084b704c38f0a4d9046432cb163096
-      internalID: -250992808
+      spriteID: 578f8ac15c743984495e497dba2aa26c
+      internalID: -996802981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: defence zombie_1
+      name: stength zombie_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 47
         y: 2
-        width: 28
-        height: 47
+        width: 23
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d81512bef0ad671409c77f1c15d76d21
-      internalID: -846972233
+      spriteID: e6463728c4ef4574b9c3f4b9c1f42681
+      internalID: -1679432343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stength zombie_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 2
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5dd104225eb95419f0fc69e1572653
+      internalID: 653680374
       vertices: []
       indices: 
       edges: []
@@ -162,8 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      defence zombie_0: -250992808
-      defence zombie_1: -846972233
+      stength zombie_0: -996802981
+      stength zombie_1: -1679432343
+      stength zombie_2: 653680374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
