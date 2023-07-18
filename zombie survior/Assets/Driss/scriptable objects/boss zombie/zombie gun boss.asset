@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e72b534c38398d438607b71d870534e, type: 3}
+  m_Name: zombie gun boss
+  m_EditorClassIdentifier: 
+  Name: gun zombie
+  health: 100
+  defence: 60
+  damage: 20
+  speed: 2
+  image: {fileID: 1757166069, guid: c65b0b8cd38803a48ab85ecdd567fd74, type: 3}
+  animatorController: {fileID: 9100000, guid: 27a96e19e2c423e40a259545f66101d8, type: 2}

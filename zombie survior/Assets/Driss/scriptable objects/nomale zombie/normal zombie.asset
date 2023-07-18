@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e72b534c38398d438607b71d870534e, type: 3}
+  m_Name: normal zombie
+  m_EditorClassIdentifier: 
+  Name: zombie
+  health: 100
+  defence: 1
+  damage: 0
+  speed: 1
+  image: {fileID: 1184623167, guid: 6c4e5bf330230c247998d2ddbabf8eb4, type: 3}
+  animatorController: {fileID: 9100000, guid: 1c428b7b2a90dbf4dac05c880e62b84e, type: 2}

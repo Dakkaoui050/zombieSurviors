@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: zombie boss (tank)_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 14
+        width: 46
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6367af76df9eafd4d824c213ed3e5aa8
+      internalID: -725279044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie boss (tank)_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 15
+        width: 44
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ac7ab09b4f67b4aad044675cca871a
+      internalID: 1987856367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie boss (tank)_2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 15
+        width: 45
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7cff01ea565d3b46909074bd66e9440
+      internalID: -4584917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie boss (tank)_3
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 17
+        width: 45
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c7d324297dc5c746bca5b717a7316eb
+      internalID: 1968534544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      zombie boss (tank)_0: -725279044
+      zombie boss (tank)_1: 1987856367
+      zombie boss (tank)_2: -4584917
+      zombie boss (tank)_3: 1968534544
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
