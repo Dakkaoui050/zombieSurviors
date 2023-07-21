@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class Wave
-    {
-        public GameObject[] enemyPrefabs;   // Array of zombies prefabs for this wave
-        public int numberOfEnemies;         // Number of zombies to spawn in this wave
-        public float timeBetweenSpawns;     // Time delay tussen zombie spawns
-    }
-
-    public Wave[] waves;                   // Array of waves to be defined in the Inspector
-    public GameObject bossPrefab;          // Reference to the boss prefab
+    public Wave[] waves;                   // Array of waves 
+    public GameObject bossPrefab;          // Reference to the boss zombie prefab
     public float timeBetweenWaves = 5f;    // Time delay between waves
     public Transform spawnPoint;           // Spawn point for enemies and bosses
 
