@@ -6,7 +6,7 @@ public class ZombieBehavior : MonoBehaviour
 {
     Movement move;
 
-    public Transform target;
+    public Transform target; // player
     Rigidbody2D rb;
     
 
@@ -16,10 +16,29 @@ public class ZombieBehavior : MonoBehaviour
     public Animator enemyAnimator;  // Reference to the enemy animator component
     public float speed;  // Speed value for the enemy movement
 
+    //healthbar 
+    public float Hitpoints;
+    public float MaxHitPoints = 20;
+    public healthbarBehavior HP;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         move = GetComponent<Movement>();
+
+        Hitpoints = MaxHitPoints;
+        HP.Sethealth(Hitpoints, MaxHitPoints);
+
+        // Check if a GameObject tagged as "Player" exists in the scene
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+        {
+            target = playerObject.transform;
+        }
+        else
+        {
+            Debug.LogError("No GameObject tagged as 'Player' found in the scene!");
+        }
     }
 
     void Update()
@@ -72,5 +91,16 @@ public class ZombieBehavior : MonoBehaviour
             }
         }
        
+    }
+
+    public void TakeHit(float Damage)
+    {
+        HP.Sethealth(Hitpoints, MaxHitPoints);
+        Hitpoints -= Damage;
+
+        if (Hitpoints <= 0 )
+        {
+            Destroy(gameObject);
+        }
     }
 }
