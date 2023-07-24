@@ -2,29 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ZombieBehavior : MonoBehaviour
 {
-    Movement move;
 
-    public Transform target; // player
-    Rigidbody2D rb;
-    
+    public float moveSpeed = 2f;
+    public float detectionRange = 5f;
+    public float attackRange = 1f;
+    public float attackCooldown = 2f;
+    public int attackDamage = 10;
 
-    public GameObject zombies;  // Array of zombie GameObjects
-    
-    public GameObject circleCenter;  // Reference to the circle center GameObject
+    private Transform player;
+    private Animator animator;
+    private bool isAttacking = false;
+    private float attackTimer = 0f;
+
+    // Reference to the circle center GameObject
     public Animator enemyAnimator;  // Reference to the enemy animator component
-    public float speed;  // Speed value for the enemy movement
 
-    //healthbar 
+    // Healthbar 
     public float Hitpoints;
     public float MaxHitPoints = 20;
     public healthbarBehavior HP;
 
+    private Movement move;
+    private Rigidbody2D rb;
+    public CircleCollider2D circleCollider;
+    public Transform playerCircleCollider; // Reference to the player's circle collider
+
     void Start()
     {
+        
+        circleCollider = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         move = GetComponent<Movement>();
+        animator = GetComponent<Animator>();
 
         Hitpoints = MaxHitPoints;
         HP.Sethealth(Hitpoints, MaxHitPoints);
@@ -33,7 +45,18 @@ public class ZombieBehavior : MonoBehaviour
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
-            target = playerObject.transform;
+            player = playerObject.transform;
+
+            // Find the CircleCollider2D component on the player (assuming it has one)
+            CircleCollider2D playerCircle = playerObject.GetComponent<CircleCollider2D>();
+            if (playerCircle != null)
+            {
+                playerCircleCollider = playerCircle.transform;
+            }
+            else
+            {
+                Debug.LogError("No CircleCollider2D found on the GameObject tagged as 'Player'!");
+            }
         }
         else
         {
@@ -43,54 +66,69 @@ public class ZombieBehavior : MonoBehaviour
 
     void Update()
     {
-        if (target)
+        if (player != null && !isAttacking)
         {
-            RotateToTarget();
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+            if (distanceToPlayer <= detectionRange)
+            {
+                // Face the player
+                Vector3 directionToPlayer = (player.position - transform.position).normalized;
+                transform.right = directionToPlayer;
+
+                // Move towards the player
+                if (distanceToPlayer > attackRange)
+                {
+                    transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+                    animator.SetBool("isMoving", true);
+                }
+                else
+                {
+                    // Player within attack range
+                    animator.SetBool("isMoving", false);
+                    Attack();
+                }
+            }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
         }
 
-        // Calculate the distance between the enemy's position and the circle center's position
-        float distance = Vector2.Distance(transform.position, circleCenter.transform.position);
-
-        // If the enemy is outside the circle
-        if (distance > circleCenter.GetComponent<CircleCollider2D>().radius)
+        // Cooldown timer for attacking
+        if (isAttacking)
         {
-            // Calculate the direction towards the player
-            Vector2 direction = (target.transform.position - transform.position).normalized;
-
-            // Calculate the new position based on the direction, speed, and delta time
-            Vector2 newPosition = (Vector2)transform.position + direction * speed * Time.deltaTime;
-
-            // Update the enemy's position
-            transform.position = newPosition;
-
-            // Trigger the "EnterCircle" animation state in the enemy animator
-            enemyAnimator.SetTrigger("EnterCircle");
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackCooldown)
+            {
+                isAttacking = false;
+                attackTimer = 0f;
+            }
         }
-        else  // If the enemy is inside the circle
+
+        // Calculate the distance between the enemy's position and the player's circle center's position
+        float distance = Vector2.Distance(transform.position, playerCircleCollider.position);
+
+        // If the enemy is outside the player's circle
+        if (distance > playerCircleCollider.GetComponent<CircleCollider2D>().radius)
         {
-            // Reset the "EnterCircle" animation trigger in the enemy animator
-            enemyAnimator.ResetTrigger("EnterCircle");
+            // ... (Your existing code)
+            // For example, moving towards the player's circle center
+        }
+        else // If the enemy is inside the player's circle
+        {
+            // ... (Your existing code)
+            // For example, resetting the "EnterCircle" animation trigger in the enemy animator
         }
     }
-    
 
-    public void RotateToTarget()
+    void Attack()
     {
-       
-        if (target)
-        {
-            if (move.horizontal > 0)
-            {
-                //if the player is look the left then the zombies on the leftside look to the right
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
-            }
-            else if (move.horizontal < 0)
-            {
-                //if the player is look the right then the zombies on the rightside look to the left
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            }
-        }
-       
+        // Perform attack logic here
+        // For example, decrease player health, play attack animation, etc.
+        animator.SetTrigger("Attack");
+        player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+        isAttacking = true;
     }
 
     public void TakeHit(float Damage)
@@ -98,9 +136,10 @@ public class ZombieBehavior : MonoBehaviour
         HP.Sethealth(Hitpoints, MaxHitPoints);
         Hitpoints -= Damage;
 
-        if (Hitpoints <= 0 )
+        if (Hitpoints <= 0)
         {
             Destroy(gameObject);
         }
     }
 }
+
