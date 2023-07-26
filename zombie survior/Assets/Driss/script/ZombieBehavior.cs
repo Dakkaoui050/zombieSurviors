@@ -18,8 +18,8 @@ public class ZombieBehavior : MonoBehaviour
     private float attackTimer = 0f;
 
     // Reference to the circle center GameObject
-    public Animator enemyAnimator;  // Reference to the enemy animator component
-
+    public Animator zombieAnimator;  // Reference to the enemy animator component
+   
     // Healthbar 
     public float Hitpoints;
     public float MaxHitPoints = 20;
@@ -112,13 +112,18 @@ public class ZombieBehavior : MonoBehaviour
         // If the enemy is outside the player's circle
         if (distance > playerCircleCollider.GetComponent<CircleCollider2D>().radius)
         {
-            // ... (Your existing code)
-            // For example, moving towards the player's circle center
+           
+            // moving towards the player's circle center
+            animator.SetBool("isMoving", true);
+            animator.SetBool("isAttacking", false);
+
         }
         else // If the enemy is inside the player's circle
         {
-            // ... (Your existing code)
-            // For example, resetting the "EnterCircle" animation trigger in the enemy animator
+      
+            //resetting the "EnterCircle" animation trigger in the enemy animator
+            animator.SetBool("isMoving", false);
+            animator.SetBool("isAttacking", true);
         }
     }
 

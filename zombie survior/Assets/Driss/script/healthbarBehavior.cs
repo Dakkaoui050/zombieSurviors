@@ -8,7 +8,7 @@ public class healthbarBehavior : MonoBehaviour
     public Slider Slider;
     public Color low;
     public Color high;
-    public Vector3 offset;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class healthbarBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
+      
         
     }
     public void Sethealth(float HP,float maxHP)
