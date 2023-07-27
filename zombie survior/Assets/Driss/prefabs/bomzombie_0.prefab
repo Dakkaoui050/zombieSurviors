@@ -232,17 +232,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5e0ff7b6b594a49becd2ad5ddfbd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  detectionRange: 5
-  attackRange: 1
-  attackCooldown: 2
-  attackDamage: 10
-  enemyAnimator: {fileID: 3476621234581904127}
-  Hitpoints: 0
-  MaxHitPoints: 20
-  HP: {fileID: 7272471993727465266}
+  ZombiehealthSlider: {fileID: 9083151091612881291}
+  prefab: {fileID: 0}
   circleCollider: {fileID: 0}
   playerCircleCollider: {fileID: 0}
+  HP: 0
+  MaxHP: 0
+  Defence: 0
+  AttackDamage: 0
 --- !u!1 &6668610361477737238
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +396,6 @@ GameObject:
   - component: {fileID: 7752096026300644288}
   - component: {fileID: 5516361422581330494}
   - component: {fileID: 2708236229869787403}
-  - component: {fileID: 7272471993727465266}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -491,22 +487,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7272471993727465266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7990664583036835395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d448dd4768f39f4a95cbb41aed454fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Slider: {fileID: 9083151091612881291}
-  low: {r: 1, g: 0, b: 0, a: 0}
-  high: {r: 0.14432478, g: 0.7924528, b: 0, a: 0}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &8261874809850095117
 GameObject:
   m_ObjectHideFlags: 0

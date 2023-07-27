@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e49fd270ad07e4e8865d5893fb4c18, type: 3}
+  m_Name: Stength zombie
+  m_EditorClassIdentifier: 
+  data:
+    pefabsZombie: {fileID: 111677186856401558, guid: ea6c0bc38b58b2b40821e5a04d8e7251, type: 3}
+    HP: 100
+    MaxHP: 100
+    Damage: 20
+    Defence: 45
+    moveSpeed: 2
+    detectionRange: 10
+    attackRange: 0
+    attackCooldown: 0
