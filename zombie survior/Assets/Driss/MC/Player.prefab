@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 9124489445799025900}
   - component: {fileID: 5949452132156683825}
   - component: {fileID: 2626190152615054598}
-  - component: {fileID: 7824073456749767997}
+  - component: {fileID: 5206629766101090978}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -584,7 +584,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7824073456749767997
+--- !u!114 &5206629766101090978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -593,18 +593,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7427818534500247827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790a3dc3a7f9beb48a68234a23559b0d, type: 3}
+  m_Script: {fileID: 11500000, guid: c2c4d5b257e52874284577540d971fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 8538372131366467651}
+  moveSpeed: 5
+  lookRight: 1
+  slider: {fileID: 8538372131366467651}
   HP: 100
   MaxHP: 100
-  attackRange: 0
-  attackCooldown: 0
-  AttackDamage: 10
-  Defence: 0
-  lookRight: 1
-  moveSpeed: 20
 --- !u!1 &8024374713788742635
 GameObject:
   m_ObjectHideFlags: 0

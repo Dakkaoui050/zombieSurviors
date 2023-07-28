@@ -192,17 +192,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 111677186856401558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e5e0ff7b6b594a49becd2ad5ddfbd55, type: 3}
+  m_Script: {fileID: 11500000, guid: b7d2bb37ee6edae4b8b1c3d93e349338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZombiehealthSlider: {fileID: 2292869834651542320}
-  prefab: {fileID: 0}
-  circleCollider: {fileID: 0}
-  playerCircleCollider: {fileID: 0}
-  HP: 0
-  MaxHP: 0
-  Defence: 0
-  AttackDamage: 0
+  EnemyName: Strok Zombie
+  MoveSpeed: 3.5
+  HP: 150
+  MaxHP: 150
+  Distance: 0
+  slider: {fileID: 2292869834651542320}
+  Damage: 25
+  WayPoint: {fileID: 0}
 --- !u!1 &890944393300736294
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,8 +16,8 @@ MonoBehaviour:
     pefabsZombie: {fileID: 2660732139877634596, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
     HP: 100
     MaxHP: 100
-    Damage: 10
     Defence: 1
+    AttackDamage: 0
     moveSpeed: 1
     detectionRange: 10
     attackRange: 1

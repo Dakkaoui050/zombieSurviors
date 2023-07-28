@@ -371,17 +371,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3225860657888714654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e5e0ff7b6b594a49becd2ad5ddfbd55, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c0b569fa4042fc4daa29347a098481e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZombiehealthSlider: {fileID: 7038722614024703693}
-  prefab: {fileID: 0}
-  circleCollider: {fileID: 0}
-  playerCircleCollider: {fileID: 0}
-  HP: 0
-  MaxHP: 0
-  Defence: 0
-  AttackDamage: 0
+  EnemyName: Stun Zombie
+  MoveSpeed: 2
+  HP: 125
+  MaxHP: 125
+  Distance: 0
+  slider: {fileID: 7038722614024703693}
+  Damage: 36
+  WayPoint: {fileID: 0}
 --- !u!1 &3711849590645627613
 GameObject:
   m_ObjectHideFlags: 0
