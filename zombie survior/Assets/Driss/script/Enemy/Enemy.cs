@@ -5,33 +5,43 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    player p;
+    
+    private SpriteRenderer SR;
+    public player p; 
+    [SerializeField] private Slider slider;
+    
+    //Movement
     [SerializeField] private string EnemyName;
     [SerializeField] protected private float MoveSpeed;
+    
+    //HealthBar
     public float HP;
     [SerializeField] private float MaxHP;
-
+   [SerializeField] public float Damage;
+   
+    //Target 
     protected private Transform Target;
     [SerializeField] protected private float Distance;
-    private SpriteRenderer SR;
-    [SerializeField] private Slider slider;
-
-    [SerializeField] public float Damage;
-
     [SerializeField] public Transform WayPoint;
     protected private Transform wayPointTarget;
 
+    //Animation
+    public Animator Anim;
+
     private void Awake()
     {
+        p = GetComponent<player>();
+        Anim = GetComponent<Animator>();
         wayPointTarget = WayPoint;
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        wayPointTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        wayPointTarget = Target; 
+        SR = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
     {
         HP = MaxHP;
-        SR = GetComponent<SpriteRenderer>();
+       
         introduction();
 
         slider.value = HP;
@@ -46,22 +56,24 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        if (Vector2.Distance(transform.position, Target.position) < Distance)
+        float playerDistance = Vector2.Distance(transform.position, Target.position);
+
+        if (playerDistance < Distance)
         {
             transform.position = Vector2.MoveTowards(transform.position, Target.position, MoveSpeed * Time.deltaTime);
+            wayPointTarget = Target;
         }
-
-        if (Vector2.Distance(transform.position, Target.position) > Distance)
+        else
         {
-            if (Vector2.Distance(transform.position, WayPoint.position) < 0.01)
+            if (Vector2.Distance(transform.position, WayPoint.position) < 0.01f)
             {
                 wayPointTarget = WayPoint;
             }
+            transform.position = Vector2.MoveTowards(transform.position, wayPointTarget.position, MoveSpeed * Time.deltaTime);
         }
-        transform.position = Vector2.MoveTowards(transform.position, wayPointTarget.position, MoveSpeed * Time.deltaTime);
     }
 
-    private void Flip()
+    public void Flip()
     {
         if (transform.position.x > Target.position.x)
         {

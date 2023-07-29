@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
-    
+    public static player Instance;
     //movement
     private Rigidbody2D RB;
     private float MoveH, MoveV;
-    [SerializeField] private float moveSpeed;
+    public float moveSpeed;
     public bool lookRight = true;
 
     //healthBar
@@ -21,7 +21,17 @@ public class player : MonoBehaviour
 
     // Start is called before the first frame update
     void Awake()
-    {
+    { // Check if an instance already exists
+        if (Instance == null)
+        {
+            // If not, set this as the instance
+            Instance = this;
+        }
+        else
+        {
+            // If an instance already exists, destroy this duplicate
+            Destroy(gameObject);
+        }
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
     }

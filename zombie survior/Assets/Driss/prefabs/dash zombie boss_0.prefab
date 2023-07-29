@@ -366,14 +366,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68d5bb3c37b30145afd5a5c5cfd4fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 1590129788493708124}
   EnemyName: Dash Zombie
   MoveSpeed: 4
   HP: 150
   MaxHP: 150
-  Distance: 0
-  slider: {fileID: 1590129788493708124}
   Damage: 35
+  Distance: 0
   WayPoint: {fileID: 0}
+  Anim: {fileID: 0}
 --- !u!1 &6780592105529165692
 GameObject:
   m_ObjectHideFlags: 0

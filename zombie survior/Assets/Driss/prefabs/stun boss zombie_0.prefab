@@ -374,14 +374,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0b569fa4042fc4daa29347a098481e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 7038722614024703693}
   EnemyName: Stun Zombie
-  MoveSpeed: 2
+  MoveSpeed: 4
   HP: 125
   MaxHP: 125
-  Distance: 0
-  slider: {fileID: 7038722614024703693}
   Damage: 36
+  Distance: 0
   WayPoint: {fileID: 0}
+  Anim: {fileID: 0}
 --- !u!1 &3711849590645627613
 GameObject:
   m_ObjectHideFlags: 0

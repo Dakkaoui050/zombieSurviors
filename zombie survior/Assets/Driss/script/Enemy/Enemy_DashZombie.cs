@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Enemy_DashZombie : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    //wanneer de andere animation speel take damage
+    public void Start()
     {
+        //Bom Zombie is Walking
+        Anim.Play("dash Zombie boss");
         
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Anim.SetBool("isAttacking", true);
+            Anim.Play("attack dash zombie");
+            MoveSpeed *= 0.5f;
+        }
+  
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Anim.SetBool("isAttacking", false);
+            Anim.Play("dash Zombie boss");
+            MoveSpeed = 4;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
