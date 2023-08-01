@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     //HealthBar
     public float HP;
     [SerializeField] private float MaxHP;
-   [SerializeField] public float Damage;
+    [SerializeField] public float Damage;
    
     //Target 
     protected private Transform Target;

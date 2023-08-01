@@ -14,9 +14,9 @@ public class player : MonoBehaviour
 
     //healthBar
     [SerializeField] private Slider slider;
-    [SerializeField] private float HP;
-    [SerializeField] private float MaxHP;
-    private float defence;
+    [SerializeField] public float HP;
+    [SerializeField] public float MaxHP;
+    public float defence = 0;
     
 
     // Start is called before the first frame update
