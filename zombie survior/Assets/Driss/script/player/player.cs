@@ -17,7 +17,7 @@ public class player : MonoBehaviour
     [SerializeField] private float HP;
     [SerializeField] private float MaxHP;
     private float defence;
-    private float Damage;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -79,7 +79,7 @@ public class player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         // Apply damage reduction based on defence (if needed)
-        float damageTaken = damage - defence;
+        float damageTaken = damage * (1 - defence); // Adjust for defense between 0 and 1
         HP -= damageTaken;
         HP = Mathf.Clamp(HP, 0, MaxHP);
 
@@ -91,6 +91,7 @@ public class player : MonoBehaviour
             Die();
         }
     }
+
 
     private void Die()
     {
