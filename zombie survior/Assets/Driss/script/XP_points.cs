@@ -8,10 +8,10 @@ public class XP_points : MonoBehaviour
     
     private Enemy enemy;
     public Slider slider;
-    public int EXP;
-    public int MaxEXP;
-    public int CurrentLevel;
-    public int ExpPoints;
+    public float EXP;
+    public float MaxEXP;
+    public float CurrentLevel;
+    public float ExpPoints;
 
     private void Awake()
     {

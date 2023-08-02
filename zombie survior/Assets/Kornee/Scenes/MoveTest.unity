@@ -931,7 +931,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 179912351}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: HealthIncreaseButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &179912351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,11 +1058,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180447173}
   m_CullTransparentMesh: 1
---- !u!4 &197638201 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8046499724603126405, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
-  m_PrefabInstance: {fileID: 1603941442}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &217907918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,8 +1096,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -53, y: 17.05}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -53.01, y: 17.112501}
+  m_SizeDelta: {x: 182.34326, y: 31.76165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217907920
 MonoBehaviour:
@@ -1135,7 +1142,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 217907921}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: HealthIncreaseButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &217907921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,8 +1231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -53, y: 32.5332}
-  m_SizeDelta: {x: 160, y: 31.2162}
+  m_AnchoredPosition: {x: -52.74, y: 32.51633}
+  m_SizeDelta: {x: 184.9183, y: 30.7407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &326819181
 MonoBehaviour:
@@ -1258,7 +1277,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 326819182}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: HealthIncreaseButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &326819182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1435,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &340333429
 MonoBehaviour:
@@ -1418,6 +1449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d072e3292929737419fd55a9edaad48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p: {fileID: 0}
+  Xp: {fileID: 340333430}
   heathIncease:
   - {fileID: 326819179}
   - {fileID: 217907918}
@@ -1441,6 +1474,7 @@ MonoBehaviour:
   - {fileID: 1814058933}
   - {fileID: 590724138}
   relive: {fileID: 1600630287}
+  canvas: {fileID: 1221771276}
 --- !u!114 &340333430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1457,7 +1491,7 @@ MonoBehaviour:
   EXP: 1
   MaxEXP: 100
   CurrentLevel: 1
-  ExpPoints: 0
+  ExpPoints: 100
 --- !u!1 &378393156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2370,7 +2404,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health 80%
+  m_text: maxHealth 80%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2433,7 +2467,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -12.758957, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2816,83 +2850,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834459723}
   m_CullTransparentMesh: 1
---- !u!1001 &878172065
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2660732139877634596, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_Name
-      value: normal zombie_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985948931144505594, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4068164524164205059, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4068164524164205059, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5844202957311692391, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: WayPoint
-      value: 
-      objectReference: {fileID: 197638201}
-    - target: {fileID: 7099263611975592376, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d92721d937aebad46bc88d57b18ba9ed, type: 3}
 --- !u!1 &886001837
 GameObject:
   m_ObjectHideFlags: 0
@@ -4323,7 +4280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1221771277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4401,7 +4358,7 @@ RectTransform:
   m_Children:
   - {fileID: 780953055}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4759,7 +4716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health 20%
+  m_text: MaxHealth 20%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4822,7 +4779,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.42317966, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5107,7 +5064,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health 40%
+  m_text: MaxHealth 40%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5170,7 +5127,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -10.031731, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5744,6 +5701,34 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: DashPower
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: Dashspeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: DashLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: DashUnlock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: activeDash
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: DashCoolDown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5238712275046754974, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6043,7 +6028,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1717882609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: HealthIncreaseButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1717882609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6140,7 +6137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health 60%
+  m_text: maxHealth 60%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6203,7 +6200,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -15.017914, y: 0, z: -21.454079, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6779,7 +6776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health 100%
+  m_text: maxHealth 100%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6842,7 +6839,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -15.058334, y: 0, z: -30.116577, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7063,7 +7060,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1942912109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: HealthIncreaseButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1942912109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7859,74 +7868,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106045401}
   m_CullTransparentMesh: 1
---- !u!1 &2122203623
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2122203626}
-  - component: {fileID: 2122203625}
-  - component: {fileID: 2122203624}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2122203624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2122203623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &2122203625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2122203623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &2122203626
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2122203623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124287883
 GameObject:
   m_ObjectHideFlags: 0
