@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class SkillTree : MonoBehaviour
 {
+
     public player p;
     public XP_points Xp;
     public GameObject[] heathIncease;
     public GameObject[] Dash;
     public GameObject[] defenceIncease;
     public GameObject[] MovementSpeed;
-    public GameObject relive;
     private float requiredXp = 0;
     public GameObject canvas;
+
+    //Relive varable
+    public GameObject[] Relive;
+    [SerializeField] private bool islive = true;
 
     private void Awake()
     {
@@ -36,9 +40,6 @@ public class SkillTree : MonoBehaviour
                 canvas.SetActive(true);
             }
         }
-
-       
-       
     }
     public void HealthIncreaseButton(int level)
     {
@@ -48,7 +49,7 @@ public class SkillTree : MonoBehaviour
             case 0:
                 requiredXp = 1;
                 p.MaxHP = 120f;
-                Debug.Log(p.MaxHP);
+                
                 break;
             case 1:
                 requiredXp = 2;
@@ -69,14 +70,112 @@ public class SkillTree : MonoBehaviour
             default:
                 break;
         }
+        Debug.Log(p.MaxHP);
 
         if (Xp.ExpPoints >= requiredXp && heathIncease.Length >= level)
         {
             Xp.ExpPoints -= requiredXp;
 
         }
+    }
+    public void DefenceInceaseButton(int DefenceLevel)
+    {
+        switch (DefenceLevel)
+        {
+            case 0:
+                requiredXp = 1;
+                p.defence = 0.05f;
+               
+                break;
+            case 1:
+                requiredXp = 2;
+                p.defence = 0.1f;
+                break;
+            case 2:
+                requiredXp = 3;
+                p.defence = 0.2f;
+                break;
+            case 3:
+                requiredXp = 4;
+                p.defence = 0.3f;
+                break;
+            case 4:
+                requiredXp = 5;
+                p.defence = 0.5f;
+                break;
+            default:
+                break;
+        }
+        Debug.Log(p.defence);
 
+        if (Xp.ExpPoints >= requiredXp && defenceIncease.Length >= DefenceLevel)
+        {
+            Xp.ExpPoints -= requiredXp;
 
+        }
+    }
+    public void MovementIncease(int MovementLevel)
+    {
+        switch (MovementLevel)
+        {
+            case 0:
+                requiredXp = 1;
+                p.moveSpeed = 3f;
+                break;
+            case 1:
+                requiredXp = 2;
+                p.moveSpeed = 3.5f;
+                break;
+            case 2:
+                requiredXp = 3;
+                p.moveSpeed = 4;
+                break;
+            case 3:
+                requiredXp = 4;
+                p.moveSpeed = 5;
+                break;
+            case 4:
+                requiredXp = 5;
+                p.moveSpeed = 5.5f;
+                break;
+            default:
+                break;
+        } 
+        Debug.Log(p.MaxHP);
 
+        if (Xp.ExpPoints >= requiredXp && MovementSpeed.Length >= MovementLevel)
+        {
+            Xp.ExpPoints -= requiredXp;
+
+        }
+    }
+    public void live(int relive)
+    {
+        if(islive == true)
+        {   
+            switch (relive)
+            {
+                case 0:
+                    requiredXp = 10;
+                    if(p.HP < 5)
+                    {
+                        p.HP = p.MaxHP;
+                        islive = false;
+                    }
+                    break;
+            
+                default:
+                    break;
+            }
+
+        }
+        
+        Debug.Log(p.MaxHP + "living 1 more");
+
+        if (Xp.ExpPoints >= requiredXp && Relive.Length >= relive)
+        {
+            Xp.ExpPoints -= requiredXp;
+
+        }
     }
 }
