@@ -4622,7 +4622,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1248686410}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: DashFuction
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1248686410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5398,7 +5410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1507253705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: DashFuction
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1507253705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5764,11 +5788,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: onDash
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
       propertyPath: DashPower
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
       propertyPath: Dashspeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
+      propertyPath: dashSpeed
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
@@ -5781,7 +5813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
       propertyPath: DashUnlock
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5206629766101090978, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
       propertyPath: activeDash
@@ -5967,7 +5999,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1701310327}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: DashFuction
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1701310327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6604,7 +6648,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1894799084}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 340333429}
+        m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
+        m_MethodName: DashFuction
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1894799084
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -141,7 +141,7 @@ public class SkillTree : MonoBehaviour
             default:
                 break;
         } 
-        Debug.Log(p.MaxHP);
+        Debug.Log(p.moveSpeed);
 
         if (Xp.ExpPoints >= requiredXp && MovementSpeed.Length >= MovementLevel)
         {
@@ -173,6 +173,37 @@ public class SkillTree : MonoBehaviour
         Debug.Log(p.MaxHP + "living 1 more");
 
         if (Xp.ExpPoints >= requiredXp && Relive.Length >= relive)
+        {
+            Xp.ExpPoints -= requiredXp;
+
+        }
+    }
+    public void DashFuction(int DashIncease)
+    {
+        switch (DashIncease)
+        {
+            case 0:
+                requiredXp = 1;
+                p.DashUnlock = true;
+                break;
+            case 1:
+                requiredXp = 2;
+                p.dashSpeed = 15;
+                break;
+            case 2:
+                requiredXp = 3;
+                p.dashSpeed = 20;
+                break;
+            case 3:
+                requiredXp = 4;
+                p.dashSpeed = 25;
+                break;
+            default:
+                break;
+        }
+        Debug.Log(p.dashSpeed);
+
+        if (Xp.ExpPoints >= requiredXp && Dash.Length >= DashIncease)
         {
             Xp.ExpPoints -= requiredXp;
 

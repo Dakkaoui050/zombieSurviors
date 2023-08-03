@@ -17,9 +17,15 @@ public class player : MonoBehaviour
     [SerializeField] public float HP;
     [SerializeField] public float MaxHP;
     public float defence = 0;
-    
 
-    // Start is called before the first frame update
+    //dash verables
+    private bool isDashing = false;
+    public float dashDuration = 0.2f;
+    public float dashSpeed = 10f;
+    private float dashTimer;
+    public bool DashUnlock = false;
+
+
     void Awake()
     { // Check if an instance already exists
         if (Instance == null)
@@ -38,22 +44,49 @@ public class player : MonoBehaviour
 
     private void Start()
     {
-
+        
     }
 
     void Update()
     {
-        MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-        MoveV = Input.GetAxis("Vertical") * moveSpeed;
+        if (!isDashing)
+        {
+            MoveH = Input.GetAxis("Horizontal") * moveSpeed;
+            MoveV = Input.GetAxis("Vertical") * moveSpeed;
+            RB.velocity = new Vector2(MoveH, MoveV);
 
-        RB.velocity = new Vector2(MoveH, MoveV);
-        if (MoveH > 0 && !lookRight)
-        {
-            flip();
+            if (MoveH > 0 && !lookRight)
+            {
+                flip();
+            }
+            if (MoveH < 0 && lookRight)
+            {
+                flip();
+            }
         }
-        if (MoveH < 0 && lookRight)
+        if (DashUnlock == true)
+        {   
+            if (Input.GetButtonDown("Fire1"))
+            {
+                // Call the Dash() function when the Fire1 button is pressed
+                Dash();
+            }
+
+        }
+        
+
+        if (isDashing)
         {
-            flip();
+            // Dash movement
+            RB.velocity = new Vector2(MoveH * dashSpeed, MoveV * dashSpeed);
+
+            dashTimer -= Time.deltaTime;
+            if (dashTimer <= 0f)
+            {
+                // Reset velocity and end the dash after the specified duration
+                RB.velocity = new Vector2(MoveH, MoveV);
+                isDashing = false;
+            }
         }
     }
 
@@ -98,5 +131,16 @@ public class player : MonoBehaviour
         // Handle player's death here
         Destroy(gameObject);
     }
+    void Dash()
+    {
+        // Perform dash only if the player is not currently dashing
+        if (!isDashing)
+        {
+            isDashing = true;
+            dashTimer = dashDuration;
+        }
+    }
+
+
 }
 
