@@ -4,22 +4,66 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Threading;
 
-public class PickUps
+public class PickUps : MonoBehaviour
 {
     [Header("Commen settings")]
-    Sprite sprite;
-    string type;
+    public Sprite sprite;
     [Header("Pickup Specific")]
-    int valuePlus;
-    bool nuke;
-    string[] tag =
-        {"Health", "defense", "Money","Nuke"};
-    GameObject me;
+    public int valuePlus;
+    public bool grabed;
+    public string tag;
+    public CircleCollider2D circleCollider;
+    public GameObject me;
 
-    public void OnTriggerEnter2D()
+    public player player_script;
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        Thread.Sleep(500);
-        destroy();
+       player_script = collision.GetComponent<player_Kale_Man>();
+        if (collision.tag == "Player")
+        {
+            switch(tag)
+            {
+                case "Health":
+                    player_script.HP += valuePlus;
+                    if (player_script.HP > player_script.MaxHP)
+                    {
+                        player_script.HP = player_script.MaxHP;
+                        destroy();
+                    }
+                    else
+                    {
+                        destroy();
+                    }
+                    
+                    break;
+                case "Defense":
+                    player_script.defence += valuePlus;
+                    destroy();
+                    break;
+                case "Nuke":
+                    if (player_script.Nuke == false && player_script.Nuke_Count < 3)
+                    {
+                        player_script.Nuke = true;
+                        player_script.Nuke_Count++;
+                        destroy();
+                    }
+                    else if (player_script.Nuke_Count < 3)
+                    {
+                        player_script.Nuke_Count++;
+                        destroy();
+                    }
+                    else
+                    {
+                        destroy();
+                    }
+                    break; 
+                case "Money":
+                    destroy();
+                    break;
+            }
+            
+           
+        }
     }
        
     public void destroy()

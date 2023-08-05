@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Health : PickUps
+public class Defense : PickUps
 {
     public void Awake()
     {

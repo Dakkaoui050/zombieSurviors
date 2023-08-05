@@ -14,10 +14,12 @@ public class player : MonoBehaviour
 
     //healthBar
     [SerializeField] private Slider slider;
-    [SerializeField] private float HP;
-    [SerializeField] private float MaxHP;
-    private float defence;
-    private float Damage;
+    public float HP;
+    public float MaxHP;
+    public float defence;
+    public float Damage;
+    public bool Nuke;
+    public int Nuke_Count;
 
     // Start is called before the first frame update
     void Awake()
