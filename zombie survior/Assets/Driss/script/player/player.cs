@@ -20,6 +20,7 @@ public class player : MonoBehaviour
     public float Damage;
     public bool Nuke;
     public int Nuke_Count;
+    public int Money;
 
     // Start is called before the first frame update
     void Awake()

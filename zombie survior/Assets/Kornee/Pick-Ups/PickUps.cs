@@ -58,6 +58,7 @@ public class PickUps : MonoBehaviour
                     }
                     break; 
                 case "Money":
+                    player_script.Money += valuePlus;
                     destroy();
                     break;
             }
