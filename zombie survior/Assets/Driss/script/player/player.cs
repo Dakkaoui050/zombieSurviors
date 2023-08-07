@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
+    private SpriteRenderer SpriteRenderer1;
+
     public static player Instance;
     //movement
     private Rigidbody2D RB;
     private float MoveH, MoveV;
     public float moveSpeed;
-    public bool lookRight = true;
+    public bool lookRight = false;
 
     //healthBar
     [SerializeField] private Slider slider;
@@ -57,13 +59,13 @@ public class player : MonoBehaviour
             MoveV = Input.GetAxis("Vertical") * moveSpeed;
             RB.velocity = new Vector2(MoveH, MoveV);
 
-            if (MoveH > 0 && !lookRight)
+            if (Input.GetButtonDown("right"))
             {
-                flip();
+                SpriteRenderer1.flipX = true;
             }
-            if (MoveH < 0 && lookRight)
+            if (Input.GetButtonDown("left"))
             {
-                flip();
+                SpriteRenderer1.flipX = false;
             }
         }
         if (DashUnlock == true)
@@ -94,11 +96,15 @@ public class player : MonoBehaviour
 
     void flip()
     {
-        Vector3 currentScale = gameObject.transform.localScale;
-        currentScale.x *= -1;
-        gameObject.transform.localScale = currentScale;
-
-        lookRight = !lookRight;
+        if (Input.GetButtonDown("a"))
+        {
+            SpriteRenderer1.flipX = true;
+        }
+        if (Input.GetButtonDown("d"))
+        {
+            SpriteRenderer1.flipX = false;
+        }
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
