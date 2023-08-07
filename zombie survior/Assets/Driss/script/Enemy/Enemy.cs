@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         wayPointTarget = Target; 
         SR = GetComponent<SpriteRenderer>();
+
+       
     }
 
     private void Start()

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
-    private SpriteRenderer SpriteRenderer1;
+    [SerializeField]private SpriteRenderer spriteRenderer;
 
     public static player Instance;
     //movement
@@ -23,6 +23,7 @@ public class player : MonoBehaviour
     public bool Nuke;
     public int Nuke_Count;
     public int Money;
+   
     //dash verables
     private bool isDashing = false;
     public float dashDuration = 0.2f;
@@ -44,6 +45,8 @@ public class player : MonoBehaviour
         }
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -59,13 +62,13 @@ public class player : MonoBehaviour
             MoveV = Input.GetAxis("Vertical") * moveSpeed;
             RB.velocity = new Vector2(MoveH, MoveV);
 
-            if (Input.GetButtonDown("right"))
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                SpriteRenderer1.flipX = true;
+                spriteRenderer.flipX = true;
             }
-            if (Input.GetButtonDown("left"))
+            if (Input.GetKeyDown(KeyCode.D))
             {
-                SpriteRenderer1.flipX = false;
+                spriteRenderer.flipX = false;
             }
         }
         if (DashUnlock == true)
@@ -94,18 +97,7 @@ public class player : MonoBehaviour
         }
     }
 
-    void flip()
-    {
-        if (Input.GetButtonDown("a"))
-        {
-            SpriteRenderer1.flipX = true;
-        }
-        if (Input.GetButtonDown("d"))
-        {
-            SpriteRenderer1.flipX = false;
-        }
-       
-    }
+   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
