@@ -8,6 +8,7 @@ public class Defense : PickUps
     public void Awake()
     {
         string tempTag = this.tag;
+        Tag = tempTag;
         me = GameObject.FindWithTag(tempTag);
         valuePlus = Random.Range(10,26);
     }

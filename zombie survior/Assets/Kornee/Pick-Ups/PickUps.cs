@@ -11,7 +11,7 @@ public class PickUps : MonoBehaviour
     [Header("Pickup Specific")]
     public int valuePlus;
     public bool grabed;
-    public string tag;
+    public string Tag;
     public CircleCollider2D circleCollider;
     public GameObject me;
 
@@ -21,7 +21,7 @@ public class PickUps : MonoBehaviour
        player_script = collision.GetComponent<player_Kale_Man>();
         if (collision.tag == "Player")
         {
-            switch(tag)
+            switch(Tag)
             {
                 case "Health":
                     player_script.HP += valuePlus;

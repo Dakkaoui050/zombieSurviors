@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Health
-  - Defence
   - Nuke
   - Money
+  - Defense
   layers:
   - Default
   - TransparentFX
