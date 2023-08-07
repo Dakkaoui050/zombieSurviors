@@ -10,6 +10,7 @@ public class WeaponsManager : MonoBehaviour
     public async void FixedUpdate()
     {
         
+        
        for(int i = 0; i < weapons.Length; i++)
        {
        }

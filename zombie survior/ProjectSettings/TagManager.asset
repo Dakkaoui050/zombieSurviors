@@ -8,6 +8,8 @@ TagManager:
   - Nuke
   - Money
   - Defense
+  - Defence
+  - firepoint
   layers:
   - Default
   - TransparentFX
