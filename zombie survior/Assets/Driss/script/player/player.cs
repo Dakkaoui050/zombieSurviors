@@ -14,18 +14,15 @@ public class player : MonoBehaviour
 
     //healthBar
     [SerializeField] private Slider slider;
-    [SerializeField] public float HP;
-    [SerializeField] public float MaxHP;
-    public float defence = 0;
+    public float HP;
+    public float MaxHP;
+    public float defence;
+    public float Damage;
+    public bool Nuke;
+    public int Nuke_Count;
+    public int Money;
 
-    //dash verables
-    private bool isDashing = false;
-    public float dashDuration = 0.2f;
-    public float dashSpeed = 10f;
-    private float dashTimer;
-    public bool DashUnlock = false;
-
-
+    // Start is called before the first frame update
     void Awake()
     { // Check if an instance already exists
         if (Instance == null)
@@ -44,49 +41,22 @@ public class player : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if (!isDashing)
+        MoveH = Input.GetAxis("Horizontal") * moveSpeed;
+        MoveV = Input.GetAxis("Vertical") * moveSpeed;
+
+        RB.velocity = new Vector2(MoveH, MoveV);
+        if (MoveH > 0 && !lookRight)
         {
-            MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-            MoveV = Input.GetAxis("Vertical") * moveSpeed;
-            RB.velocity = new Vector2(MoveH, MoveV);
-
-            if (MoveH > 0 && !lookRight)
-            {
-                flip();
-            }
-            if (MoveH < 0 && lookRight)
-            {
-                flip();
-            }
+            flip();
         }
-        if (DashUnlock == true)
-        {   
-            if (Input.GetButtonDown("Fire1"))
-            {
-                // Call the Dash() function when the Fire1 button is pressed
-                Dash();
-            }
-
-        }
-        
-
-        if (isDashing)
+        if (MoveH < 0 && lookRight)
         {
-            // Dash movement
-            RB.velocity = new Vector2(MoveH * dashSpeed, MoveV * dashSpeed);
-
-            dashTimer -= Time.deltaTime;
-            if (dashTimer <= 0f)
-            {
-                // Reset velocity and end the dash after the specified duration
-                RB.velocity = new Vector2(MoveH, MoveV);
-                isDashing = false;
-            }
+            flip();
         }
     }
 
@@ -112,7 +82,7 @@ public class player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         // Apply damage reduction based on defence (if needed)
-        float damageTaken = damage * (1 - defence); // Adjust for defense between 0 and 1
+        float damageTaken = damage - defence;
         HP -= damageTaken;
         HP = Mathf.Clamp(HP, 0, MaxHP);
 
@@ -125,22 +95,10 @@ public class player : MonoBehaviour
         }
     }
 
-
     private void Die()
     {
         // Handle player's death here
         Destroy(gameObject);
     }
-    void Dash()
-    {
-        // Perform dash only if the player is not currently dashing
-        if (!isDashing)
-        {
-            isDashing = true;
-            dashTimer = dashDuration;
-        }
-    }
-
-
 }
 
