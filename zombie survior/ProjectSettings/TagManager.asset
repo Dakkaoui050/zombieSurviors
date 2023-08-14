@@ -8,6 +8,8 @@ TagManager:
   - Nuke
   - Money
   - Defense
+  - Defence
+  - spawnmanager
   layers:
   - Default
   - TransparentFX
