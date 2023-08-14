@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     //HealthBar
     public float HP;
     [SerializeField] private float MaxHP;
-   [SerializeField] public float Damage;
+    [SerializeField] public float Damage;
    
     //Target 
     protected private Transform Target;
@@ -30,12 +30,14 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        p = GetComponent<player>();
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         Anim = GetComponent<Animator>();
-        wayPointTarget = WayPoint;
+       
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         wayPointTarget = Target; 
         SR = GetComponent<SpriteRenderer>();
+        WayPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
     }
 
     private void Start()

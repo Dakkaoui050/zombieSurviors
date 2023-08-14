@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
+    [SerializeField]private SpriteRenderer spriteRenderer;
+
     public static player Instance;
     //movement
     private Rigidbody2D RB;
     private float MoveH, MoveV;
     public float moveSpeed;
-    public bool lookRight = true;
+    public bool lookRight = false;
 
     //healthBar
     [SerializeField] private Slider slider;
@@ -21,7 +23,13 @@ public class player : MonoBehaviour
     public bool Nuke;
     public int Nuke_Count;
     public int Money;
-
+   
+    //dash verables
+    private bool isDashing = false;
+    public float dashDuration = 0.2f;
+    public float dashSpeed = 10f;
+    private float dashTimer;
+    public bool DashUnlock = false;
     // Start is called before the first frame update
     void Awake()
     { // Check if an instance already exists
@@ -37,6 +45,8 @@ public class player : MonoBehaviour
         }
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -46,28 +56,48 @@ public class player : MonoBehaviour
 
     void Update()
     {
-        MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-        MoveV = Input.GetAxis("Vertical") * moveSpeed;
+        if (!isDashing)
+        {
+            MoveH = Input.GetAxis("Horizontal") * moveSpeed;
+            MoveV = Input.GetAxis("Vertical") * moveSpeed;
+            RB.velocity = new Vector2(MoveH, MoveV);
 
-        RB.velocity = new Vector2(MoveH, MoveV);
-        if (MoveH > 0 && !lookRight)
-        {
-            flip();
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                spriteRenderer.flipX = true;
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                spriteRenderer.flipX = false;
+            }
         }
-        if (MoveH < 0 && lookRight)
+        if (DashUnlock == true)
         {
-            flip();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                // Call the Dash() function when the Fire1 button is pressed
+                Dash();
+            }
+
+        }
+
+
+        if (isDashing)
+        {
+            // Dash movement
+            RB.velocity = new Vector2(MoveH * dashSpeed, MoveV * dashSpeed);
+
+            dashTimer -= Time.deltaTime;
+            if (dashTimer <= 0f)
+            {
+                // Reset velocity and end the dash after the specified duration
+                RB.velocity = new Vector2(MoveH, MoveV);
+                isDashing = false;
+            }
         }
     }
 
-    void flip()
-    {
-        Vector3 currentScale = gameObject.transform.localScale;
-        currentScale.x *= -1;
-        gameObject.transform.localScale = currentScale;
-
-        lookRight = !lookRight;
-    }
+   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -99,6 +129,15 @@ public class player : MonoBehaviour
     {
         // Handle player's death here
         Destroy(gameObject);
+    }
+    void Dash()
+    {
+        // Perform dash only if the player is not currently dashing
+        if (!isDashing)
+        {
+            isDashing = true;
+            dashTimer = dashDuration;
+        }
     }
 }
 
