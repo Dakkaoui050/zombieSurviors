@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Bullets : MonoBehaviour
 {
-    public int Damage;
-    public float Range;
-    public CircleCollider2D Collider;
-    public Sprite Image;
-    public float Speed;
+    public int Damage;  // de damage van de fire arm bullet
+    public float Range; // hoelang hij leeft
+    public CircleCollider2D Collider;   // de collider om damage te doen
+    public Sprite Image; // doet nog niks
+    public float Speed; // hoe snel hij gaat
 
     private void Start()
     {
         // Destroy the bullet after the specified lifetime
-        Destroy(gameObject, Range);
+        Destroy(gameObject, Range); 
     }
 
     private void Update()

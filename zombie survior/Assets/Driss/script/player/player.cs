@@ -8,6 +8,8 @@ public class player : MonoBehaviour
     [SerializeField]private SpriteRenderer spriteRenderer;
 
     public static player Instance;
+
+    public GameObject FirePoint;
     //movement
     private Rigidbody2D RB;
     private float MoveH, MoveV;
@@ -45,6 +47,7 @@ public class player : MonoBehaviour
         }
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
+        FirePoint = GameObject.FindWithTag("firepoint");
 
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -62,13 +65,27 @@ public class player : MonoBehaviour
             MoveV = Input.GetAxis("Vertical") * moveSpeed;
             RB.velocity = new Vector2(MoveH, MoveV);
 
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetAxis("Horizontal") <= -0.1f)
             {
                 spriteRenderer.flipX = true;
+                FirePoint.transform.localPosition = new Vector2(-1f,0f);
+                FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetAxis("Horizontal") >= .1f)
             {
                 spriteRenderer.flipX = false;
+                FirePoint.transform.localPosition = new Vector2(1f,0f);
+                FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
+            }
+            if (Input.GetAxis("Vertical") <= -0.1f)
+            {
+                FirePoint.transform.localPosition = new Vector2(0f,-1f);
+                FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
+            }
+            if (Input.GetAxis("Vertical") >= .1f)
+            {
+                FirePoint.transform.localPosition = new Vector2(0f,1f);
+                FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             }
         }
         if (DashUnlock == true)

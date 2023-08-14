@@ -10,6 +10,7 @@ TagManager:
   - Defense
   - Defence
   - firepoint
+  - Weapons Manager
   layers:
   - Default
   - TransparentFX

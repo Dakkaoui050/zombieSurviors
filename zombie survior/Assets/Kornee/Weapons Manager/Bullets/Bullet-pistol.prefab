@@ -50,7 +50,7 @@ MonoBehaviour:
   Range: 10
   Collider: {fileID: -1531874369471051356}
   Image: {fileID: 2062975417, guid: 46a1e520a95e6f045ae5956e34a139e6, type: 3}
-  Speed: 3
+  Speed: 5
 --- !u!58 &-1531874369471051356
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -80,7 +80,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

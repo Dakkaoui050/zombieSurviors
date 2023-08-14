@@ -19,11 +19,36 @@ public class Weapons : MonoBehaviour
             case "FireArm":
                 GameObject bullet = Instantiate(Bullet, firePoint.position, firePoint.rotation);
                 break;
+
+            case "Melee":
+
+                break;
+
+            case "Granade":
+                break;
         }
     }
 
     public void Begin(float Attackspeed)
     {
         InvokeRepeating("Attack", 0f, Attackspeed);
+        WeaponsManager weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
+        for (int i = 0; i <= weapons.weapons.Length;)
+        {
+            if (weapons.weapons[i] == null)
+            {
+                weapons.weapons[i] = this;
+                break;
+            }
+            else if (i !=3)
+            {
+                i++;
+
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 }
