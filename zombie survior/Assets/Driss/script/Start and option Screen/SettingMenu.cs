@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using TMPro;
 public class SettingMenu : MonoBehaviour
 {
-    public AudioMixer audio;
+    public AudioMixer music;
 
     public TMP_Dropdown ResDropDown;
 
@@ -36,7 +36,7 @@ public class SettingMenu : MonoBehaviour
     }
     public void SetVolume(float volume)
     {
-        audio.SetFloat("Volume", volume);
+        music.SetFloat("Volume", volume);
     }
     public void SetFullScreen(bool isFullScreen)
     {
