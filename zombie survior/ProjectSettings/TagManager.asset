@@ -7,10 +7,10 @@ TagManager:
   - Health
   - Nuke
   - Money
-  - Defense
   - Defence
   - firepoint
   - Weapons Manager
+  - spawnmanager
   layers:
   - Default
   - TransparentFX
