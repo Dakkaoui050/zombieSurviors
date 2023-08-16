@@ -2679,7 +2679,6 @@ GameObject:
   m_Component:
   - component: {fileID: 340333428}
   - component: {fileID: 340333429}
-  - component: {fileID: 340333430}
   m_Layer: 0
   m_Name: Gamemaster
   m_TagString: Untagged
@@ -2715,7 +2714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 0}
-  Xp: {fileID: 340333430}
+  Xp: {fileID: 0}
   heathIncease:
   - {fileID: 326819179}
   - {fileID: 217907918}
@@ -2742,23 +2741,6 @@ MonoBehaviour:
   Relive:
   - {fileID: 1600630287}
   islive: 1
---- !u!114 &340333430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340333426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99ed6e4ea4507e4f8ff44a053c7eb05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1603941443}
-  EXP: 1
-  MaxEXP: 100
-  CurrentLevel: 1
-  ExpPoints: 100
 --- !u!1 &345209674
 GameObject:
   m_ObjectHideFlags: 0
@@ -10067,17 +10049,6 @@ PrefabInstance:
       addedObject: {fileID: 1497199803}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
---- !u!114 &1603941443 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 203351145345672231, guid: 1b5bc8f276a2d7541acd2602ee260a54, type: 3}
-  m_PrefabInstance: {fileID: 1603941442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1674877265
 GameObject:
   m_ObjectHideFlags: 0
