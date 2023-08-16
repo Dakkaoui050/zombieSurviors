@@ -800,12 +800,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c4d5b257e52874284577540d971fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  FirePoint: {fileID: 0}
   moveSpeed: 5
   lookRight: 1
   slider: {fileID: 413869835444971178}
   HP: 100
   MaxHP: 100
   defence: 0
+  Damage: 0
+  Nuke: 0
+  Nuke_Count: 0
+  Money: 0
+  dashDuration: 0.2
+  dashSpeed: 10
+  DashUnlock: 0
 --- !u!1 &8024374713788742635
 GameObject:
   m_ObjectHideFlags: 0
