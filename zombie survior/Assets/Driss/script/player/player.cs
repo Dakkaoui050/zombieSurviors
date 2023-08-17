@@ -57,7 +57,7 @@ public class player : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!isDashing)
         {

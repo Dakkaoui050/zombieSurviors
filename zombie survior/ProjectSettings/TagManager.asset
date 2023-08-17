@@ -11,6 +11,9 @@ TagManager:
   - firepoint
   - Weapons Manager
   - spawnmanager
+  - Defense
+  - Press
+  - Shop
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Water
   - UI
   - player and zombie
-  - 
+  - Map Deco
   - 
   - 
   - 
