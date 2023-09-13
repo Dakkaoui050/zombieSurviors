@@ -14,6 +14,16 @@ TagManager:
   - Defense
   - Press
   - Shop
+  - Pistol
+  - Shotgun
+  - Sword
+  - Machinegun
+  - Submachinegun
+  - Bat
+  - Granade
+  - Molotov
+  - Crossbow
+  - Knife
   layers:
   - Default
   - TransparentFX

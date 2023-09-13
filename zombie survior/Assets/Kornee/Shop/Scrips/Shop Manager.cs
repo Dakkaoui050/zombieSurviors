@@ -18,8 +18,8 @@ public class ShopManager : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player").GetComponent<player>();
         Press = GameObject.FindWithTag("Press");
-        Shop = GameObject.FindWithTag("Shop").GetComponent<Canvas>();
         Press.SetActive(false);
+        Shop.enabled = false;
     }
 
     // Update is called once per frame
@@ -46,10 +46,10 @@ public class ShopManager : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.E)&&  !UseShop)
             {
-                Time.timeScale = 0;
                 Shop.enabled = true;
                 Press.SetActive(false);
                 UseShop = true;
+                Time.timeScale = 0;
             }
            
         }
@@ -60,7 +60,7 @@ public class ShopManager : MonoBehaviour
     {
         Shop.enabled = false;
         Press.SetActive(true);
-        Time.timeScale = 1;
         UseShop = false;
+        Time.timeScale = 1;
     }
 }
