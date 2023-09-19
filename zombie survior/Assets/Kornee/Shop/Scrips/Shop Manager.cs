@@ -11,7 +11,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private int LocalMoney;
     [SerializeField] private GameObject Press;
     [SerializeField] private Canvas Shop;
-    [SerializeField] private bool UseShop;
+    public bool UseShop;
     
     // Start is called before the first frame update
     public void Awake()

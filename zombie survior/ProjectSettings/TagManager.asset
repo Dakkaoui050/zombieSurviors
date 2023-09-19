@@ -24,6 +24,7 @@ TagManager:
   - Molotov
   - Crossbow
   - Knife
+  - Shopt
   layers:
   - Default
   - TransparentFX
