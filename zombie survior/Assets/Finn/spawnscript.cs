@@ -11,7 +11,7 @@ public class spawnscript : MonoBehaviour
     public int normalZombiesPerWave = 5; // Aantal normale zombies om te spawnen in elke golf
     public int bossWaveInterval = 5;    // Tijdsinterval voor het spawnen van baas zombies
 
-   public int waveNumber = 0;          // Huidig golftellingnummer
+    public int waveNumber = 0;          // Huidig golftellingnummer
     private int currentNormalZombie = 0; // Teller voor het aantal normale zombies gespawnd in de huidige golf
 
     void Start()
