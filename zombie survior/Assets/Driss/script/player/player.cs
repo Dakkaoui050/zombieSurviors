@@ -22,6 +22,8 @@ public class player : MonoBehaviour
     public float MaxHP;
     public float defence;
     public float Damage;
+   
+    // pick-ups
     public bool Nuke;
     public int Nuke_Count;
     public int Money;
@@ -32,6 +34,7 @@ public class player : MonoBehaviour
     public float dashSpeed = 10f;
     private float dashTimer;
     public bool DashUnlock = false;
+    public List<GameObject> Zombies = new List<GameObject>();
     // Start is called before the first frame update
     void Awake()
     { // Check if an instance already exists
@@ -59,6 +62,24 @@ public class player : MonoBehaviour
 
     void FixedUpdate()
     {
+        foreach(var t in Zombies)
+        {
+            if(t == null)
+            {
+                Zombies.Remove(t);
+            }
+        }
+        if ( Nuke_Count > 0)
+        {
+            Nuke = true;
+        }
+        else
+        {
+            Nuke = false;
+        }
+        {
+            
+        }
         if (!isDashing)
         {
             MoveH = Input.GetAxis("Horizontal") * moveSpeed;
@@ -155,6 +176,21 @@ public class player : MonoBehaviour
             isDashing = true;
             dashTimer = dashDuration;
         }
+    }
+
+    void NukeDrop()
+    {
+        if (Nuke)
+        {
+            foreach (GameObject @object in Zombies)
+            {
+                Destroy (@object);
+            }
+            Zombies.Clear();
+        }
+        
+
+        
     }
 }
 

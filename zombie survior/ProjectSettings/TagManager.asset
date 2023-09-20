@@ -25,6 +25,7 @@ TagManager:
   - Crossbow
   - Knife
   - Shopt
+  - Zombie
   layers:
   - Default
   - TransparentFX

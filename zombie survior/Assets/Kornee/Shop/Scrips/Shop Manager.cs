@@ -34,11 +34,17 @@ public class ShopManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Press.SetActive(true);
+        if (other.tag == "Player")
+        {
+            Press.SetActive(true);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Press.SetActive(false);
+        if (collision.tag == "Player")
+        {
+            Press.SetActive(false);
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

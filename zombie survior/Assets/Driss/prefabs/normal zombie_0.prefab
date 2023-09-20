@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 8217309595759096739}
   m_Layer: 6
   m_Name: normal zombie_0
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,6 +325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapWidth: 45
   mapHeight: 45
+  negMapWidth: 0
+  negMapHeight: 0
   isWrapping: 1
 --- !u!1 &5438730209291853842
 GameObject:

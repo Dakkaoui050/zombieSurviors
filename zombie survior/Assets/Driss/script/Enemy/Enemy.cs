@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
 {
     
     private SpriteRenderer SR;
-    public player p; 
+    public player p;
+    public int reward =1;
     [SerializeField] private Slider slider;
     
     //Movement
@@ -28,6 +29,10 @@ public class Enemy : MonoBehaviour
     //Animation
     public Animator Anim;
 
+    //drops
+    public GameObject[] pick = new GameObject[3];
+    public int rate;
+
     private void Awake()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
@@ -37,7 +42,7 @@ public class Enemy : MonoBehaviour
         wayPointTarget = Target; 
         SR = GetComponent<SpriteRenderer>();
         WayPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
+        p.Zombies.Add(gameObject);
     }
 
     private void Start()
@@ -100,6 +105,17 @@ public class Enemy : MonoBehaviour
     private void introduction()
     {
         Debug.Log("Sort Zombie : " + EnemyName + ", HP : " + HP + ", Movement speed : " + MoveSpeed);
+    }
+
+    private void OnDestroy()
+    {
+        int chance = Random.Range(0, 101);
+
+        if( chance >rate)
+        {
+            Instantiate(pick[Random.Range(0, 3)], gameObject.transform);
+            p.Money =+ reward;
+        }
     }
 }
 

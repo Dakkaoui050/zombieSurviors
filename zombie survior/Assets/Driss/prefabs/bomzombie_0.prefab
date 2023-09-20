@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 6997483151429662556}
   m_Layer: 0
   m_Name: bomzombie_0
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 0}
+  reward: 1
   slider: {fileID: 9083151091612881291}
   EnemyName: Terrorist Zombie
   MoveSpeed: 2
@@ -242,6 +243,11 @@ MonoBehaviour:
   Distance: 0
   WayPoint: {fileID: 0}
   Anim: {fileID: 0}
+  pick:
+  - {fileID: 5927504746203937071, guid: 4898e0e4724c90e45b99c0ef0b7b592d, type: 3}
+  - {fileID: 7219689062606606082, guid: c3022990bdf7b544297ffc219d23d539, type: 3}
+  - {fileID: 0}
+  rate: 25
 --- !u!1 &6668610361477737238
 GameObject:
   m_ObjectHideFlags: 0
