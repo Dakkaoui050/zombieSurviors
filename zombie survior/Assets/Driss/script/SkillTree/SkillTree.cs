@@ -21,9 +21,8 @@ public class SkillTree : MonoBehaviour
 
     private void Awake()
     {
-        
-        Xp = GetComponent<XP_points>();
-      
+
+        Xp = GameObject.FindGameObjectWithTag("Player").GetComponent<XP_points>();      
         canvas.SetActive(false);
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
     }

@@ -11,6 +11,20 @@ TagManager:
   - firepoint
   - Weapons Manager
   - spawnmanager
+  - Defense
+  - Press
+  - Shop
+  - Pistol
+  - Shotgun
+  - Sword
+  - Machinegun
+  - Submachinegun
+  - Bat
+  - Granade
+  - Molotov
+  - Crossbow
+  - Knife
+  - Shopt
   layers:
   - Default
   - TransparentFX
@@ -19,7 +33,7 @@ TagManager:
   - Water
   - UI
   - player and zombie
-  - 
+  - Map Deco
   - 
   - 
   - 

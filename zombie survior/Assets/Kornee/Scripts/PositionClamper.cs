@@ -6,8 +6,8 @@ public class PositionClamper : MonoBehaviour
 {
     public int mapWidth;
     public int mapHeight;
-    private int negMapWidth;
-    private int negMapHeight;
+    public int negMapWidth;
+    public int negMapHeight;
     public bool isWrapping;
 
     void LateUpdate()
