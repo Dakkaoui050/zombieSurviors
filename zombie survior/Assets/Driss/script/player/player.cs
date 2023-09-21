@@ -145,20 +145,7 @@ public class player : MonoBehaviour
 
             anim.SetBool("walking", false);
             print("no movement");
-            /*if (anim.GetBool("idle"))
-             {
-                 anim.Play("Mc idle");
-
-             }
-
-         }
-         if (MoveH > 0 || MoveV > 0)
-         {
-             if (anim.GetBool("walking"))
-             {
-                 anim.Play("Mc");
-
-             }*/
+           
         } else
         {
             print("movement");
