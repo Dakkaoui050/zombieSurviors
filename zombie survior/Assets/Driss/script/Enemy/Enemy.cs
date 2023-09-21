@@ -51,12 +51,16 @@ public class Enemy : MonoBehaviour
        
         introduction();
 
-        slider.value = HP;
         slider.maxValue = MaxHP;
+        slider.value = HP;
     }
 
     private void Update()
     {
+        if(HP <= 0)
+        {
+            Destroy(gameObject);
+        }
         Move();
         Flip();
     }
@@ -99,6 +103,12 @@ public class Enemy : MonoBehaviour
         if (playerScript != null)
         {
             playerScript.TakeDamage(Damage);
+        }
+        if (collision.gameObject.tag == "Bullet")
+        {
+          var temp = collision.gameObject.GetComponent<Bullets>();
+            HP = -temp.Damage;
+
         }
     }
 
