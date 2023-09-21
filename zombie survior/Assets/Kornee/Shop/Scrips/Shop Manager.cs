@@ -8,7 +8,7 @@ using TMPro;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] private player Player;
-    [SerializeField] private int LocalMoney;
+    
     [SerializeField] private GameObject Press;
     [SerializeField] private Canvas Shop;
     public bool UseShop;
@@ -25,7 +25,7 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LocalMoney = Player.Money;
+       
         if (Input.GetKey(KeyCode.Escape) && UseShop)
         {
             closeShop();
