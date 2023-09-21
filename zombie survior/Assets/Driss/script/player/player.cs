@@ -36,7 +36,7 @@ public class player : MonoBehaviour
     public bool DashUnlock = false;
     public List<GameObject> Zombies = new List<GameObject>();
     // Start is called before the first frame update
-    void Awake()
+    public void Awake()
     { // Check if an instance already exists
         if (Instance == null)
         {
@@ -51,18 +51,20 @@ public class player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
         FirePoint = GameObject.FindWithTag("firepoint");
-
         spriteRenderer = GetComponent<SpriteRenderer>();
+        slider.maxValue = MaxHP;
+        slider.value = HP;
     }
 
     private void Start()
     {
-
+        
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
-        foreach(var t in Zombies)
+        
+        foreach (var t in Zombies)
         {
             if(t == null)
             {
@@ -139,12 +141,15 @@ public class player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Assuming Enemy script is attached to the enemy GameObject
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy != null)
+        if(collision.gameObject.tag == "Zombie")
         {
-            TakeDamage(enemy.Damage);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                TakeDamage(enemy.Damage);
+            }
         }
+        // Assuming Enemy script is attached to the enemy GameObject
     }
 
     public void TakeDamage(float damage)
@@ -166,7 +171,8 @@ public class player : MonoBehaviour
     private void Die()
     {
         // Handle player's death here
-        Destroy(gameObject);
+        Time.timeScale = 0f;
+        //Destroy(gameObject);
     }
     void Dash()
     {
