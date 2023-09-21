@@ -26,6 +26,7 @@ TagManager:
   - Knife
   - Shopt
   - Zombie
+  - Bullet
   layers:
   - Default
   - TransparentFX
