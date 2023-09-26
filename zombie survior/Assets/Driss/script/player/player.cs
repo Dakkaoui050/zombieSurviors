@@ -93,23 +93,23 @@ public class player : MonoBehaviour
             if (Input.GetAxis("Horizontal") <= -0.1f)
             {
                 spriteRenderer.flipX = true;
-                FirePoint.transform.localPosition = new Vector2(-1f,0f);
+                FirePoint.transform.localPosition = new Vector2(-.5f,0f);
                 FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             }
             if (Input.GetAxis("Horizontal") >= .1f)
             {
                 spriteRenderer.flipX = false;
-                FirePoint.transform.localPosition = new Vector2(1f,0f);
+                FirePoint.transform.localPosition = new Vector2(.5f,0f);
                 FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
             }
             if (Input.GetAxis("Vertical") <= -0.1f)
             {
-                FirePoint.transform.localPosition = new Vector2(0f,-1f);
+                FirePoint.transform.localPosition = new Vector2(0f,-.5f);
                 FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
             }
             if (Input.GetAxis("Vertical") >= .1f)
             {
-                FirePoint.transform.localPosition = new Vector2(0f,1f);
+                FirePoint.transform.localPosition = new Vector2(0f,.5f);
                 FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             }
         }
