@@ -54,22 +54,14 @@ public class ShopInteractions : MonoBehaviour
     void Start()
     {
         moneyText.text = p.Money.ToString() + "$";
+        
     }
     private void Awake()
     {
-        
-      
 
-        //pistolImg = GameObject.Find("Pistol").GetComponent<Image>();
-        //shotgunImg = GameObject.Find("Shotgun").GetComponent<Image>();
-        //swordImg = GameObject.Find("Sword").GetComponent<Image>();
-        //submachineGunImg = GameObject.Find("SubmachineGun").GetComponent<Image>();
-        //machineGunImg = GameObject.Find("MachineGun").GetComponent<Image>();
-        //CrossbowImg = GameObject.Find("CrossBow").GetComponent<Image>();
-        //MolotovImg = GameObject.Find("Molotov").GetComponent<Image>();
-        //GrenadeImg = GameObject.Find("Grenade").GetComponent<Image>();
-        //batImg = GameObject.Find("Bat").GetComponent<Image>();
-        //knifeImg = GameObject.Find("Knife").GetComponent<Image>();
+        
+
+        
         shopManager = GameObject.FindWithTag("Shopt").GetComponent<ShopManager>();
         weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();

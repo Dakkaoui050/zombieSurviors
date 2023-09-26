@@ -124,7 +124,7 @@ public class Enemy : MonoBehaviour
         if( chance >rate)
         {
             Instantiate(pick[Random.Range(0, 3)], gameObject.transform);
-            p.Money =+ reward;
+            p.Money = p.Money + reward;
         }
     }
 }
