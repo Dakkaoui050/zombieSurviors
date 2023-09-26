@@ -213,11 +213,11 @@ public class ShopInteractions : MonoBehaviour
                 }
                 else
                 {
-                    if(p.Money >= 300)
+                    if(p.Money >= 250)
                     {
                     // Execute this if the array is not full
                     Instantiate(sword, player);
-                        moneyUpdate(300);
+                        moneyUpdate(250);
                     // Place your code here for when the array is not full
                      }
                 }
@@ -241,11 +241,11 @@ public class ShopInteractions : MonoBehaviour
                 }
                 else
                 {
-                    if (p.Money >= 400)
+                    if (p.Money >= 600)
                     {
                         // Execute this if the array is not full
                         Instantiate(submachineGun, player);
-                        moneyUpdate(400);
+                        moneyUpdate(600);
                         // Place your code here for when the array is not full
                     }
                 }
@@ -270,11 +270,11 @@ public class ShopInteractions : MonoBehaviour
                 }
                 else
                 {
-                    if (p.Money >= 500)
+                    if (p.Money >= 1000)
                     {
                         // Execute this if the array is not full
                         Instantiate(machineGun, player);
-                        moneyUpdate(500);
+                        moneyUpdate(1000);
                         // Place your code here for when the array is not full
                     }
                 }
@@ -299,11 +299,11 @@ public class ShopInteractions : MonoBehaviour
                 }
                 else
                 {
-                    if (p.Money >= 600)
+                    if (p.Money >= 400)
                     {
                         // Execute this if the array is not full
                         Instantiate(Crossbow, player);
-                        moneyUpdate(600);
+                        moneyUpdate(400);
                         // Place your code here for when the array is not full
                     }
                 }
@@ -385,11 +385,11 @@ public class ShopInteractions : MonoBehaviour
                 }
                 else
                 {
-                    if (p.Money >= 900)
+                    if (p.Money >= 150)
                     {
                         // Execute this if the array is not full
                         Instantiate(bat, player);
-                        moneyUpdate(900);
+                        moneyUpdate(150);
                         // Place your code here for when the array is not full
                     }
                 }
@@ -414,11 +414,11 @@ public class ShopInteractions : MonoBehaviour
                 }
                 else
                 {
-                    if (p.Money >= 950)
+                    if (p.Money >= 50)
                     {
                         // Execute this if the array is not full
                         Instantiate(knife, player);
-                        moneyUpdate(950);
+                        moneyUpdate(50);
                         // Place your code here for when the array is not full
                     }
                 }

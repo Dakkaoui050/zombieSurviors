@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    
+   
     private SpriteRenderer SR;
     public player p;
-    public int reward =1;
+    public int reward = 1;
     [SerializeField] private Slider slider;
     
     //Movement
@@ -60,6 +60,7 @@ public class Enemy : MonoBehaviour
         if(HP <= 0)
         {
             Destroy(gameObject);
+            p.killcount++;
         }
         Move();
         Flip();
@@ -108,6 +109,7 @@ public class Enemy : MonoBehaviour
         {
           var temp = collision.gameObject.GetComponent<Bullets>();
             HP = -temp.Damage;
+            Destroy(temp.gameObject);
 
         }
     }
@@ -123,6 +125,7 @@ public class Enemy : MonoBehaviour
 
         if( chance >rate)
         {
+            reward = Random.Range(1,4);
             Instantiate(pick[Random.Range(0, 3)], gameObject.transform);
             p.Money = p.Money + reward;
         }

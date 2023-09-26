@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8597387635591070062}
   - component: {fileID: 3523303993638942109}
   - component: {fileID: 4640010236580417922}
-  - component: {fileID: 1125066600780628684}
+  - component: {fileID: 2427460825903503412}
   m_Layer: 0
   m_Name: Shotgun Bullets
   m_TagString: Bullet
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.025
---- !u!114 &1125066600780628684
+--- !u!114 &2427460825903503412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,11 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6434283003459277567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc0846ffd303e446a022f22d397316c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc06c08413b0be948a7964c51dc20ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 20
   Range: 3
   Collider: {fileID: 4640010236580417922}
   Image: {fileID: 971777562, guid: 429e9a5673ca3744d85d814e9dd49c3d, type: 3}
-  Speed: 2
+  Speed: 30

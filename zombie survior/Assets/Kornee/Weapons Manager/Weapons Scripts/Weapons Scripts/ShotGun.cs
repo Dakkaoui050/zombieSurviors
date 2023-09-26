@@ -6,7 +6,7 @@ public class ShotGun : Weapons
 {
     private void Awake()
     {
-        Type = "FireArm"; //dit is het type (FireArm, Melee of Granade)
+        Type = "Shotgun"; //dit is het type (FireArm, Melee of Granade)
         Damage = 0;       // alleen voor de melee type
         AttackSpread = 5; // alleen voor shotgun en granades
         AttackSpeed = 5;  // interfall tussen de attacks
