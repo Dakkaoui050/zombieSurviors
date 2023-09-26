@@ -247,6 +247,7 @@ MonoBehaviour:
   - {fileID: 7219689062606606082, guid: c3022990bdf7b544297ffc219d23d539, type: 3}
   - {fileID: 908339590822351016, guid: 58213db9b4a10384a865f2247814ce1c, type: 3}
   rate: 26
+  ZombieZpos: {fileID: 4893529106045570984}
 --- !u!1 &6668610361477737238
 GameObject:
   m_ObjectHideFlags: 0

@@ -305,7 +305,7 @@ MonoBehaviour:
   HP: 150
   MaxHP: 150
   Damage: 35
-  Distance: 0
+  Distance: 10
   WayPoint: {fileID: 0}
   Anim: {fileID: 0}
   pick:
