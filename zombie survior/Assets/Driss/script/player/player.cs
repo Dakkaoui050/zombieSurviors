@@ -1,24 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField]private SpriteRenderer spriteRenderer;
 
     public static player Instance;
 
     public GameObject FirePoint;
-
     //movement
     private Rigidbody2D RB;
     private float MoveH, MoveV;
     public float moveSpeed;
     public bool lookRight = false;
-    public Animator anim;
-
 
     //healthBar
     [SerializeField] private Slider slider;
@@ -26,12 +22,12 @@ public class player : MonoBehaviour
     public float MaxHP;
     public float defence;
     public float Damage;
-
+   
     // pick-ups
     public bool Nuke;
     public int Nuke_Count;
     public int Money;
-
+   
     //dash verables
     private bool isDashing = false;
     public float dashDuration = 0.2f;
@@ -39,8 +35,6 @@ public class player : MonoBehaviour
     private float dashTimer;
     public bool DashUnlock = false;
     public List<GameObject> Zombies = new List<GameObject>();
-
-
     // Start is called before the first frame update
     public void Awake()
     { // Check if an instance already exists
@@ -64,20 +58,20 @@ public class player : MonoBehaviour
 
     private void Start()
     {
-        anim.GetComponent<Animator>();
+        
     }
 
     public void FixedUpdate()
     {
-
+        
         foreach (var t in Zombies)
         {
-            if (t == null)
+            if(t == null)
             {
                 Zombies.Remove(t);
             }
         }
-        if (Nuke_Count > 0)
+        if ( Nuke_Count > 0)
         {
             Nuke = true;
         }
@@ -86,7 +80,7 @@ public class player : MonoBehaviour
             Nuke = false;
         }
         {
-
+            
         }
         if (!isDashing)
         {
@@ -97,23 +91,23 @@ public class player : MonoBehaviour
             if (Input.GetAxis("Horizontal") <= -0.1f)
             {
                 spriteRenderer.flipX = true;
-                FirePoint.transform.localPosition = new Vector2(-1f, 0f);
+                FirePoint.transform.localPosition = new Vector2(-.5f,0f);
                 FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             }
             if (Input.GetAxis("Horizontal") >= .1f)
             {
                 spriteRenderer.flipX = false;
-                FirePoint.transform.localPosition = new Vector2(1f, 0f);
+                FirePoint.transform.localPosition = new Vector2(.5f,0f);
                 FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
             }
             if (Input.GetAxis("Vertical") <= -0.1f)
             {
-                FirePoint.transform.localPosition = new Vector2(0f, -1f);
+                FirePoint.transform.localPosition = new Vector2(0f,-.5f);
                 FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
             }
             if (Input.GetAxis("Vertical") >= .1f)
             {
-                FirePoint.transform.localPosition = new Vector2(0f, 1f);
+                FirePoint.transform.localPosition = new Vector2(0f,.5f);
                 FirePoint.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             }
         }
@@ -126,6 +120,8 @@ public class player : MonoBehaviour
             }
 
         }
+
+
         if (isDashing)
         {
             // Dash movement
@@ -139,24 +135,13 @@ public class player : MonoBehaviour
                 isDashing = false;
             }
         }
-
-        if (MoveH == 0 && MoveV == 0)
-        {
-
-            anim.SetBool("walking", false);
-            print("no movement");
-           
-        } else
-        {
-            print("movement");
-            anim.SetBool("walking", true);
-        }
-
     }
+
+   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Zombie")
+        if(collision.gameObject.tag == "Zombie")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
@@ -205,18 +190,13 @@ public class player : MonoBehaviour
         {
             foreach (GameObject @object in Zombies)
             {
-                Destroy(@object);
+                Destroy (@object);
             }
             Zombies.Clear();
         }
+        
 
-
-
+        
     }
-
-
 }
-
-
-
 
