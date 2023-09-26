@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+
+public abstract class Enemy : MonoBehaviour
 {
    
     private SpriteRenderer SR;
@@ -32,6 +33,8 @@ public class Enemy : MonoBehaviour
     //drops
     public GameObject[] pick = new GameObject[3];
     public int rate;
+
+   
 
     private void Awake()
     {
@@ -64,10 +67,13 @@ public class Enemy : MonoBehaviour
         }
         Move();
         Flip();
+        
+
     }
 
     private void Move()
     {
+       
         float playerDistance = Vector2.Distance(transform.position, Target.position);
 
         if (playerDistance < Distance)

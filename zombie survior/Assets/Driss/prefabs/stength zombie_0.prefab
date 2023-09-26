@@ -202,7 +202,7 @@ MonoBehaviour:
   HP: 150
   MaxHP: 150
   Damage: 25
-  Distance: 0
+  Distance: 10
   WayPoint: {fileID: 0}
   Anim: {fileID: 0}
   pick:
@@ -210,6 +210,7 @@ MonoBehaviour:
   - {fileID: 5927504746203937071, guid: 4898e0e4724c90e45b99c0ef0b7b592d, type: 3}
   - {fileID: 908339590822351016, guid: 58213db9b4a10384a865f2247814ce1c, type: 3}
   rate: 26
+  ZombieZpos: {fileID: 111677186856401558}
 --- !u!1 &2000613919976067032
 GameObject:
   m_ObjectHideFlags: 0

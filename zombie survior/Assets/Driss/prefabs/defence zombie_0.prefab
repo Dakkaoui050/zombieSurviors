@@ -436,7 +436,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100000
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   HP: 100
   MaxHP: 100
   Damage: 10
-  Distance: 0
+  Distance: 10
   WayPoint: {fileID: 0}
   Anim: {fileID: 0}
   pick:
@@ -479,6 +479,7 @@ MonoBehaviour:
   - {fileID: 5927504746203937071, guid: 4898e0e4724c90e45b99c0ef0b7b592d, type: 3}
   - {fileID: 908339590822351016, guid: 58213db9b4a10384a865f2247814ce1c, type: 3}
   rate: 25
+  ZombieZpos: {fileID: 4041918636184213200}
 --- !u!1 &4287501123888973419
 GameObject:
   m_ObjectHideFlags: 0
