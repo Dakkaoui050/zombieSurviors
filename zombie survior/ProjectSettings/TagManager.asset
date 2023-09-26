@@ -27,6 +27,7 @@ TagManager:
   - Shopt
   - Zombie
   - Bullet
+  - UI
   layers:
   - Default
   - TransparentFX
