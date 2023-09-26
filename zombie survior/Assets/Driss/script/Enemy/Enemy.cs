@@ -11,7 +11,8 @@ public abstract class Enemy : MonoBehaviour
     public player p;
     public int reward = 1;
     [SerializeField] private Slider slider;
-    
+    XP_points xp;
+
     //Movement
     [SerializeField] private string EnemyName;
     [SerializeField] protected private float MoveSpeed;
@@ -127,13 +128,15 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
+        xp = GameObject.FindGameObjectWithTag("UI").GetComponent<XP_points>();
+        xp.Experience();
         int chance = Random.Range(0, 101);
-
         if( chance >rate)
         {
             reward = Random.Range(1,4);
             Instantiate(pick[Random.Range(0, 3)], gameObject.transform);
             p.Money = p.Money + reward;
+            
         }
     }
 }

@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 1173092997110280536}
   - component: {fileID: 3219938768527666472}
   - component: {fileID: 5726612463037091415}
+  - component: {fileID: 3233427739531619514}
   m_Layer: 6
   m_Name: ui
   m_TagString: Untagged
@@ -361,6 +362,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3233427739531619514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239249865891859752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99ed6e4ea4507e4f8ff44a053c7eb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 7965758580711341430}
+  EXP: 0
+  MaxEXP: 4
+  CurrentLevel: 0
+  ExpPoints: 0
 --- !u!1 &2273317559738091980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.200012, y: 0}
+  m_AnchoredPosition: {x: -10.200073, y: 0}
   m_SizeDelta: {x: -473.0143, y: -217.9639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3971375858831289132
@@ -1991,9 +2009,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
-  FirePoint: {fileID: 0}
+  firePoint1: {fileID: 0}
+  firePoint2: {fileID: 0}
+  firePoint3: {fileID: 0}
   moveSpeed: 25
   lookRight: 1
+  killcount: 0
   slider: {fileID: 4322098962300540417}
   HP: 63
   MaxHP: 100

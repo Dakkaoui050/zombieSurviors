@@ -22,15 +22,18 @@ public class XP_points : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        Experance();
+       
+        //  Experience();
     }
-    public void Experance()
-    {
+    public void Experience()
+    { 
+        slider.value = EXP;
+        slider.maxValue = MaxEXP;
 
-        if (enemy != null && enemy.HP <= 0)
-        {
+      //  if (enemy.HP <= 0)
+       // {
             EXP += 1;//voor elke zombie die gekilled word krijg player EXP++
-        }
+       // }
         if (EXP == MaxEXP)
         {
             //als de Exp maxEXP is
