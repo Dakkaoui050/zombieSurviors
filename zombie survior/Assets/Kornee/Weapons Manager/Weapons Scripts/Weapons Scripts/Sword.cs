@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sword : Weapons
 {
+    Animator Anima;
     private void Awake()
     {
         Type = "Melee"; //dit is het type (FireArm, Melee of Granade)
@@ -12,7 +13,7 @@ public class Sword : Weapons
         AttackSpeed = 5;  // interfall tussen de attacks
         firePoint = GameObject.FindWithTag("firepoint").GetComponent<Transform>();  // afvuur punt voor de fire arms
         Begin(AttackSpeed); // start de attack pattern
-
+        Anima.SetBool("IsAttacking", true);
 
     }
 }

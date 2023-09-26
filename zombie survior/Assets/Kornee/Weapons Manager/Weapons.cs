@@ -13,6 +13,10 @@ public class Weapons : MonoBehaviour
     public float AttackRange;
     public float AttackSpread;
     public float AttackSpeed;
+
+    //anime
+    Animator anim;
+    public GameObject melee;
     public void Attack()
     {
         switch (Type)
@@ -22,7 +26,8 @@ public class Weapons : MonoBehaviour
                 break;
 
             case "Melee":
-
+                GameObject slaan = Instantiate(melee);
+                anim.SetBool("isAttacking", true);
                 break;
 
             case "Granade":

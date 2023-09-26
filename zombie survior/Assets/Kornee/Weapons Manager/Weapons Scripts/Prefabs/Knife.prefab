@@ -54,10 +54,12 @@ MonoBehaviour:
   Bullet: {fileID: 0}
   Type: 
   firePoint: {fileID: 0}
-  Damage: 0
+  p: {fileID: 0}
+  Damage: 100
   AttackRange: 0
   AttackSpread: 0
   AttackSpeed: 0
+  melee: {fileID: 0}
 --- !u!222 &5655119655939457506
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -497,8 +497,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.53905004, y: -0.26494998, z: 0}
-    m_Extent: {x: 0.58975, y: 0.52985, z: 0}
+    m_Center: {x: -0.53965, y: -0.26639998, z: 0}
+    m_Extent: {x: 0.58545, y: 0.5242, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -712,8 +712,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.11140001, y: -0.1066, z: 0}
-    m_Extent: {x: 0.7215, y: 0.5931, z: 0}
+    m_Center: {x: -0.116999984, y: -0.11139999, z: 0}
+    m_Extent: {x: 0.7166, y: 0.5955, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7205,6 +7205,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 997910017310924949, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+    - {fileID: 7585429410736683650, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+    - {fileID: 9203901865312472748, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2073931145787799328, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       insertIndex: -1

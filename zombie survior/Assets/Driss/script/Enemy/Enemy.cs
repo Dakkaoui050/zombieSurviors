@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public abstract class Enemy : MonoBehaviour
     public int reward = 1;
     [SerializeField] private Slider slider;
     XP_points xp;
+    public WeaponsManager wm;
 
     //Movement
     [SerializeField] private string EnemyName;
@@ -41,7 +43,7 @@ public abstract class Enemy : MonoBehaviour
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         Anim = GetComponent<Animator>();
-       
+        wm = GameObject.FindGameObjectWithTag("Weapons Manager").GetComponent<WeaponsManager>();
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         wayPointTarget = Target; 
         SR = GetComponent<SpriteRenderer>();
@@ -68,8 +70,7 @@ public abstract class Enemy : MonoBehaviour
         }
         Move();
         Flip();
-        
-
+        slider.value = HP;
     }
 
     private void Move()
@@ -119,7 +120,34 @@ public abstract class Enemy : MonoBehaviour
             Destroy(temp.gameObject);
 
         }
+        
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "firepoint")
+        {
+            print("oke boomer");
+            foreach (Weapons items in wm.weapons)
+            {
+                switch(items.tag)
+                {
+                    case "Bat":
+                        HP -= items.Damage;
+                        print(items.Damage);
+                            break;
+                    case "Knife":
+                        HP -= items.Damage;
+                        print(items.Damage);
+                        break;
+                    case "Sword":
+                        HP -= items.Damage; 
+                        print(items.Damage);
+                        break;
+                }
+            }
+        }
+    }
+
 
     private void introduction()
     {
@@ -131,7 +159,7 @@ public abstract class Enemy : MonoBehaviour
         xp = GameObject.FindGameObjectWithTag("UI").GetComponent<XP_points>();
         xp.Experience();
         int chance = Random.Range(0, 101);
-        if( chance >rate)
+        if( chance > rate)
         {
             reward = Random.Range(1,4);
             Instantiate(pick[Random.Range(0, 3)], gameObject.transform);
