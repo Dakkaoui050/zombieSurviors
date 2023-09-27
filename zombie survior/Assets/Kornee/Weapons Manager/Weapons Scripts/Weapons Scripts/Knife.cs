@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Knife : Weapons
 {
-    Animator anim;
+    public Animator anim;
     private void Awake()
     {
         Type = "Melee"; //dit is het type (FireArm, Melee of Granade)

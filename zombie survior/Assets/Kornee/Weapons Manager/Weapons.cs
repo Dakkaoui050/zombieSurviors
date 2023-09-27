@@ -14,26 +14,23 @@ public class Weapons : MonoBehaviour
     public float AttackSpread;
     public float AttackSpeed;
 
-    //anime
-    Animator anim;
-    public GameObject melee;
-    public GameObject Bommtje;
 
     public void Attack()
     {
         switch (Type)
         {
             case "FireArm":
-                GameObject bullet = Instantiate(Bullet, firePoint.position, firePoint.rotation);
+                GameObject bullet = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
                 break;
 
             case "Melee":
-                GameObject slaan = Instantiate(melee);
+                GameObject slaan = Instantiate(Bullet);
                
                 break;
 
             case "Granade":
-                GameObject bom = Instantiate(Bommtje, firePoint.position, firePoint.rotation);
+                print("er word gegooid");
+                GameObject bom = Instantiate(Bullet, p.transform.position, p.transform.rotation);
             
                 break;
 
@@ -45,10 +42,7 @@ public class Weapons : MonoBehaviour
                 break;
         }
     }
-    private void Awake()
-    {
-        
-    }
+   
 
     public void Begin(float Attackspeed)
     {

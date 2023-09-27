@@ -60,6 +60,8 @@ MonoBehaviour:
   AttackRange: 1
   AttackSpread: 1
   AttackSpeed: 10
+  melee: {fileID: 0}
+  Bommtje: {fileID: 0}
 --- !u!222 &756334432812985848
 CanvasRenderer:
   m_ObjectHideFlags: 0
