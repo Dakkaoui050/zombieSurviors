@@ -136,7 +136,7 @@ public class player : MonoBehaviour
         }
         if (DashUnlock == true)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Action 2"))
             {
                 // Call the Dash() function when the Fire1 button is pressed
                 Dash();

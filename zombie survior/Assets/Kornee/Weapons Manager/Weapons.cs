@@ -13,25 +13,21 @@ public class Weapons : MonoBehaviour
     public float AttackRange;
     public float AttackSpread;
     public float AttackSpeed;
-
-
+    public Sprite image;
+    public UIScript script;
     public void Attack()
     {
         switch (Type)
         {
             case "FireArm":
-                GameObject bullet = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                GameObject bullet = Instantiate(Bullet, firePoint.position, firePoint.rotation);
                 break;
 
             case "Melee":
-                GameObject slaan = Instantiate(Bullet);
-               
+
                 break;
 
             case "Granade":
-                print("er word gegooid");
-                GameObject bom = Instantiate(Bullet, p.transform.position, p.transform.rotation);
-            
                 break;
 
             case "Shotgun":
@@ -42,12 +38,17 @@ public class Weapons : MonoBehaviour
                 break;
         }
     }
-   
+    private void Awake()
+    {
+        
+    }
 
     public void Begin(float Attackspeed)
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         InvokeRepeating("Attack", 0f, Attackspeed);
+        var temp = GameObject.FindGameObjectWithTag("Player");
+        script = temp.GetComponentInChildren<UIScript>();
         WeaponsManager weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
         for (int i = 0; i <= weapons.weapons.Length;)
         {

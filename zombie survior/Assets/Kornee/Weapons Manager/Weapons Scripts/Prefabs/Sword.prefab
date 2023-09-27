@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6546496356162865009}
   - component: {fileID: 756334432812985848}
   - component: {fileID: 7893461160453262646}
-  - component: {fileID: 5586766682744522759}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Sword
@@ -33,7 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -53,15 +52,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 0}
-  Type: Melee
+  Type: 
   firePoint: {fileID: 0}
-  p: {fileID: 0}
-  Damage: 50
-  AttackRange: 1
-  AttackSpread: 1
-  AttackSpeed: 10
-  melee: {fileID: 0}
-  Bommtje: {fileID: 0}
+  Damage: 0
+  AttackRange: 0
+  AttackSpread: 0
+  AttackSpeed: 0
+  image: {fileID: 127405598, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
+  script: {fileID: 0}
 --- !u!222 &756334432812985848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -100,24 +98,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &5586766682744522759
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251642274642818413}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a99f90d61c0c75b468cb3e909269885d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
