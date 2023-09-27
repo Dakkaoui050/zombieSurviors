@@ -41,6 +41,8 @@ public class player : MonoBehaviour
     public bool DashUnlock = false;
     public List<GameObject> Zombies = new List<GameObject>();
     // Start is called before the first frame update
+
+    public GameObject Highscore;
     public void Awake()
     { // Check if an instance already exists
       Money += 30000;
@@ -57,7 +59,6 @@ public class player : MonoBehaviour
         }
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
-        
         spriteRenderer = GetComponent<SpriteRenderer>();
         slider.maxValue = MaxHP;
         slider.value = HP;
@@ -197,6 +198,14 @@ public class player : MonoBehaviour
     private void Die()
     {
         // Handle player's death here
+        HighScoreSystem temp = Highscore.GetComponent<HighScoreSystem>();
+        temp.ClearLeaderboard();
+        temp.AddEntry();
+        temp.SaveLeaderboard();
+        temp.LoadLeaderboard();
+        temp.SortLeaderboard();
+        Highscore.SetActive(true);
+        temp.DisplayLeaderboard();
         Time.timeScale = 0f;
         //Destroy(gameObject);
     }

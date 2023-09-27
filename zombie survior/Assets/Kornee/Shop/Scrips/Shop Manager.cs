@@ -10,7 +10,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private player Player;
     
     [SerializeField] private GameObject Press;
-    [SerializeField] private Canvas Shop;
+    [SerializeField] private GameObject Shop;
     public bool UseShop;
     
     // Start is called before the first frame update
@@ -19,14 +19,13 @@ public class ShopManager : MonoBehaviour
         Player = GameObject.FindWithTag("Player").GetComponent<player>();
         Press = GameObject.FindWithTag("Press");
         Press.SetActive(false);
-        Shop.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
        
-        if (Input.GetButtonDown("Action 1") && UseShop)
+        if (Input.GetButtonDown("Action 6") && UseShop)
         {
             closeShop();
         }
@@ -39,7 +38,8 @@ public class ShopManager : MonoBehaviour
             Press.SetActive(true);
             if (Input.GetButtonDown("Action 1") && !UseShop)
             {
-                Shop.enabled = true;
+                print("test");
+                Shop.SetActive(true);
                 Press.SetActive(false);
                 UseShop = true;
                 Time.timeScale = 0;
@@ -59,7 +59,8 @@ public class ShopManager : MonoBehaviour
         {
             if(Input.GetButtonDown("Action 1")&&  !UseShop)
             {
-                Shop.enabled = true;
+                print("test");
+                Shop.SetActive(true);
                 Press.SetActive(false);
                 UseShop = true;
                 Time.timeScale = 0;
@@ -71,7 +72,7 @@ public class ShopManager : MonoBehaviour
 
     private void closeShop()
     {
-        Shop.enabled = false;
+        Shop.SetActive(false);
         Press.SetActive(true);
         UseShop = false;
         Time.timeScale = 1;

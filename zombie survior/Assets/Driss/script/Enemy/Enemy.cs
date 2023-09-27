@@ -49,6 +49,7 @@ public abstract class Enemy : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
         WayPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         p.Zombies.Add(gameObject);
+        xp = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
     }
 
     private void Start()
@@ -158,16 +159,15 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        xp = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
         xp.Experience();
         int chance = Random.Range(0, 101);
         if( chance > rate)
         {
             reward = Random.Range(1,4);
             Instantiate(pick[Random.Range(0, 3)], gameObject.transform);
-            p.Money = p.Money + reward;
             
         }
+        p.Money = p.Money + reward;
     }
 }
 

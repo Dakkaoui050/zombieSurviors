@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3830139787678301070}
   - component: {fileID: 9039405737860996292}
   m_Layer: 5
-  m_Name: weaponchange
+  m_Name: weaponchange - Copy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -34,8 +34,8 @@ public class UIScript : MonoBehaviour
     {
         money.text = p.Money.ToString();
         Nuke.text = p.Nuke_Count.ToString();
-        //Level.text = xp.CurrentLevel.ToString();
-        //Wave.text =  spawn.waveNumber.ToString();
+        Level.text = $"Level: {xp.CurrentLevel.ToString()}";
+        Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
         int i = 0;
         foreach(var items in weaponsManager.weapons)
         {

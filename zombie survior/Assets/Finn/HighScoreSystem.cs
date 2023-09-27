@@ -4,6 +4,7 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 [Serializable]
 public class PlayerData
@@ -19,21 +20,20 @@ public class HighScoreSystem : MonoBehaviour
     public string jsonFileName = "";
     public ScrollRect scrollRect;
     public spawnscript Spawnscript;
+    public XP_points xP;
+    public player p;
     public int maxEntries = 5; // Maximum number of entries to keep in the leaderboard
     private List<PlayerData> leaderboardEntries = new List<PlayerData>();
 
     void Start()
     {
-        Spawnscript = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent<spawnscript>();
-        ClearLeaderboard();
-        LoadLeaderboard();
-
-        SortLeaderboard();
-        DisplayLeaderboard();
+        Spawnscript = GameObject.FindGameObjectWithTag("Spawn").GetComponent<spawnscript>();
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+        xP = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
     }
 
     
-    void SaveLeaderboard()
+    public void SaveLeaderboard()
     {
         // Sort the leaderboard before saving
         // Serialize the leaderboard to JSON
@@ -67,7 +67,7 @@ public class HighScoreSystem : MonoBehaviour
 
     }
 
-    void LoadLeaderboard()
+    public void LoadLeaderboard()
     {
         // Get the path to the Documents folder
         string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -94,7 +94,7 @@ public class HighScoreSystem : MonoBehaviour
         }
     }
 
-    void SortLeaderboard()
+    public void SortLeaderboard()
     {
         // Sort the leaderboard in descending order of score
         if (leaderboardEntries.Count > 1)
@@ -115,7 +115,7 @@ public class HighScoreSystem : MonoBehaviour
     public void AddEntry()
     {
         // Create a new player data entry
-        PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P1"), score = Spawnscript.waveNumber };
+        PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P1"), score = (p.killcount * Spawnscript.waveNumber + (int)xP.CurrentLevel)};
         print(newEntry.name + newEntry.score);
         // Add the entry to the leaderboard
         leaderboardEntries.Add(newEntry);
@@ -124,7 +124,7 @@ public class HighScoreSystem : MonoBehaviour
         SortLeaderboard();
     }
 
-    private void ClearLeaderboard()
+    public void ClearLeaderboard()
     {
         // Destroy all TextMeshPro children of the leaderboardText object
         foreach (Transform child in leaderboardContent)
@@ -133,7 +133,7 @@ public class HighScoreSystem : MonoBehaviour
         }
     }
 
-    private void DisplayLeaderboard()
+    public void DisplayLeaderboard()
     {
         // Sort the leaderboard entries by score (you can customize the sorting logic)
         leaderboardEntries.Sort((a, b) => b.score.CompareTo(a.score));

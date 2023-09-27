@@ -30,6 +30,7 @@ TagManager:
   - Spawn
   - UIScript
   - GameMusic
+  - Highscore
   layers:
   - Default
   - TransparentFX
