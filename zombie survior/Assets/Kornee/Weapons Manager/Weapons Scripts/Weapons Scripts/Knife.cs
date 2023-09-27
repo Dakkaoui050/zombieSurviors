@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Knife : Weapons
 {
+    Animator anim;
     private void Awake()
     {
         Type = "Melee"; //dit is het type (FireArm, Melee of Granade)
@@ -12,7 +13,7 @@ public class Knife : Weapons
         AttackSpeed = 7;  // interfall tussen de attacks
         firePoint = GameObject.FindWithTag("firepoint").GetComponent<Transform>();  // afvuur punt voor de fire arms
         Begin(AttackSpeed); // start de attack pattern
-
+        anim.SetBool("mesPlay", true);
 
     }
 }

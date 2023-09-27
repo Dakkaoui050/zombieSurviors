@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Molotov : Weapons
 {
+    Animator anim;
     private void Awake()
     {
         Type = "Granade"; //dit is het type (FireArm, Melee of Granade)
@@ -13,6 +14,6 @@ public class Molotov : Weapons
         firePoint = GameObject.FindWithTag("firepoint").GetComponent<Transform>();  // afvuur punt voor de fire arms
         Begin(AttackSpeed); // start de attack pattern
 
-
+        anim.SetBool("MolotovPlay", true);
     }
 }

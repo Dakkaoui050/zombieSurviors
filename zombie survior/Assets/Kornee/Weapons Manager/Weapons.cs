@@ -17,6 +17,8 @@ public class Weapons : MonoBehaviour
     //anime
     Animator anim;
     public GameObject melee;
+    public GameObject Bommtje;
+
     public void Attack()
     {
         switch (Type)
@@ -27,10 +29,12 @@ public class Weapons : MonoBehaviour
 
             case "Melee":
                 GameObject slaan = Instantiate(melee);
-                anim.SetBool("isAttacking", true);
+               
                 break;
 
             case "Granade":
+                GameObject bom = Instantiate(Bommtje, firePoint.position, firePoint.rotation);
+            
                 break;
 
             case "Shotgun":
