@@ -53,8 +53,6 @@ public class ShopInteractions : MonoBehaviour
 
     void Start()
     {
-        moneyText.text = p.Money.ToString() + "$";
-        
     }
     private void Awake()
     {
@@ -65,16 +63,16 @@ public class ShopInteractions : MonoBehaviour
         shopManager = GameObject.FindWithTag("Shopt").GetComponent<ShopManager>();
         weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+        LocalMoney = p.Money;
 
     }
 
     // Update is called once per frame
-    void Update()
+   
+    private void FixedUpdate()
     {
-        
-        LocalMoney = p.Money;
+        p.Money = LocalMoney;
     }
-
     public void replaceWeapon(int number)
     {
         switch(number)
@@ -456,6 +454,5 @@ public class ShopInteractions : MonoBehaviour
     {
         LocalMoney -= cost;
         p.Money = LocalMoney;
-        moneyText.text = p.Money.ToString() + "$";
     }
 }

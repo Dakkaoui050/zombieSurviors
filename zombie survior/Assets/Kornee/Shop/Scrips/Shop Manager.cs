@@ -10,7 +10,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private player Player;
     
     [SerializeField] private GameObject Press;
-    [SerializeField] private GameObject UI;
     [SerializeField] private Canvas Shop;
     public bool UseShop;
     
@@ -51,11 +50,10 @@ public class ShopManager : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if(Input.GetKey(KeyCode.E)&&  !UseShop)
+            if(Input.GetButtonDown("Action 1")&&  !UseShop)
             {
                 Shop.enabled = true;
                 Press.SetActive(false);
-                UI.SetActive(false);
                 UseShop = true;
                 Time.timeScale = 0;
             }
@@ -68,7 +66,6 @@ public class ShopManager : MonoBehaviour
     {
         Shop.enabled = false;
         Press.SetActive(true);
-        UI.SetActive(true);
         UseShop = false;
         Time.timeScale = 1;
     }
