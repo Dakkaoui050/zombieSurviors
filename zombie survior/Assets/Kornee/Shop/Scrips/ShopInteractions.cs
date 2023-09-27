@@ -52,9 +52,7 @@ public class ShopInteractions : MonoBehaviour
     public Image[] arrayspace;
 
     void Start()
-    {
-        
-        
+    {        
     }
     private void Awake()
     {
@@ -224,7 +222,7 @@ public class ShopInteractions : MonoBehaviour
 
                 break;
 
-            case "submachine gun":
+            case "submachine":
 
                 if (IsArrayFull(weapons.weapons))
                 {
@@ -456,6 +454,5 @@ public class ShopInteractions : MonoBehaviour
     {
         LocalMoney -= cost;
         p.Money = LocalMoney;
-      
     }
 }

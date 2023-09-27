@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3127853688416535309}
   - component: {fileID: 2786875126024268554}
   - component: {fileID: 8866390693669307765}
-  - component: {fileID: 8901274788869762}
+  - component: {fileID: 4232418208382899285}
   m_Layer: 0
   m_Name: MashineGun B
   m_TagString: Bullet
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.075
---- !u!114 &8901274788869762
+--- !u!114 &4232418208382899285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,11 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5379368374513696630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5fe072932e8f654a96c0ca57d2016a7, type: 3}
+  m_Script: {fileID: 11500000, guid: dc06c08413b0be948a7964c51dc20ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 15
   Range: 20
   Collider: {fileID: 8866390693669307765}
   Image: {fileID: 986205738, guid: 429e9a5673ca3744d85d814e9dd49c3d, type: 3}
-  Speed: 10
+  Speed: 30
