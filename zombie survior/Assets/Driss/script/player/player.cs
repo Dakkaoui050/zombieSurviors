@@ -43,7 +43,7 @@ public class player : MonoBehaviour
     // Start is called before the first frame update
     public void Awake()
     { // Check if an instance already exists
-      Money += 300;
+      Money += 30000;
         
         if (Instance == null)
         {

@@ -933,8 +933,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.53235, y: -0.26285, z: 0}
-    m_Extent: {x: 0.59524995, y: 0.52555, z: 0}
+    m_Center: {x: -0.53365, y: -0.2613, z: 0}
+    m_Extent: {x: 0.58695, y: 0.52349997, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1472,8 +1472,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.11249998, y: -0.1012, z: 0}
-    m_Extent: {x: 0.71389997, y: 0.595, z: 0}
+    m_Center: {x: -0.11765, y: -0.10614999, z: 0}
+    m_Extent: {x: 0.71945, y: 0.59205, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1507,7 +1507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &255809794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,6 +1626,9 @@ MonoBehaviour:
   GrenadeImg: {fileID: 67565907412504787, guid: 2fb31f99f00c92c4e87209c45a75b529, type: 3}
   batImg: {fileID: 2727086001636157504, guid: 870ecd0ef56531d4a8db37e9e7de11f2, type: 3}
   knifeImg: {fileID: 2649755358126493993, guid: fc58210bff3628e4391206502551c55d, type: 3}
+  p: {fileID: 0}
+  LocalMoney: 0
+  moneyText: {fileID: 0}
   shopcanvas: {fileID: 255809796}
   weaponchanging: {fileID: 1174145328}
   chosenweaponToGet: {fileID: 1187569615}
@@ -2896,6 +2899,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2239249865891859752, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
   m_PrefabInstance: {fileID: 4572121728718064053}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &680889429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3233427739531619514, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+  m_PrefabInstance: {fileID: 4572121728718064053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680889424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99ed6e4ea4507e4f8ff44a053c7eb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &704175514
 GameObject:
   m_ObjectHideFlags: 0
@@ -8302,7 +8316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 398736043}
-  LocalMoney: 0
   Press: {fileID: 1867939486}
   UI: {fileID: 680889424}
   Shop: {fileID: 255809796}
@@ -11044,9 +11057,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2239249865891859752, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467828572782795202, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7467828572782795202, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 680889429}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Experience
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: XP_points, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965758580711341430, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8301540834292049784, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchorMax.y

@@ -222,7 +222,7 @@ public class ShopInteractions : MonoBehaviour
 
                 break;
 
-            case "submachine gun":
+            case "submachine":
 
                 if (IsArrayFull(weapons.weapons))
                 {
