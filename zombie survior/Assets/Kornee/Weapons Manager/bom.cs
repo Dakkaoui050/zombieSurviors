@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class bom : MonoBehaviour
@@ -11,16 +12,12 @@ public class bom : MonoBehaviour
     public float Speed; // hoe snel hij gaat
     public Animator anim;
 
+
     private void Awake()
     {
         //anim.enabled = true;
     }
-    private void Start()
-    {
-        // Destroy the bullet after the specified lifetime
-        Destroy(gameObject, Range);
-       
-    }
+    
 
     private void Update()
     {

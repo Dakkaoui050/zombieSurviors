@@ -70,7 +70,10 @@ public class player : MonoBehaviour
 
     public void FixedUpdate()
     {
-        
+        if (Input.GetButtonDown("Action 3"))
+        {
+           NukeDrop();
+        }
         foreach (var t in Zombies)
         {
             if(t == null)
@@ -209,13 +212,14 @@ public class player : MonoBehaviour
 
     void NukeDrop()
     {
-        if (Nuke)
+        if (Nuke && Nuke_Count > 0)
         {
             foreach (GameObject @object in Zombies)
             {
                 Destroy (@object);
             }
             Zombies.Clear();
+            Nuke_Count--;
         }
         
 

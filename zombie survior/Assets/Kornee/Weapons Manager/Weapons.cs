@@ -20,7 +20,7 @@ public class Weapons : MonoBehaviour
         switch (Type)
         {
             case "FireArm":
-                GameObject bullet = Instantiate(Bullet, firePoint.position, firePoint.rotation);
+                GameObject bullet = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
                 break;
 
             case "Melee":
@@ -28,6 +28,8 @@ public class Weapons : MonoBehaviour
                 break;
 
             case "Granade":
+                GameObject bomb = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+
                 break;
 
             case "Shotgun":

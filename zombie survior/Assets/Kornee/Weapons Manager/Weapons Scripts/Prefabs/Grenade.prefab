@@ -57,3 +57,5 @@ MonoBehaviour:
   AttackRange: 0
   AttackSpread: 0
   AttackSpeed: 0
+  image: {fileID: 250800865, guid: 3e0007cdb8b77064498cc06f2fc77fed, type: 3}
+  script: {fileID: 0}

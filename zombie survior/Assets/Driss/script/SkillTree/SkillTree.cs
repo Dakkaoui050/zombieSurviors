@@ -26,13 +26,14 @@ public class SkillTree : MonoBehaviour
         canvas.SetActive(false);
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
     }
-    public void Update()
+    public void FixedUpdate()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Action 5"))
         {
             if (canvas.activeSelf)
             {
                 canvas.SetActive(false);
+
             }
             else
             {

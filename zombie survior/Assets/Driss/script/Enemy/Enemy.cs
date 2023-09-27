@@ -143,6 +143,8 @@ public abstract class Enemy : MonoBehaviour
                         HP -= items.Damage; 
                         print(items.Damage);
                         break;
+                    default:
+                        break;
                 }
             }
         }
@@ -156,7 +158,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        xp = GameObject.FindGameObjectWithTag("UI").GetComponent<XP_points>();
+        xp = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
         xp.Experience();
         int chance = Random.Range(0, 101);
         if( chance > rate)

@@ -57,6 +57,6 @@ MonoBehaviour:
   AttackRange: 10
   AttackSpread: 13
   AttackSpeed: 12
-  melee: {fileID: 0}
-  Bommtje: {fileID: 6958189791269516681, guid: 8aa7501743b7d4c4692e6c54ca29cff9, type: 3}
+  image: {fileID: -2007877540, guid: 3e0007cdb8b77064498cc06f2fc77fed, type: 3}
+  script: {fileID: 0}
   anim: {fileID: 0}

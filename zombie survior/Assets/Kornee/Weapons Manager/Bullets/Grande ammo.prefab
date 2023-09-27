@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-8653307108794609259
 MonoBehaviour:
@@ -49,10 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 100
-  Range: 2
+  Range: 3
   Collider: {fileID: 129671687248352104}
   Image: {fileID: 5656516114943720708}
-  Speed: 1
+  Speed: 25
   anim: {fileID: -898765497009174362}
 --- !u!58 &7241265127044172904
 CircleCollider2D:

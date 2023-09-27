@@ -26,7 +26,7 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
        
-        if (Input.GetKey(KeyCode.Escape) && UseShop)
+        if (Input.GetButtonDown("Action 1") && UseShop)
         {
             closeShop();
         }
@@ -37,6 +37,13 @@ public class ShopManager : MonoBehaviour
         if (other.tag == "Player")
         {
             Press.SetActive(true);
+            if (Input.GetButtonDown("Action 1") && !UseShop)
+            {
+                Shop.enabled = true;
+                Press.SetActive(false);
+                UseShop = true;
+                Time.timeScale = 0;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
