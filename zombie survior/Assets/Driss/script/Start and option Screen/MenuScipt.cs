@@ -10,28 +10,28 @@ public class MenuScipt : MonoBehaviour
     [SerializeField] private GameObject StartScreen;
     [SerializeField] private GameObject OptionScreen;
     [SerializeField] private GameObject NameInput1player;
-    [SerializeField] private GameObject Nameinput2players;
+    //[SerializeField] private GameObject Nameinput2players;
 
 
     void Start()
     {
         StartScreen.SetActive(true);
         OptionScreen.SetActive(false); 
-        Nameinput2players.SetActive(false);
+        //Nameinput2players.SetActive(false);
         NameInput1player.SetActive(false);
     }
     public void Options()
     {
         StartScreen.SetActive(false);
         OptionScreen.SetActive(true);
-        Nameinput2players.SetActive(false);
+        //Nameinput2players.SetActive(false);
         NameInput1player.SetActive(false);
     }
     public void ToMainMenu()
     {
         StartScreen.SetActive(true);
         OptionScreen.SetActive(false); 
-        Nameinput2players.SetActive(false);
+        //Nameinput2players.SetActive(false);
         NameInput1player.SetActive(false);
     }
     public void Exit()
@@ -48,14 +48,14 @@ public class MenuScipt : MonoBehaviour
     {
         StartScreen.SetActive(false);
         OptionScreen.SetActive(false); 
-        Nameinput2players.SetActive(false);
+        //Nameinput2players.SetActive(false);
         NameInput1player.SetActive(true);
     }
     public void Name2()
     {
         StartScreen.SetActive(false);
         OptionScreen.SetActive(false);
-        Nameinput2players.SetActive(true);
+        //Nameinput2players.SetActive(true);
         NameInput1player.SetActive(false);
     }
 

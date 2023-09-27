@@ -53,7 +53,6 @@ public class ShopInteractions : MonoBehaviour
 
     void Start()
     {
-        moneyText.text = p.Money.ToString() + "$";
     }
     private void Awake()
     {
@@ -464,6 +463,5 @@ public class ShopInteractions : MonoBehaviour
     {
         LocalMoney -= cost;
         p.Money = LocalMoney;
-        moneyText.text = p.Money.ToString() + "$";
     }
 }

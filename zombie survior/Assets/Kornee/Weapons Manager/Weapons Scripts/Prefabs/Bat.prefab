@@ -58,6 +58,8 @@ MonoBehaviour:
   AttackRange: 0
   AttackSpread: 0
   AttackSpeed: 0
+  image: {fileID: -120370163, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
+  script: {fileID: 0}
 --- !u!222 &474951942887468807
 CanvasRenderer:
   m_ObjectHideFlags: 0

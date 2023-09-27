@@ -12,6 +12,8 @@ public class Weapons : MonoBehaviour
     public float AttackRange;
     public float AttackSpread;
     public float AttackSpeed;
+    public Sprite image;
+    public UIScript script;
     public void Attack()
     {
         switch (Type)
@@ -32,6 +34,8 @@ public class Weapons : MonoBehaviour
     public void Begin(float Attackspeed)
     {
         InvokeRepeating("Attack", 0f, Attackspeed);
+        var temp = GameObject.FindGameObjectWithTag("Player");
+        script = temp.GetComponentInChildren<UIScript>();
         WeaponsManager weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
         for (int i = 0; i <= weapons.weapons.Length;)
         {
