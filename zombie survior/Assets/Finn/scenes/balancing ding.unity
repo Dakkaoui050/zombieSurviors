@@ -357,8 +357,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.53505, y: -0.25910002, z: 0}
-    m_Extent: {x: 0.59285, y: 0.5232, z: 0}
+    m_Center: {x: -0.53505, y: -0.26835, z: 0}
+    m_Extent: {x: 0.59565, y: 0.51625, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -572,8 +572,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.1198, y: -0.106049985, z: 0}
-    m_Extent: {x: 0.7206, y: 0.59494996, z: 0}
+    m_Center: {x: -0.11610001, y: -0.109099984, z: 0}
+    m_Extent: {x: 0.7119, y: 0.5926, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -893,27 +893,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c4d5b257e52874284577540d971fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &680889424 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2239249865891859752, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
-  m_PrefabInstance: {fileID: 4572121728718064053}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &724145449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 633743475051092591, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
   m_PrefabInstance: {fileID: 4572121728718064053}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &741080967 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2716841937217149264, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
-  m_PrefabInstance: {fileID: 4572121728718064053}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e118384c946847e4f95daaeaf376b4d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &807348350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,7 +3201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 398736043}
   Press: {fileID: 1867939486}
-  UI: {fileID: 680889424}
   Shop: {fileID: 255809796}
   UseShop: 0
 --- !u!1 &1461610175
@@ -4399,7 +4382,7 @@ PrefabInstance:
     - target: {fileID: 304893454465041589, guid: a41ac5ab13736f24d91494d1edc65ed0, type: 3}
       propertyPath: weapons
       value: 
-      objectReference: {fileID: 741080967}
+      objectReference: {fileID: 0}
     - target: {fileID: 304893454465041589, guid: a41ac5ab13736f24d91494d1edc65ed0, type: 3}
       propertyPath: moneyText
       value: 
@@ -4598,7 +4581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4951154433017228678, guid: a41ac5ab13736f24d91494d1edc65ed0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6359885772179132839, guid: a41ac5ab13736f24d91494d1edc65ed0, type: 3}
       propertyPath: m_Navigation.m_Mode
