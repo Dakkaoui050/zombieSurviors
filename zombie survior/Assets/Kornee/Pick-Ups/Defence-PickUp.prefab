@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7485968631770755551}
   - component: {fileID: 2287414829606365616}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1115115013305088503}
   - component: {fileID: 5563819025574918371}
   - component: {fileID: 3813837969146448975}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Defence-PickUp
   m_TagString: Defence
   m_Icon: {fileID: 0}

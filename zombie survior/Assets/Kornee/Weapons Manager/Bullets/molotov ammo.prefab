@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0f5a384fc58bb44a3c5706f269a28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
+  Damage: 1
   Range: 15
   Collider: {fileID: 1833130728971362211}
   Image: {fileID: 0}

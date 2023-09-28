@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5228699760125676084}
   - component: {fileID: 2678303247047749299}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6084406112387402507}
   - component: {fileID: 6961167793062427240}
   - component: {fileID: 7691605469609712641}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Health-PickUp
   m_TagString: Health
   m_Icon: {fileID: 0}

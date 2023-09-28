@@ -25,7 +25,7 @@ public class player : MonoBehaviour
     [SerializeField] private Slider slider;
     public float HP;
     public float MaxHP;
-    public float defence;
+    public float defence =1;
     public float Damage;
    
     // pick-ups
@@ -70,9 +70,22 @@ public class player : MonoBehaviour
     {
         
     }
+    IEnumerator Nuke_Drop()
+    {
+        foreach(GameObject enemy in Zombies)
+        {
+            enemy.GetComponent<Enemy>().Play();
+        }
+
+        yield break;
+    }
 
     public void FixedUpdate()
     {
+        if (defence > 6)
+        {
+            defence = 6;
+        }
         if (Input.GetButton("Action 3"))
         {
            NukeDrop();

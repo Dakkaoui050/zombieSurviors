@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc06c08413b0be948a7964c51dc20ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 13
+  Damage: 10
   Range: 16
   Collider: {fileID: 3975341131083769339}
   Image: {fileID: -532364099, guid: 429e9a5673ca3744d85d814e9dd49c3d, type: 3}
-  Speed: 9
+  Speed: 35

@@ -55,7 +55,7 @@ MonoBehaviour:
   Type: Melee
   firePoint: {fileID: 0}
   p: {fileID: 0}
-  Damage: 25
+  Damage: 5
   AttackRange: 10
   AttackSpread: 21
   AttackSpeed: 44

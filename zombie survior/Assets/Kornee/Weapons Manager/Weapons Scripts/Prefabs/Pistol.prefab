@@ -58,7 +58,7 @@ MonoBehaviour:
   Damage: 0
   AttackRange: 0
   AttackSpread: 0
-  AttackSpeed: 5
+  AttackSpeed: 3
   image: {fileID: -2144972968, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
   script: {fileID: 0}
 --- !u!222 &7519017818477789797

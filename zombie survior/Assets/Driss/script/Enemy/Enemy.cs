@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.ParticleSystemJobs;
 
 
 public abstract class Enemy : MonoBehaviour
 {
-   
+    public ParticleSystem ps;
     private SpriteRenderer SR;
     public player p;
     public int reward = 1;
@@ -40,8 +41,10 @@ public abstract class Enemy : MonoBehaviour
     public int rate;
     public int tom;
 
-   
 
+    private bool timerActive = false;
+    private float timerDuration = 5.0f; // Duration of the timer in seconds
+    private float timerStartTime;
     private void Awake()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
@@ -65,14 +68,22 @@ public abstract class Enemy : MonoBehaviour
         slider.maxValue = MaxHP;
         slider.value = HP;
     }
+    private void StopTimer()
+    {
+        timerActive = false;
+    }
+
+    public void Play()
+    {
+        ps.Play();
+    }
 
     private void Update()
     {
 
         if(HP <= 0)
         {
-            dropping = true;
-            p.killcount++;
+            dropping = true;      
             int chance = Random.Range(0, 101);
             if (chance > rate)
             {
@@ -88,17 +99,7 @@ public abstract class Enemy : MonoBehaviour
 
         
     }
-    IEnumerator DoDamage()
-    {
-        while (keepdamage)
-        {
-            if (p != null)
-            {
-                p.TakeDamage(Damage);
-            }
-            yield return new WaitForSeconds(2);
-        }
-    }
+ 
     private void Move()
     {
        
@@ -138,6 +139,7 @@ public abstract class Enemy : MonoBehaviour
         if (playerScript != null)
         {
             playerScript.TakeDamage(Damage);
+            StartTimer();
         }
         if (collision.gameObject.tag == "Bullet")
         {
@@ -148,14 +150,32 @@ public abstract class Enemy : MonoBehaviour
         }
         
     }
-    private void OnCollisionStay2D(Collision2D collision)
+
+    private IEnumerator CountdownTimer()
     {
-        keepdamage = true;
-        DoDamage();
+        while (timerActive && Time.time - timerStartTime < timerDuration)
+        {
+           
+            yield return null;
+        }
+
+        // Timer has finished
+        timerActive = false;
+
+        // Perform actions or logic you want when the timer finishes
+        Debug.Log("Timer finished!");
+        p.TakeDamage(Damage);
+    }
+    private void StartTimer()
+    {
+        timerActive = true;
+        timerStartTime = Time.time;
+        StartCoroutine(CountdownTimer());
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         keepdamage = false;
+        StopTimer();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -195,8 +215,9 @@ public abstract class Enemy : MonoBehaviour
     {
         
         xp.Experience();
-        reward = Random.Range(1,13);
+        reward = Random.Range(4,26);
         p.Money = p.Money + reward;
+        p.killcount++;
     }
 }
 

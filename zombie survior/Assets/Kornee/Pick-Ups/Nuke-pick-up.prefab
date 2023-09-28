@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6456913891269886014}
   - component: {fileID: 2691326575569526750}
   - component: {fileID: 7497383258969339007}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Nuke-pick-up
   m_TagString: Nuke
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5354246250161093652}
   - component: {fileID: 7771871380792277492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

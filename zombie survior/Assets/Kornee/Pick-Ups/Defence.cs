@@ -10,6 +10,6 @@ public class Defense : PickUps
         string tempTag = this.tag;
         Tag = tempTag;
         me = GameObject.FindWithTag(tempTag);
-        valuePlus = Random.Range(10,26);
+        valuePlus = Random.Range(1,3);
     }
 }

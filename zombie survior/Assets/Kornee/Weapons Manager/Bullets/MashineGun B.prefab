@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc06c08413b0be948a7964c51dc20ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 15
+  Damage: 25
   Range: 20
   Collider: {fileID: 8866390693669307765}
   Image: {fileID: 986205738, guid: 429e9a5673ca3744d85d814e9dd49c3d, type: 3}

@@ -35,7 +35,6 @@ public class ShopInteractions : MonoBehaviour
     public Image knifeImg;
 
     public player p;
-    [SerializeField] private int LocalMoney;
     public TMP_Text moneyText;
 
 
@@ -46,6 +45,7 @@ public class ShopInteractions : MonoBehaviour
     public GameObject ChosenWeaponToGetGameObject;
     public Sprite[] weaponImage;
     public ShopManager shopManager;
+    public UIScript ui;
 
     
 
@@ -63,7 +63,7 @@ public class ShopInteractions : MonoBehaviour
         shopManager = GameObject.FindWithTag("Shopt").GetComponent<ShopManager>();
         weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
-        LocalMoney = p.Money;
+       
 
     }
 
@@ -71,7 +71,7 @@ public class ShopInteractions : MonoBehaviour
    
     private void FixedUpdate()
     {
-        p.Money = LocalMoney;
+        
     }
     public void replaceWeapon(int number)
     {
@@ -453,7 +453,7 @@ public class ShopInteractions : MonoBehaviour
 
     private void moneyUpdate(int cost)
     {
-        LocalMoney -= cost;
-        p.Money = LocalMoney;
+        p.Money -= cost;
+        ui.UpdateMoney();
     }
 }

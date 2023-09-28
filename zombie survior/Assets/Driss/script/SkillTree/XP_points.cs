@@ -34,7 +34,7 @@ public class XP_points : MonoBehaviour
        // {
             EXP += Random.Range(6,21);//voor elke zombie die gekilled word krijg player EXP++
        // }
-        if (EXP == MaxEXP)
+        if (EXP >= MaxEXP)
         {
             //als de Exp maxEXP is
             EXP = 0;//exp word gereset

@@ -18,7 +18,7 @@ public class PickUps : MonoBehaviour
     public player player_script;
     public void OnTriggerEnter2D(Collider2D collision)
     {
-       player_script = collision.GetComponent<player_Kale_Man>();
+       player_script = collision.GetComponent<player>();
         if (collision.tag == "Player")
         {
             switch(Tag)
@@ -36,7 +36,7 @@ public class PickUps : MonoBehaviour
                     }
                     
                     break;
-                case "Defense":
+                case "Defence":
                     player_script.defence += valuePlus;
                     destroy();
                     break;

@@ -25,6 +25,7 @@ public class UIScript : MonoBehaviour
 
     public void back()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Start Screen");
     }
     private void Awake()
@@ -35,6 +36,10 @@ public class UIScript : MonoBehaviour
         weaponsManager = GameObject.FindGameObjectWithTag("Weapons Manager").GetComponent<WeaponsManager>();
     }
 
+    public void UpdateMoney()
+    {
+           money.text = p.Money.ToString();
+    }
     private void FixedUpdate()
     {
         money.text = p.Money.ToString();
