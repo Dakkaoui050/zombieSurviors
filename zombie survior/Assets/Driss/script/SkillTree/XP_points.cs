@@ -32,7 +32,7 @@ public class XP_points : MonoBehaviour
 
       //  if (enemy.HP <= 0)
        // {
-            EXP += 1;//voor elke zombie die gekilled word krijg player EXP++
+            EXP += Random.Range(6,21);//voor elke zombie die gekilled word krijg player EXP++
        // }
         if (EXP == MaxEXP)
         {

@@ -31,8 +31,19 @@ public class HighScoreSystem : MonoBehaviour
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         xP = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
     }
+    private void FixedUpdate()
+    {
+        if(p.dead)
+        {   
+            LoadLeaderboard();
+            AddEntry();
+            SortLeaderboard();
+            DisplayLeaderboard();
+            p.dead = false;
+            Time.timeScale = 0;
+        }
+    }
 
-    
     public void SaveLeaderboard()
     {
         // Sort the leaderboard before saving

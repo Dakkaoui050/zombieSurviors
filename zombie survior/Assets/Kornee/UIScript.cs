@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class UIScript : MonoBehaviour
 {
@@ -17,11 +18,15 @@ public class UIScript : MonoBehaviour
     public TextMeshProUGUI Nuke;
     public TextMeshProUGUI Level;
     public TextMeshProUGUI Wave;
+    public TextMeshProUGUI Killcount;
     //inventory
     public Image[] slots;
 
 
-
+    public void back()
+    {
+        SceneManager.LoadScene("Start Screen");
+    }
     private void Awake()
     {
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
@@ -36,6 +41,7 @@ public class UIScript : MonoBehaviour
         Nuke.text = p.Nuke_Count.ToString();
         Level.text = $"Level: {xp.CurrentLevel.ToString()}";
         Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
+        Killcount.text = p.killcount.ToString();
         int i = 0;
         foreach(var items in weaponsManager.weapons)
         {

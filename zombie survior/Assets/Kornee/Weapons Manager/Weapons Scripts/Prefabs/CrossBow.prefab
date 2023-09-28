@@ -54,10 +54,11 @@ MonoBehaviour:
   Bullet: {fileID: 8468871870039064133, guid: 6385e8b4fdce4a547bd88d1716bdb82b, type: 3}
   Type: 
   firePoint: {fileID: 0}
+  p: {fileID: 0}
   Damage: 0
   AttackRange: 0
   AttackSpread: 0
-  AttackSpeed: 0
+  AttackSpeed: 7
   image: {fileID: 969791011, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
   script: {fileID: 0}
 --- !u!222 &8466389015806506105

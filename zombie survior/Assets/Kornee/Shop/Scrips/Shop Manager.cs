@@ -25,7 +25,7 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
        
-        if (Input.GetButtonDown("Action 6") && UseShop)
+        if (Input.GetButton("Action 6") && UseShop)
         {
             closeShop();
         }
@@ -36,7 +36,7 @@ public class ShopManager : MonoBehaviour
         if (other.tag == "Player")
         {
             Press.SetActive(true);
-            if (Input.GetButtonDown("Action 1") && !UseShop)
+            if (Input.GetButton("Action 1") && !UseShop)
             {
                 print("test");
                 Shop.SetActive(true);
@@ -57,7 +57,7 @@ public class ShopManager : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if(Input.GetButtonDown("Action 1")&&  !UseShop)
+            if(Input.GetButton("Action 1")&&  !UseShop)
             {
                 print("test");
                 Shop.SetActive(true);
@@ -70,7 +70,7 @@ public class ShopManager : MonoBehaviour
     }
    
 
-    private void closeShop()
+    public void closeShop()
     {
         Shop.SetActive(false);
         Press.SetActive(true);

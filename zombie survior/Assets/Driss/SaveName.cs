@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SaveName : MonoBehaviour
 {
     public TextMeshProUGUI player1;
+    public Slider Slider;
     public void Player1Name()
     {
         string temp = player1.text;
@@ -20,5 +21,10 @@ public class SaveName : MonoBehaviour
     {
         System.Diagnostics.Process.Start("osk.exe");
         print("Open");
+    }
+    public void Diff()
+    {
+        int i = (int)Slider.value;
+        PlayerPrefs.SetInt("Diff", i);
     }
 }

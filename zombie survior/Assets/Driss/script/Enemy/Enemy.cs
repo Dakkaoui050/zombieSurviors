@@ -14,7 +14,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Slider slider;
     XP_points xp;
     public WeaponsManager wm;
-
+    public bool keepdamage;
+    public bool dropping;
     //Movement
     [SerializeField] private string EnemyName;
     [SerializeField] protected private float MoveSpeed;
@@ -28,14 +29,16 @@ public abstract class Enemy : MonoBehaviour
     protected private Transform Target;
     [SerializeField] protected private float Distance;
     [SerializeField] public Transform WayPoint;
+    Transform temp;
     protected private Transform wayPointTarget;
+    public Drop drop;
 
     //Animation
     public Animator Anim;
 
     //drops
-    public GameObject[] pick = new GameObject[3];
     public int rate;
+    public int tom;
 
    
 
@@ -50,6 +53,7 @@ public abstract class Enemy : MonoBehaviour
         WayPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         p.Zombies.Add(gameObject);
         xp = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
+        drop = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent <Drop>();
     }
 
     private void Start()
@@ -64,16 +68,37 @@ public abstract class Enemy : MonoBehaviour
 
     private void Update()
     {
+
         if(HP <= 0)
         {
-            Destroy(gameObject);
+            dropping = true;
             p.killcount++;
+            int chance = Random.Range(0, 101);
+            if (chance > rate)
+            {
+                drop.spawnpoint = gameObject.transform;
+                drop.Droping();
+                Destroy(gameObject);
+            }
+            
         }
         Move();
         Flip();
         slider.value = HP;
-    }
 
+        
+    }
+    IEnumerator DoDamage()
+    {
+        while (keepdamage)
+        {
+            if (p != null)
+            {
+                p.TakeDamage(Damage);
+            }
+            yield return new WaitForSeconds(2);
+        }
+    }
     private void Move()
     {
        
@@ -117,11 +142,20 @@ public abstract class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
           var temp = collision.gameObject.GetComponent<Bullets>();
-            HP = -temp.Damage;
+            HP -= temp.Damage;
             Destroy(temp.gameObject);
 
         }
         
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        keepdamage = true;
+        DoDamage();
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        keepdamage = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -151,22 +185,17 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-
+    
+    
     private void introduction()
     {
         Debug.Log("Sort Zombie : " + EnemyName + ", HP : " + HP + ", Movement speed : " + MoveSpeed);
     }
-
     private void OnDestroy()
     {
+        
         xp.Experience();
-        int chance = Random.Range(0, 101);
-        if( chance > rate)
-        {
-            reward = Random.Range(1,4);
-            Instantiate(pick[Random.Range(0, 3)], gameObject.transform);
-            
-        }
+        reward = Random.Range(1,13);
         p.Money = p.Money + reward;
     }
 }

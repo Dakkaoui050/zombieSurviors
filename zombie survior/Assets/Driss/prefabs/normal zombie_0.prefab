@@ -209,6 +209,8 @@ MonoBehaviour:
   p: {fileID: 0}
   reward: 1
   slider: {fileID: 7099263611975592376}
+  wm: {fileID: 0}
+  keepdamage: 0
   EnemyName: Normal Zombie
   MoveSpeed: 1
   HP: 100
@@ -221,7 +223,7 @@ MonoBehaviour:
   - {fileID: 7219689062606606082, guid: c3022990bdf7b544297ffc219d23d539, type: 3}
   - {fileID: 5927504746203937071, guid: 4898e0e4724c90e45b99c0ef0b7b592d, type: 3}
   - {fileID: 908339590822351016, guid: 58213db9b4a10384a865f2247814ce1c, type: 3}
-  rate: 26
+  rate: 25
 --- !u!50 &8921783438503240127
 Rigidbody2D:
   serializedVersion: 4

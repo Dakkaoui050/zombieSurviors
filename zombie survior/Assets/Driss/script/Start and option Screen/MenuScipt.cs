@@ -15,6 +15,7 @@ public class MenuScipt : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         StartScreen.SetActive(true);
         OptionScreen.SetActive(false); 
         //Nameinput2players.SetActive(false);

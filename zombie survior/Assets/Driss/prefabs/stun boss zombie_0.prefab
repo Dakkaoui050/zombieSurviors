@@ -377,6 +377,8 @@ MonoBehaviour:
   p: {fileID: 0}
   reward: 1
   slider: {fileID: 7038722614024703693}
+  wm: {fileID: 0}
+  keepdamage: 0
   EnemyName: Stun Zombie
   MoveSpeed: 4
   HP: 125
@@ -389,7 +391,7 @@ MonoBehaviour:
   - {fileID: 7219689062606606082, guid: c3022990bdf7b544297ffc219d23d539, type: 3}
   - {fileID: 5927504746203937071, guid: 4898e0e4724c90e45b99c0ef0b7b592d, type: 3}
   - {fileID: 908339590822351016, guid: 58213db9b4a10384a865f2247814ce1c, type: 3}
-  rate: 76
+  rate: 75
 --- !u!82 &-827735401396163861
 AudioSource:
   m_ObjectHideFlags: 0

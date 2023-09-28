@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1573149900, guid: 46a1e520a95e6f045ae5956e34a139e6, type: 3}
-  valuePlus: 0
+  valuePlus: 2
   grabed: 0
   Tag: 
   circleCollider: {fileID: 1115115013305088503}

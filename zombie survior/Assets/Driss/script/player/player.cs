@@ -43,9 +43,11 @@ public class player : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject Highscore;
+
+    public bool dead;
     public void Awake()
     { // Check if an instance already exists
-      Money += 30000;
+      Money += 100;
         
         if (Instance == null)
         {
@@ -71,13 +73,14 @@ public class player : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (Input.GetButtonDown("Action 3"))
+        if (Input.GetButton("Action 3"))
         {
            NukeDrop();
         }
         foreach (var t in Zombies)
         {
             if(t == null)
+               
             {
                 Zombies.Remove(t);
             }
@@ -140,7 +143,7 @@ public class player : MonoBehaviour
         }
         if (DashUnlock == true)
         {
-            if (Input.GetButtonDown("Action 2"))
+            if (Input.GetButton("Action 2"))
             {
                 // Call the Dash() function when the Fire1 button is pressed
                 Dash();
@@ -198,15 +201,8 @@ public class player : MonoBehaviour
     private void Die()
     {
         // Handle player's death here
-        HighScoreSystem temp = Highscore.GetComponent<HighScoreSystem>();
-        temp.ClearLeaderboard();
-        temp.AddEntry();
-        temp.SaveLeaderboard();
-        temp.LoadLeaderboard();
-        temp.SortLeaderboard();
         Highscore.SetActive(true);
-        temp.DisplayLeaderboard();
-        Time.timeScale = 0f;
+        dead = true;
         //Destroy(gameObject);
     }
     void Dash()

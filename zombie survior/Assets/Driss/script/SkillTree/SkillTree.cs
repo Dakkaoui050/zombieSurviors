@@ -13,6 +13,7 @@ public class SkillTree : MonoBehaviour
     public GameObject[] defenceIncease;
     public GameObject[] MovementSpeed;
     private float requiredXp = 0;
+    public bool on;
     public GameObject canvas;
 
     //Relive varable
@@ -26,20 +27,19 @@ public class SkillTree : MonoBehaviour
         canvas.SetActive(false);
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
     }
-    public void FixedUpdate()
+    public void Update()
     {
-        if (Input.GetButtonDown("Action 5"))
-        {
-            if (canvas.activeSelf)
-            {
-                canvas.SetActive(false);
-
-            }
-            else
-            {
-                canvas.SetActive(true);
-            }
+        if (Input.GetButtonDown("Action 5") && canvas.activeSelf )
+        {          
+                canvas.SetActive(false);       
+                
         }
+        else if (Input.GetButtonDown("Action 5"))
+        {
+            canvas.SetActive(true);
+           
+        }
+
     }
     public void HealthIncreaseButton(int level)
     {

@@ -444,8 +444,9 @@ public class ShopInteractions : MonoBehaviour
 
     private void weaponchange()
     {
-        shopcanvas.enabled = false;
+        shopManager.closeShop();
         weaponchanging.SetActive(true);
+       
 
           
     }
