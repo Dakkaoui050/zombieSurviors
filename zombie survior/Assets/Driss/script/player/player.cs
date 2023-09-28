@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
-    [SerializeField]private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     public static player Instance;
 
-    public GameObject firePoint1; 
+    public GameObject firePoint1;
     public GameObject firePoint2;
     public GameObject firePoint3;
-
+    public AudioSource source;
 
     //movement
     private Rigidbody2D RB;
@@ -25,30 +25,33 @@ public class player : MonoBehaviour
     [SerializeField] private Slider slider;
     public float HP;
     public float MaxHP;
-    public float defence =1;
+    public float defence = 1;
     public float Damage;
-   
+
     // pick-ups
     public bool Nuke;
     public int Nuke_Count;
     public int Money;
-   
+
     //dash verables
     private bool isDashing = false;
     public float dashDuration = 0.2f;
     public float dashSpeed = 10f;
     private float dashTimer;
     public bool DashUnlock = false;
+    public float fadeDuration = 2.0f; // Duration of the fade in seconds
     public List<GameObject> Zombies = new List<GameObject>();
     // Start is called before the first frame update
+
+    public CanvasGroup flash;
 
     public GameObject Highscore;
 
     public bool dead;
     public void Awake()
     { // Check if an instance already exists
-      Money += 100;
-        
+        Money += 100;
+
         if (Instance == null)
         {
             // If not, set this as the instance
@@ -68,16 +71,17 @@ public class player : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
-    IEnumerator Nuke_Drop()
+    private void Nuke_Drop()
     {
-        foreach(GameObject enemy in Zombies)
+        source.Play();
+        foreach (GameObject enemy in Zombies)
         {
             enemy.GetComponent<Enemy>().Play();
-        }
+            Invoke(nameof(NukeDrop), 2);
 
-        yield break;
+        }
     }
 
     public void FixedUpdate()
@@ -88,17 +92,17 @@ public class player : MonoBehaviour
         }
         if (Input.GetButton("Action 3"))
         {
-           NukeDrop();
+            Nuke_Drop();
         }
         foreach (var t in Zombies)
         {
-            if(t == null)
-               
+            if (t == null)
+
             {
                 Zombies.Remove(t);
             }
         }
-        if ( Nuke_Count > 0)
+        if (Nuke_Count > 0)
         {
             Nuke = true;
         }
@@ -107,7 +111,7 @@ public class player : MonoBehaviour
             Nuke = false;
         }
         {
-            
+
         }
         if (!isDashing)
         {
@@ -118,7 +122,7 @@ public class player : MonoBehaviour
             if (Input.GetAxis("Horizontal") <= -0.1f)
             {
                 spriteRenderer.flipX = true;
-                firePoint1.transform.localPosition = new Vector2(-.5f,0f);
+                firePoint1.transform.localPosition = new Vector2(-.5f, 0f);
                 firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
                 firePoint2.transform.localPosition = new Vector2(-.5f, 0f);
                 firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
@@ -128,7 +132,7 @@ public class player : MonoBehaviour
             if (Input.GetAxis("Horizontal") >= .1f)
             {
                 spriteRenderer.flipX = false;
-                firePoint1.transform.localPosition = new Vector2(.5f,0f);
+                firePoint1.transform.localPosition = new Vector2(.5f, 0f);
                 firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
                 firePoint2.transform.localPosition = new Vector2(.5f, 0f);
                 firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
@@ -137,7 +141,7 @@ public class player : MonoBehaviour
             }
             if (Input.GetAxis("Vertical") <= -0.1f)
             {
-                firePoint1.transform.localPosition = new Vector2(0f,-.5f);
+                firePoint1.transform.localPosition = new Vector2(0f, -.5f);
                 firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
                 firePoint2.transform.localPosition = new Vector2(0f, -.5f);
                 firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
@@ -180,11 +184,11 @@ public class player : MonoBehaviour
         }
     }
 
-   
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Zombie")
+        if (collision.gameObject.tag == "Zombie")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
@@ -227,21 +231,44 @@ public class player : MonoBehaviour
             dashTimer = dashDuration;
         }
     }
-
-    void NukeDrop()
+    private IEnumerator FadePanel()
     {
-        if (Nuke && Nuke_Count > 0)
-        {
-            foreach (GameObject @object in Zombies)
-            {
-                Destroy (@object);
-            }
-            Zombies.Clear();
-            Nuke_Count--;
-        }
-        
+        float elapsedTime = 0;
+        float startAlpha = 0.75f; // Starting alpha value
+        float targetAlpha = 0.0f; // Ending alpha value
 
-        
+        while (elapsedTime < fadeDuration)
+        {
+            // Calculate the new alpha value based on the elapsed time
+            float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeDuration);
+
+            // Set the alpha value of the CanvasGroup
+            flash.alpha = newAlpha;
+
+            // Increment the elapsed time
+            elapsedTime += Time.deltaTime;
+
+            yield return null; // Wait for the next frame
+        }
+
+        flash.alpha = targetAlpha;
     }
+        public void NukeDrop()
+        {
+                StartCoroutine(FadePanel());
+            if (Nuke && Nuke_Count > 0)
+            {
+                foreach (GameObject @object in Zombies)
+                {
+                    Destroy(@object);
+                }
+                Zombies.Clear();
+                Nuke_Count--;
+            }
+
+
+
+        }
 }
+
 

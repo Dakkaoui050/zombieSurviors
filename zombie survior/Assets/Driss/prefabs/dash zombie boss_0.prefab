@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68d5bb3c37b30145afd5a5c5cfd4fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 745052005620609395}
   p: {fileID: 0}
   reward: 1
   slider: {fileID: 1590129788493708124}
@@ -752,6 +753,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84c83781cbcb3ae4c8b06f84e0cf3f4d, type: 3}
+--- !u!198 &745052005620609395 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5465912496786094786, guid: 84c83781cbcb3ae4c8b06f84e0cf3f4d, type: 3}
+  m_PrefabInstance: {fileID: 4723192641434995633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6513313241672870810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2013048889644064811, guid: 84c83781cbcb3ae4c8b06f84e0cf3f4d, type: 3}

@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d2bb37ee6edae4b8b1c3d93e349338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 5088862370537408460}
   p: {fileID: 0}
   reward: 1
   slider: {fileID: 2292869834651542320}
@@ -755,5 +756,10 @@ PrefabInstance:
 --- !u!4 &1633221604174142757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2013048889644064811, guid: 84c83781cbcb3ae4c8b06f84e0cf3f4d, type: 3}
+  m_PrefabInstance: {fileID: 956336702445698318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5088862370537408460 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5465912496786094786, guid: 84c83781cbcb3ae4c8b06f84e0cf3f4d, type: 3}
   m_PrefabInstance: {fileID: 956336702445698318}
   m_PrefabAsset: {fileID: 0}
