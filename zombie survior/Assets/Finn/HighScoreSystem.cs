@@ -4,6 +4,7 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 using TMPro;
+using System.Text;
 using Unity.VisualScripting;
 
 [Serializable]
@@ -49,7 +50,8 @@ public class HighScoreSystem : MonoBehaviour
         // Sort the leaderboard before saving
         // Serialize the leaderboard to JSON
         string jsonData = JsonUtility.ToJson(new LeaderboardData { entries = leaderboardEntries });
-
+        byte[] bytesToEncode = Encoding.UTF8.GetBytes(jsonData);
+        string base64Encoded = Convert.ToBase64String(bytesToEncode);
         // Get the path to the Documents folder
         string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
@@ -70,7 +72,7 @@ public class HighScoreSystem : MonoBehaviour
         }
         else
         {
-            File.WriteAllText(filePath, jsonData);
+            File.WriteAllText(filePath, base64Encoded);
             Debug.Log("Leaderboard saved to: " + filePath);
         }
         // Write the JSON data to the file
@@ -90,7 +92,12 @@ public class HighScoreSystem : MonoBehaviour
         if (File.Exists(filePath))
         {
             // Read the JSON data from the file
-            string jsonData = File.ReadAllText(filePath);
+            string base64Encoded = File.ReadAllText(filePath);
+
+            // Decode the Base64 data to get the JSON string
+            byte[] bytesToDecode = Convert.FromBase64String(base64Encoded);
+            string jsonData = Encoding.UTF8.GetString(bytesToDecode);
+
 
             // Deserialize the JSON data into the leaderboard list
             LeaderboardData data = JsonUtility.FromJson<LeaderboardData>(jsonData);

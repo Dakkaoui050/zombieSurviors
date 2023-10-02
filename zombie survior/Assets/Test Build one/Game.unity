@@ -6033,6 +6033,17 @@ PrefabInstance:
       addedObject: {fileID: 1280657278}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13cbe9dcae70efc4bb7d342b086d3ee6, type: 3}
+--- !u!114 &426629175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8508530926655823377, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+  m_PrefabInstance: {fileID: 1096454728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e118384c946847e4f95daaeaf376b4d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &456325089 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9060451004057572764, guid: 98cdfc6ad437ebd44a16733ed0c4c3de, type: 3}
@@ -6561,6 +6572,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1601718651}
     m_Modifications:
+    - target: {fileID: 528663716766683025, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: p
+      value: 
+      objectReference: {fileID: 1828736163}
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Money
       value: 0
@@ -6678,13 +6693,29 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8957023584572349747, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: p
+      value: 
+      objectReference: {fileID: 1828736163}
+    - target: {fileID: 8957023584572349747, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: xp
+      value: 
+      objectReference: {fileID: 901636547}
+    - target: {fileID: 8957023584572349747, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Wave
       value: 
       objectReference: {fileID: 1872522803}
     - target: {fileID: 8957023584572349747, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 179681196}
+    - target: {fileID: 8957023584572349747, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Killcount
       value: 
       objectReference: {fileID: 197338711}
+    - target: {fileID: 8957023584572349747, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: weaponsManager
+      value: 
+      objectReference: {fileID: 426629175}
     - target: {fileID: 9025157525149169232, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7897,7 +7928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2040936315212988688, guid: 3e60a09dd9402eb4a9ee7b466272ac32, type: 3}
       propertyPath: m_Intensity
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2075220593284629823, guid: 3e60a09dd9402eb4a9ee7b466272ac32, type: 3}
       propertyPath: m_SortingOrder

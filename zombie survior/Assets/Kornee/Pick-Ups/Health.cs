@@ -10,6 +10,6 @@ public class Health : PickUps
         string tempTag = this.tag;
         Tag = tempTag;
         me = GameObject.FindWithTag(tempTag);
-        valuePlus = Random.Range(10,26);
+        valuePlus = Random.Range(15,36);
     }
 }

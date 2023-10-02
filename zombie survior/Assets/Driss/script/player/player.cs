@@ -86,6 +86,8 @@ public class player : MonoBehaviour
 
     public void FixedUpdate()
     {
+        slider.value = HP;
+
         if (defence > 6)
         {
             defence = 6;
