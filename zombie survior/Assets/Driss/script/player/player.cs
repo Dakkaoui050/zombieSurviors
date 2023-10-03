@@ -94,7 +94,10 @@ public class player : MonoBehaviour
         }
         if (Input.GetButton("Action 3"))
         {
-            Nuke_Drop();
+            if (Nuke)
+            {
+                Nuke_Drop();
+            }
         }
         foreach (var t in Zombies)
         {

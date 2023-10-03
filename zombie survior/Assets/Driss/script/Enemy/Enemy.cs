@@ -33,6 +33,8 @@ public abstract class Enemy : MonoBehaviour
     Transform temp;
     protected private Transform wayPointTarget;
     public Drop drop;
+    public AudioSource audiosource;
+    public ParticleSystem blood;
 
     //Animation
     public Animator Anim;
@@ -143,7 +145,9 @@ public abstract class Enemy : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bullet")
         {
-          var temp = collision.gameObject.GetComponent<Bullets>();
+            audiosource.Play();
+            blood.Play();
+            var temp = collision.gameObject.GetComponent<Bullets>();
             HP -= temp.Damage;
             Destroy(temp.gameObject);
 
@@ -187,14 +191,20 @@ public abstract class Enemy : MonoBehaviour
                 switch(items.tag)
                 {
                     case "Bat":
+                        audiosource.Play();
+                        blood.Play();
                         HP -= items.Damage;
                         print(items.Damage);
                             break;
                     case "Knife":
+                        audiosource.Play();
+                        blood.Play();
                         HP -= items.Damage;
                         print(items.Damage);
                         break;
                     case "Sword":
+                        audiosource.Play();
+                        blood.Play();
                         HP -= items.Damage; 
                         print(items.Damage);
                         break;

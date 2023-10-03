@@ -48,24 +48,24 @@ public class SkillTree : MonoBehaviour
         {
             case 0:
                 requiredXp = 1;
-                p.MaxHP = 120f;
+                p.MaxHP += 20;
                 
                 break;
             case 1:
                 requiredXp = 2;
-                p.MaxHP = 140f;
+                p.MaxHP += 40;
                 break;
             case 2:
                 requiredXp = 3;
-                p.MaxHP = 160f;
+                p.MaxHP += 60;
                 break;
             case 3:
                 requiredXp = 4;
-                p.MaxHP = 180f;
+                p.MaxHP += 80;
                 break;
             case 4:
                 requiredXp = 5;
-                p.MaxHP = 200f;
+                p.MaxHP += 100;
                 break;
             default:
                 break;
@@ -84,24 +84,24 @@ public class SkillTree : MonoBehaviour
         {
             case 0:
                 requiredXp = 1;
-                p.defence = 0.05f;
+                p.defence += .05F;
                
                 break;
             case 1:
                 requiredXp = 2;
-                p.defence = 0.1f;
+                p.defence += 0.1f;
                 break;
             case 2:
                 requiredXp = 3;
-                p.defence = 0.2f;
+                p.defence += 0.2f;
                 break;
             case 3:
                 requiredXp = 4;
-                p.defence = 0.3f;
+                p.defence += 0.3f;
                 break;
             case 4:
                 requiredXp = 5;
-                p.defence = 0.5f;
+                p.defence += 0.5f;
                 break;
             default:
                 break;
@@ -120,23 +120,23 @@ public class SkillTree : MonoBehaviour
         {
             case 0:
                 requiredXp = 1;
-                p.moveSpeed = 3f;
+                p.moveSpeed += 5f;
                 break;
             case 1:
                 requiredXp = 2;
-                p.moveSpeed = 3.5f;
+                p.moveSpeed += 5f;
                 break;
             case 2:
                 requiredXp = 3;
-                p.moveSpeed = 4;
+                p.moveSpeed += 5;
                 break;
             case 3:
                 requiredXp = 4;
-                p.moveSpeed = 5;
+                p.moveSpeed += 5;
                 break;
             case 4:
                 requiredXp = 5;
-                p.moveSpeed = 5.5f;
+                p.moveSpeed += 5f;
                 break;
             default:
                 break;

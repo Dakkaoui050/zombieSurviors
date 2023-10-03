@@ -15,11 +15,13 @@ public class Weapons : MonoBehaviour
     public float AttackSpeed;
     public Sprite image;
     public UIScript script;
+    public AudioSource audioSource;
     public void Attack()
     {
         switch (Type)
         {
             case "FireArm":
+                audioSource.Play();
                 GameObject bullet = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
                 break;
 
@@ -28,11 +30,13 @@ public class Weapons : MonoBehaviour
                 break;
 
             case "Granade":
+                audioSource.Play();
                 GameObject bomb = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
 
                 break;
 
             case "Shotgun":
+                audioSource.Play();
                 GameObject bullet1 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
                 GameObject bullet2 = Instantiate(Bullet, p.firePoint2.transform.position, p.firePoint2.transform.rotation);
                 GameObject bullet3 = Instantiate(Bullet, p.firePoint3.transform.position, p.firePoint3.transform.rotation);
