@@ -5515,7 +5515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78155b911f709934dbe74080b5344ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 0}
+  music: {fileID: 24100000, guid: 25c3f2e00c3214b47b9a77a9dacc1883, type: 2}
   ResDropDown: {fileID: 114660387}
 --- !u!114 &1755176313
 MonoBehaviour:
