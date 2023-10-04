@@ -1,27 +1,27 @@
-# zombieSurviors
+# ZombieSurvivors
 
 ## wie heeft wat gedaan
 
 ### **Driss**
 - Wave spawnscript (geprogrameerd)
 - Skilltree / Xp System  (geprogrameerd)
-- Menu functionalety/settings  (geprogrameerd)
-- enemy's functionalety  (geprogrameerd)
-- player basics  (geprogrameerd)
-- artwork (getekend)
-- Map dressing (gamedesing)
+- Menu functions/settings  (geprogrameerd)
+- Enemies functions  (geprogrameerd)
+- Player basics  (geprogrameerd)
+- Artwork (getekend)
+- Map dressing (game design)
 
 ### **Finn**
 - Shop interactions (geprogrameerd)
 - Weapon switch  (geprogrameerd)
-- bug fixes bij weapons en bullets
+- Bug fixes bij weapons en bullets
 
 ### **Kornee**
 - Weapons  (geprogrameerd)
-- bullets  (geprogrameerd)
-- pick-ups  (geprogrameerd)
-- map Wraping  (geprogrameerd)
-- movement flipping  (geprogrameerd)
-- highscore  (geprogrameerd)
-- meeste bug fixes
+- Bullets  (geprogrameerd)
+- Pick-ups  (geprogrameerd)
+- Map wraping  (geprogrameerd)
+- Hovement flipping  (geprogrameerd)
+- Highscore  (geprogrameerd)
+- Meeste bug fixes
 - UI  (geprogrameerd / design)
