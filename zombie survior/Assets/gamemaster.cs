@@ -7,10 +7,12 @@ public class gamemaster : MonoBehaviour
     public GameObject playerPrefab;
     public Transform[] spawnPoints;
     public int numberOfPlayers;
+    player p;
 
     void Start()
     {
         StartCoopGame();
+        numberOfPlayers = p.playerIndex;
     }
 
     void StartCoopGame()

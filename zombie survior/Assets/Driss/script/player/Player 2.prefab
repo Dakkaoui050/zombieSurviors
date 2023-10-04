@@ -250,7 +250,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648412914426228530}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.26, y: 7.9, z: -1}
   m_LocalScale: {x: 6.5, y: 6.5, z: 6.5}
   m_ConstrainProportionsScale: 1
@@ -456,14 +456,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  playerIndex: 1
+  player2: 1
   firePoint1: {fileID: 6860304323759642252}
   firePoint2: {fileID: 7632684677748173052}
   firePoint3: {fileID: 170512290713321771}
+  source: {fileID: 0}
   moveSpeed: 25
   lookRight: 0
   killcount: 0
-  player2: 0
-  slider: {fileID: 2732583131143687407}
+  slider: {fileID: 5028316858712160994}
   HP: 100
   MaxHP: 100
   defence: 0
@@ -474,7 +476,9 @@ MonoBehaviour:
   dashDuration: 0.2
   dashSpeed: 10
   DashUnlock: 0
+  fadeDuration: 2
   Zombies: []
+  flash: {fileID: 0}
   Highscore: {fileID: 0}
   dead: 0
 --- !u!95 &8924630605087651968
