@@ -8,13 +8,31 @@ using UnityEngine.SceneManagement;
 public class SaveName : MonoBehaviour
 {
     public TextMeshProUGUI player1;
+    public TextMeshProUGUI player2;
     public Slider Slider;
-    public void Player1Name()
+    public void Player1Name(int ammount)
     {
-        string temp = player1.text;
-        PlayerPrefs.SetString("P1", temp);
-        print(temp);
-        SceneManager.LoadScene("Game");
+        if (ammount == 1)
+        {
+            string temp = player1.text;
+            print(temp);
+            PlayerPrefs.SetString("P1", temp);
+            SceneManager.LoadScene("Game");
+
+        }
+        else if (ammount == 2)
+        {
+            string temp = player2.text;
+            print(temp);
+            PlayerPrefs.SetString("P2", temp);
+            SceneManager.LoadScene("Game 1");
+        }
+
+    }
+    
+    public void players()
+    {
+        PlayerPrefs.SetInt("Players", 1);
     }
 
     public void ShowKeyboard()

@@ -20,6 +20,7 @@ public class player : MonoBehaviour
     public float moveSpeed;
     public bool lookRight = false;
     public int killcount = 0;
+    public bool player2;
 
     //healthBar
     [SerializeField] private Slider slider;
@@ -48,7 +49,7 @@ public class player : MonoBehaviour
     public void Awake()
     { // Check if an instance already exists
       Money += 100;
-        
+        DontDestroyOnLoad(this.gameObject);
         if (Instance == null)
         {
             // If not, set this as the instance
@@ -98,47 +99,96 @@ public class player : MonoBehaviour
         }
         if (!isDashing)
         {
-            MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-            MoveV = Input.GetAxis("Vertical") * moveSpeed;
-            RB.velocity = new Vector2(MoveH, MoveV);
+            if(!player2)
+            {
 
-            if (Input.GetAxis("Horizontal") <= -0.1f)
-            {
-                spriteRenderer.flipX = true;
-                firePoint1.transform.localPosition = new Vector2(-.5f,0f);
-                firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
-                firePoint2.transform.localPosition = new Vector2(-.5f, 0f);
-                firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
-                firePoint3.transform.localPosition = new Vector2(-.5f, 0f);
-                firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 195f);
+                MoveH = Input.GetAxis("Horizontal") * moveSpeed;
+                MoveV = Input.GetAxis("Vertical") * moveSpeed;
+                RB.velocity = new Vector2(MoveH, MoveV);
+
+                if (Input.GetAxis("Horizontal") <= -0.1f)
+                {
+                    spriteRenderer.flipX = true;
+                    firePoint1.transform.localPosition = new Vector2(-.5f,0f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
+                    firePoint2.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
+                    firePoint3.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 195f);
+                }
+                if (Input.GetAxis("Horizontal") >= .1f)
+                {
+                    spriteRenderer.flipX = false;
+                    firePoint1.transform.localPosition = new Vector2(.5f,0f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
+                    firePoint2.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
+                    firePoint3.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
+                }
+                if (Input.GetAxis("Vertical") <= -0.1f)
+                {
+                    firePoint1.transform.localPosition = new Vector2(0f,-.5f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
+                    firePoint2.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
+                    firePoint3.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, -75f);
+                }
+                if (Input.GetAxis("Vertical") >= .1f)
+                {
+                    firePoint1.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+                    firePoint2.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 105f);
+                    firePoint3.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 75f);
+                }
             }
-            if (Input.GetAxis("Horizontal") >= .1f)
+            else if (player2)
             {
-                spriteRenderer.flipX = false;
-                firePoint1.transform.localPosition = new Vector2(.5f,0f);
-                firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
-                firePoint2.transform.localPosition = new Vector2(.5f, 0f);
-                firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
-                firePoint3.transform.localPosition = new Vector2(.5f, 0f);
-                firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
-            }
-            if (Input.GetAxis("Vertical") <= -0.1f)
-            {
-                firePoint1.transform.localPosition = new Vector2(0f,-.5f);
-                firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
-                firePoint2.transform.localPosition = new Vector2(0f, -.5f);
-                firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
-                firePoint3.transform.localPosition = new Vector2(0f, -.5f);
-                firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, -75f);
-            }
-            if (Input.GetAxis("Vertical") >= .1f)
-            {
-                firePoint1.transform.localPosition = new Vector2(0f, .5f);
-                firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
-                firePoint2.transform.localPosition = new Vector2(0f, .5f);
-                firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 105f);
-                firePoint3.transform.localPosition = new Vector2(0f, .5f);
-                firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 75f);
+                MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
+                MoveV = Input.GetAxis("Player 2 v") * moveSpeed;
+                RB.velocity = new Vector2(MoveH, MoveV);
+
+                if (Input.GetAxis("Player 2 h") <= -0.1f)
+                {
+                    spriteRenderer.flipX = true;
+                    firePoint1.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
+                    firePoint2.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
+                    firePoint3.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 195f);
+                }
+                if (Input.GetAxis("Player 2 h") >= .1f)
+                {
+                    spriteRenderer.flipX = false;
+                    firePoint1.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
+                    firePoint2.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
+                    firePoint3.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
+                }
+                if (Input.GetAxis("Player 2 v") <= -0.1f)
+                {
+                    firePoint1.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
+                    firePoint2.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
+                    firePoint3.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, -75f);
+                }
+                if (Input.GetAxis("Player 2 v") >= .1f)
+                {
+                    firePoint1.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+                    firePoint2.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 105f);
+                    firePoint3.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 75f);
+                }
             }
         }
         if (DashUnlock == true)
