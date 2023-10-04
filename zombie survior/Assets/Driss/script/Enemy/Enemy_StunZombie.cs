@@ -7,7 +7,7 @@ public class Enemy_StunZombie : Enemy
     private bool isPlayerInRange = false;
     //wanneer de andere animation speel take damage
 
-
+    player p;
     public void Start()
     {
         //Walking
@@ -49,16 +49,16 @@ public class Enemy_StunZombie : Enemy
     private IEnumerator StunPlayerForSeconds(float duration)
     {
         // Save the original player moveSpeed to restore it later
-        float originalMoveSpeed = player.Instance.moveSpeed;
+        float originalMoveSpeed = p.moveSpeed;
 
         // Set the player moveSpeed to the reduced value
-        player.Instance.moveSpeed = 0.2f;
+        p.moveSpeed = 0.2f;
 
         // Wait for the specified duration
         yield return new WaitForSeconds(duration);
 
         // Restore the original player moveSpeed
-        player.Instance.moveSpeed = originalMoveSpeed; 
+        p.moveSpeed = originalMoveSpeed; 
        
     }
     private IEnumerator ZombieDown( float ZombieDuration)

@@ -7,7 +7,9 @@ public class player : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    public static player Instance;
+    //players
+    public static List<player> Players = new List<player>(); 
+    public int playerIndex;
 
     public GameObject firePoint1;
     public GameObject firePoint2;
@@ -52,16 +54,17 @@ public class player : MonoBehaviour
     { // Check if an instance already exists
         Money += 100;
 
-        if (Instance == null)
-        {
-            // If not, set this as the instance
-            Instance = this;
-        }
-        else
-        {
-            // If an instance already exists, destroy this duplicate
-            Destroy(gameObject);
-        }
+        //if (Instance == null)
+        //{
+        //    // If not, set this as the instance
+        //    Instance = this;
+        //}
+        //else
+        //{
+        //    // If an instance already exists, destroy this duplicate
+        //    Destroy(gameObject);
+        //}
+
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -86,7 +89,14 @@ public class player : MonoBehaviour
 
     public void FixedUpdate()
     {
-        slider.value = HP;
+        // Handle input and movement for each player
+       
+        slider.value = HP; 
+        
+        foreach (var playerInstance in Players)
+        {
+            playerInstance.HandleInput();
+        }
 
         if (defence > 6)
         {
@@ -120,8 +130,8 @@ public class player : MonoBehaviour
         }
         if (!isDashing)
         {
-            MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-            MoveV = Input.GetAxis("Vertical") * moveSpeed;
+            MoveH = Input.GetAxis("Horizontal" + playerIndex) * moveSpeed;
+            MoveV = Input.GetAxis("Vertical" + playerIndex) * moveSpeed;
             RB.velocity = new Vector2(MoveH, MoveV);
 
             if (Input.GetAxis("Horizontal") <= -0.1f)
@@ -188,7 +198,14 @@ public class player : MonoBehaviour
             }
         }
     }
+    protected virtual void HandleInput()
+    {
+        // Handle input for the current player instance (base class)
+        MoveH = Input.GetAxis("Horizontal" + playerIndex) * moveSpeed;
+        MoveV = Input.GetAxis("Vertical" + playerIndex) * moveSpeed;
 
+        
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
