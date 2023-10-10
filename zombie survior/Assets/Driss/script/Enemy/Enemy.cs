@@ -221,7 +221,7 @@ public abstract class Enemy : MonoBehaviour
     {
         Debug.Log("Sort Zombie : " + EnemyName + ", HP : " + HP + ", Movement speed : " + MoveSpeed);
     }
-    private void OnDestroy()
+    public void OnDestroy()
     {
         
         xp.Experience();

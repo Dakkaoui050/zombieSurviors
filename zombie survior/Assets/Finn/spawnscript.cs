@@ -7,7 +7,7 @@ public class spawnscript : MonoBehaviour
     public Transform[] spawnPoints; // Array of spawn points
     public GameObject[] normalZombiesP; // Array met normale zombie prefabs
     public GameObject[] bossZombiesP;   // Array met baas zombie prefabs
-    public float waveCooldown = 30f;    // Cooldown tussen golven in seconden
+    public int waveCooldown = 30;    // Cooldown tussen golven in seconden
     public int normalZombiesPerWave = 5; // Aantal normale zombies om te spawnen in elke golf
     public int bossWaveInterval = 6;    // Tijdsinterval voor het spawnen van baas zombies
     public int Diff;
@@ -16,7 +16,7 @@ public class spawnscript : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnWave()); // Start met het spawnen van golven
+        StartCoroutine("SpawnWave"); // Start met het spawnen van golven
         Diff = PlayerPrefs.GetInt("Diff");
         bossWaveInterval -= Diff;
         normalZombiesPerWave += Diff;
