@@ -29,5 +29,19 @@ public class Enemy_GunZombie :Enemy
     private void FixedUpdate()
     {
         FpFlip();
+        StartCoroutine("submachineGun");
+    }
+    public IEnumerator submachineGun()
+    {
+
+        Debug.Log("teseterrtje");
+
+        
+        yield return new WaitForSeconds(2f);
+        GameObject bullet = Instantiate(Bullets, firePoint.transform.position, p.firePoint1.transform.rotation);
+
+
+
+
     }
 }

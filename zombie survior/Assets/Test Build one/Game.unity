@@ -6960,54 +6960,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1590384339902912288, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 3798225043912199193, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
       propertyPath: m_Name
       value: gun zombie boss_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798225043912199193, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165846607973579162, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5652800015812165070, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5805840501493210260, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6702251496648474291, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6880829793796129096, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8230828692626399224, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8937147141768656916, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9148664773171523184, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9207152524813387377, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
-      propertyPath: Bullets
-      value: 
-      objectReference: {fileID: 7276314973675706114, guid: 7459405681a982440b11e4498254a9a6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

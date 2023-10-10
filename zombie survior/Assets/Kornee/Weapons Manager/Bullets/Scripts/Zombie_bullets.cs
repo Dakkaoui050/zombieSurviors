@@ -29,4 +29,5 @@ public class Zombie_bullets : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 }
