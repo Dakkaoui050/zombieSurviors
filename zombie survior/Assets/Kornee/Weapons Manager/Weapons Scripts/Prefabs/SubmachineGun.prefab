@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb8032f10174a2439b456dd0b72e573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 5040788845714723337, guid: c0a78226defd9d9469fd41c271ea2a3c, type: 3}
-  Type: 
+  Bullet: {fileID: 7094511012042828037, guid: 6a063642f9fe40e4e958c3fc2ff0265e, type: 3}
+  Type: submachineGun
   firePoint: {fileID: 0}
   p: {fileID: 0}
   Damage: 0
