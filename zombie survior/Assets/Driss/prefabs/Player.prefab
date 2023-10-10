@@ -551,6 +551,7 @@ MonoBehaviour:
   waveCooldown: 30
   normalZombiesPerWave: 5
   bossWaveInterval: 5
+  Diff: 0
   waveNumber: 0
 --- !u!1 &2700330335535445832
 GameObject:
@@ -1612,6 +1613,7 @@ MonoBehaviour:
   negMapWidth: -105
   negMapHeight: -123
   isWrapping: 1
+  p: {fileID: 0}
 --- !u!95 &3575121184586283271
 Animator:
   serializedVersion: 5
@@ -1664,6 +1666,8 @@ MonoBehaviour:
   dashSpeed: 10
   DashUnlock: 0
   Zombies: []
+  Highscore: {fileID: 0}
+  dead: 0
 --- !u!1 &9037738673235957407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,6 +1890,7 @@ MonoBehaviour:
   Dash: []
   defenceIncease: []
   MovementSpeed: []
+  on: 0
   canvas: {fileID: 0}
   Relive: []
   islive: 1

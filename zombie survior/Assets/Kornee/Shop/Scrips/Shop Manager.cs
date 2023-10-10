@@ -7,18 +7,19 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] private player Player;
+    [SerializeField] private player[] Player;
     
-    [SerializeField] private GameObject Press;
+    [SerializeField] private GameObject[] Press;
     [SerializeField] private GameObject Shop;
     public bool UseShop;
     
     // Start is called before the first frame update
     public void Awake()
     {
-        Player = GameObject.FindWithTag("Player").GetComponent<player>();
-        Press = GameObject.FindWithTag("Press");
-        Press.SetActive(false);
+        foreach (GameObject item in Press)
+        {
+            item.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -35,12 +36,18 @@ public class ShopManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Press.SetActive(true);
+            foreach (GameObject item in Press)
+            {   
+                item.SetActive(true);
+            } 
             if (Input.GetButton("Action 1") && !UseShop)
             {
                 print("test");
                 Shop.SetActive(true);
-                Press.SetActive(false);
+                foreach (GameObject item in Press)
+                {
+                    item.SetActive(false);
+                }
                 UseShop = true;
                 Time.timeScale = 0;
             }
@@ -50,7 +57,10 @@ public class ShopManager : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Press.SetActive(false);
+            foreach (GameObject item in Press)
+            {
+                item.SetActive(false);
+            }
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -61,7 +71,10 @@ public class ShopManager : MonoBehaviour
             {
                 print("test");
                 Shop.SetActive(true);
-                Press.SetActive(false);
+                foreach (GameObject item in Press)
+                {
+                    item.SetActive(false);
+                }
                 UseShop = true;
                 Time.timeScale = 0;
             }
@@ -73,7 +86,10 @@ public class ShopManager : MonoBehaviour
     public void closeShop()
     {
         Shop.SetActive(false);
-        Press.SetActive(true);
+        foreach (GameObject item in Press)
+        {
+            item.SetActive(false);
+        }
         UseShop = false;
         Time.timeScale = 1;
     }

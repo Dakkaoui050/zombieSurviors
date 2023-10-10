@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 827977775737549176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 6.5, y: 6.5, z: 6.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 551445823469142460}
   - {fileID: 2672594208842202023}
@@ -208,9 +208,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
-  FirePoint: {fileID: 1856160448845944383}
+  playerIndex: 1
+  firePoint1: {fileID: 0}
+  firePoint2: {fileID: 0}
+  firePoint3: {fileID: 0}
+  source: {fileID: 0}
   moveSpeed: 0
   lookRight: 1
+  killcount: 0
   slider: {fileID: 1632110658625930654}
   HP: 100
   MaxHP: 100
@@ -222,6 +227,11 @@ MonoBehaviour:
   dashDuration: 0.2
   dashSpeed: 10
   DashUnlock: 0
+  fadeDuration: 2
+  Zombies: []
+  flash: {fileID: 0}
+  Highscore: {fileID: 0}
+  dead: 0
 --- !u!114 &1053917893823986207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +246,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapWidth: 50
   mapHeight: 50
+  negMapWidth: 0
+  negMapHeight: 0
   isWrapping: 1
+  p: {fileID: 0}
 --- !u!50 &2612588378457613357
 Rigidbody2D:
   serializedVersion: 4

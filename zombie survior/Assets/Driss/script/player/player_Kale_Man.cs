@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class player_Kale_Man : player
 {
-   
+    
 }

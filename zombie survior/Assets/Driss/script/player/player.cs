@@ -7,7 +7,10 @@ public class player : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    public static player Instance;
+    //players
+    public static List<player> Players = new List<player>(); 
+    public int playerIndex;
+    public bool player2;
 
     public GameObject firePoint1;
     public GameObject firePoint2;
@@ -51,17 +54,25 @@ public class player : MonoBehaviour
     public void Awake()
     { // Check if an instance already exists
         Money += 100;
+        if (playerIndex == 0)
+        {
+            player2 = false;
+        }
+        else if(playerIndex >= 1) 
+        {
+            player2 = true;
+        }
+        //if (Instance == null)
+        //{
+        //    // If not, set this as the instance
+        //    Instance = this;
+        //}
+        //else
+        //{
+        //    // If an instance already exists, destroy this duplicate
+        //    Destroy(gameObject);
+        //}
 
-        if (Instance == null)
-        {
-            // If not, set this as the instance
-            Instance = this;
-        }
-        else
-        {
-            // If an instance already exists, destroy this duplicate
-            Destroy(gameObject);
-        }
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -86,7 +97,16 @@ public class player : MonoBehaviour
 
     public void FixedUpdate()
     {
+        // Handle input and movement for each player
+       
         slider.value = HP;
+
+        //foreach (var playerInstance in Players)
+        //{
+        //    playerInstance.HandleInput();
+        //}
+        HandleInput();
+        
 
         if (defence > 6)
         {
@@ -120,47 +140,91 @@ public class player : MonoBehaviour
         }
         if (!isDashing)
         {
-            MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-            MoveV = Input.GetAxis("Vertical") * moveSpeed;
-            RB.velocity = new Vector2(MoveH, MoveV);
+            if (!player2)
+            {
 
-            if (Input.GetAxis("Horizontal") <= -0.1f)
-            {
-                spriteRenderer.flipX = true;
-                firePoint1.transform.localPosition = new Vector2(-.5f, 0f);
-                firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
-                firePoint2.transform.localPosition = new Vector2(-.5f, 0f);
-                firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
-                firePoint3.transform.localPosition = new Vector2(-.5f, 0f);
-                firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 195f);
+                
+                
+
+                if (Input.GetAxis("Horizontal") <= -0.1f)
+                {
+                    spriteRenderer.flipX = true;
+                    firePoint1.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
+                    firePoint2.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
+                    firePoint3.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 195f);
+                }
+                if (Input.GetAxis("Horizontal") >= .1f)
+                {
+                    spriteRenderer.flipX = false;
+                    firePoint1.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
+                    firePoint2.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
+                    firePoint3.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
+                }
+                if (Input.GetAxis("Vertical") <= -0.1f)
+                {
+                    firePoint1.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
+                    firePoint2.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
+                    firePoint3.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, -75f);
+                }
+                if (Input.GetAxis("Vertical") >= .1f)
+                {
+                    firePoint1.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+                    firePoint2.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 105f);
+                    firePoint3.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 75f);
+                }
             }
-            if (Input.GetAxis("Horizontal") >= .1f)
+            else if (player2)
             {
-                spriteRenderer.flipX = false;
-                firePoint1.transform.localPosition = new Vector2(.5f, 0f);
-                firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
-                firePoint2.transform.localPosition = new Vector2(.5f, 0f);
-                firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
-                firePoint3.transform.localPosition = new Vector2(.5f, 0f);
-                firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
-            }
-            if (Input.GetAxis("Vertical") <= -0.1f)
-            {
-                firePoint1.transform.localPosition = new Vector2(0f, -.5f);
-                firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
-                firePoint2.transform.localPosition = new Vector2(0f, -.5f);
-                firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
-                firePoint3.transform.localPosition = new Vector2(0f, -.5f);
-                firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, -75f);
-            }
-            if (Input.GetAxis("Vertical") >= .1f)
-            {
-                firePoint1.transform.localPosition = new Vector2(0f, .5f);
-                firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
-                firePoint2.transform.localPosition = new Vector2(0f, .5f);
-                firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 105f);
-                firePoint3.transform.localPosition = new Vector2(0f, .5f);
-                firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 75f);
+                if (Input.GetAxis("Player 2 h") <= -0.1f)
+                {
+                    spriteRenderer.flipX = true;
+                    firePoint1.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
+                    firePoint2.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
+                    firePoint3.transform.localPosition = new Vector2(-.5f, 0f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 195f);
+                }
+                if (Input.GetAxis("Player 2 h") >= .1f)
+                {
+                    spriteRenderer.flipX = false;
+                    firePoint1.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
+                    firePoint2.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
+                    firePoint3.transform.localPosition = new Vector2(.5f, 0f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
+                }
+                if (Input.GetAxis("Player 2 v") <= -0.1f)
+                {
+                    firePoint1.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
+                    firePoint2.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
+                    firePoint3.transform.localPosition = new Vector2(0f, -.5f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, -75f);
+                }
+                if (Input.GetAxis("Player 2 v") >= .1f)
+                {
+                    firePoint1.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+                    firePoint2.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 105f);
+                    firePoint3.transform.localPosition = new Vector2(0f, .5f);
+                    firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 75f);
+                }
             }
         }
         if (DashUnlock == true)
@@ -188,7 +252,25 @@ public class player : MonoBehaviour
             }
         }
     }
+    public void HandleInput()
+    {
+        if (!player2)
+        {
+            
+              MoveH = Input.GetAxis("Horizontal") * moveSpeed;
+              MoveV = Input.GetAxis("Vertical") * moveSpeed;
+              RB.velocity = new Vector2(MoveH, MoveV);
+        }
+        if (player2)
+        {
+            MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
+            MoveV = Input.GetAxis("Player 2 v") * moveSpeed;
+            RB.velocity = new Vector2(MoveH, MoveV);
+        }
+       
 
+        
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)

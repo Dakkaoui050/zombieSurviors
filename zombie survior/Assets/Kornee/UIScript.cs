@@ -13,6 +13,7 @@ public class UIScript : MonoBehaviour
     public spawnscript spawn;
     public XP_points xp;
     public WeaponsManager weaponsManager;
+    public GameObject[] invertory;
     [Header("Varibles")]
     public TextMeshProUGUI money;
     public TextMeshProUGUI Nuke;
@@ -30,10 +31,10 @@ public class UIScript : MonoBehaviour
     }
     private void Awake()
     {
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
-        spawn = GameObject.FindGameObjectWithTag("Spawn").GetComponent<spawnscript>();
-        xp = gameObject.GetComponent<XP_points>();
-        weaponsManager = GameObject.FindGameObjectWithTag("Weapons Manager").GetComponent<WeaponsManager>();
+        //p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>().playerIndex[0];
+        //spawn = GameObject.FindGameObjectWithTag("Spawn").GetComponent<spawnscript>();
+        //xp = gameObject.GetComponent<XP_points>();
+        //weaponsManager = GameObject.FindGameObjectWithTag("Weapons Manager").GetComponent<WeaponsManager>();
     }
 
     public void UpdateMoney()
@@ -47,20 +48,20 @@ public class UIScript : MonoBehaviour
         Level.text = $"Level: {xp.CurrentLevel.ToString()}";
         Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
         Killcount.text = p.killcount.ToString();
-        int i = 0;
-        foreach(var items in weaponsManager.weapons)
-        {
-            slots[i].sprite = weaponsManager.weapons[i].image;
-            slots[i].color = new Color(255, 255, 255, 255);
-            if(i >= 3)
-            {
-                i = 0;
-            }
-            else
-            {
-                i++;
-            }
-        }
+        //int i = 0;
+        //foreach(var items in weaponsManager.weapons)
+        //{
+        //    slots[i].sprite = weaponsManager.weapons[i].image;
+        //    slots[i].color = new Color(255, 255, 255, 255);
+        //    if(i >= 3)
+        //    {
+        //        i = 0;
+        //    }
+        //    else
+        //    {
+        //        i++;
+        //    }
+        //}
 
     }
 }
