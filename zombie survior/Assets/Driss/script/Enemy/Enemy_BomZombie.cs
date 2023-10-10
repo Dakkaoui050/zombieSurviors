@@ -10,11 +10,11 @@ public class Enemy_BomZombie : Enemy
         //Bom Zombie is Walking
         Anim.Play("bom zombie");
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         { 
-            Anim.Play("zombie onploft");
+
             StartCoroutine("DestoryZombie");
 
         }
@@ -22,7 +22,7 @@ public class Enemy_BomZombie : Enemy
     }
     public IEnumerator DestoryZombie()
     {  
-       
+        Anim.Play("zombie onploft");
         yield return new WaitForSeconds(0.5f);
         Damage = 70;
         Destroy(gameObject);

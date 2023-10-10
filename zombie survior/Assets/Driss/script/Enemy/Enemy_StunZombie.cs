@@ -7,7 +7,7 @@ public class Enemy_StunZombie : Enemy
     private bool isPlayerInRange = false;
     //wanneer de andere animation speel take damage
 
-    player p;
+    //player p;
     public void Start()
     {
         //Walking
@@ -20,8 +20,12 @@ public class Enemy_StunZombie : Enemy
         {
             Anim.SetBool("isAttacking", true);
             Anim.Play("attack stun zombie");
-            MoveSpeed *= 0.5f;
+            MoveSpeed *= 4;
             isPlayerInRange = true;
+        }
+        else
+        {
+            MoveSpeed = 4;
         }
 
     }
@@ -52,7 +56,7 @@ public class Enemy_StunZombie : Enemy
         float originalMoveSpeed = p.moveSpeed;
 
         // Set the player moveSpeed to the reduced value
-        p.moveSpeed = 0.2f;
+        p.moveSpeed = 5f;
 
         // Wait for the specified duration
         yield return new WaitForSeconds(duration);

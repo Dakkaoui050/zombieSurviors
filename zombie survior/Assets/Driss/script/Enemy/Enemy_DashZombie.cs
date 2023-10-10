@@ -18,7 +18,7 @@ public class Enemy_DashZombie : Enemy
         {
             Anim.SetBool("isAttacking", true);
             Anim.Play("attack dash zombie");
-            MoveSpeed *= 0.5f;
+            MoveSpeed *= 4f;
         }
   
     }

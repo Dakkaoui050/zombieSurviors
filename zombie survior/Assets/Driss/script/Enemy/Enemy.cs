@@ -67,8 +67,9 @@ public abstract class Enemy : MonoBehaviour
        
         introduction();
 
-        slider.maxValue = MaxHP;
         slider.value = HP;
+        slider.maxValue = MaxHP;
+        
     }
     private void StopTimer()
     {
@@ -80,7 +81,7 @@ public abstract class Enemy : MonoBehaviour
         ps.Play();
     }
 
-    private void Update()
+    public void Update()
     {
 
         if(HP <= 0)
@@ -97,6 +98,7 @@ public abstract class Enemy : MonoBehaviour
         }
         Move();
         Flip();
+        
         slider.value = HP;
 
         
@@ -221,9 +223,8 @@ public abstract class Enemy : MonoBehaviour
     {
         Debug.Log("Sort Zombie : " + EnemyName + ", HP : " + HP + ", Movement speed : " + MoveSpeed);
     }
-    private void OnDestroy()
+    public void OnDestroy()
     {
-        
         xp.Experience();
         reward = Random.Range(4,26);
         p.Money = p.Money + reward;
