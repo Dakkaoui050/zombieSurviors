@@ -1,47 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy_GunZombie :Enemy
+public class Enemy_GunZombie : Enemy
 {
     public GameObject Bullets;
     public GameObject firePoint;
-    public float rotationSpeed = 100f; // Rotation speed
-      
+    public float rotationSpeed = 50f; // Rotation speed
+
 
     public void FpFlip()
     {
-
-    
-        // Calculate the direction vector from "a" to "c"
         Vector3 directionToC = (p.gameObject.transform.position - firePoint.transform.position).normalized;
 
-        // Calculate the rotation angle in degrees to look at "c"
+
         float angleToC = Mathf.Atan2(directionToC.y, directionToC.x) * Mathf.Rad2Deg;
 
-        // Apply the rotation to "a"
+
         firePoint.transform.rotation = Quaternion.Euler(0f, 0f, angleToC);
 
-        // Rotate "a" around "b"
-    
-}
 
-    private void FixedUpdate()
+
+    }
+    private void Start()
     {
+        InvokeRepeating("shoot", 0f, 3f);
+    }
+    public void FixedUpdate()
+    {
+
         FpFlip();
+
+    }
+    public void shoot()
+    {
+
         StartCoroutine("submachineGun");
     }
     public IEnumerator submachineGun()
     {
 
         Debug.Log("teseterrtje");
-
-        
-        yield return new WaitForSeconds(2f);
-        GameObject bullet = Instantiate(Bullets, firePoint.transform.position, p.firePoint1.transform.rotation);
-
-
-
+        GameObject bullet = Instantiate(Bullets,  firePoint.transform.position, firePoint.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet1 = Instantiate(Bullets, firePoint.transform.position, firePoint.transform.rotation);
+        yield return new WaitForSeconds(.1f);
+        GameObject bullet2 = Instantiate(Bullets, firePoint.transform.position, firePoint.transform.rotation);
+        yield return new WaitForSeconds(.1f);
+        GameObject bullet3 = Instantiate(Bullets, firePoint.transform.position, firePoint.transform.rotation);
+        yield return new WaitForSeconds(.1f);
+        GameObject bullet4 = Instantiate(Bullets, firePoint.transform.position, firePoint.transform.rotation);
+        yield return null;
 
     }
 }

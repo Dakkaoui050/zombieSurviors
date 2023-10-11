@@ -270,7 +270,7 @@ MonoBehaviour:
   tom: 0
   Bullets: {fileID: 7276314973675706114, guid: 7459405681a982440b11e4498254a9a6, type: 3}
   firePoint: {fileID: 4165846607973579162}
-  rotationSpeed: 100
+  rotationSpeed: 50
 --- !u!82 &-1667297297390160757
 AudioSource:
   m_ObjectHideFlags: 0

@@ -59,18 +59,15 @@ public abstract class Enemy : MonoBehaviour
         p.Zombies.Add(gameObject);
         xp = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
         drop = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent <Drop>();
-    }
-
-    private void Start()
-    {
         HP = MaxHP;
        
         introduction();
 
         slider.value = HP;
         slider.maxValue = MaxHP;
-        
     }
+
+  
     private void StopTimer()
     {
         timerActive = false;
@@ -113,6 +110,7 @@ public abstract class Enemy : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, Target.position, MoveSpeed * Time.deltaTime);
             wayPointTarget = Target;
+            
         }
         else
         {

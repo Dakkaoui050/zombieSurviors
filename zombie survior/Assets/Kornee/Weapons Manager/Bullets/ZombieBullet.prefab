@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2903383543379786238}
   - component: {fileID: 423592611301653109}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.027550012, y: -0.021499991, z: 0}
-    m_Extent: {x: 0.60445, y: 0.5823, z: 0}
+    m_Center: {x: 0.031349987, y: -0.018599987, z: 0}
+    m_Extent: {x: 0.61085, y: 0.583, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6443009489994833574}
   - component: {fileID: 6565613033879072981}
   - component: {fileID: 3034548260161892890}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZombieBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 6
-  Range: 15
-  Collider: {fileID: 0}
+  Range: 3
+  Collider: {fileID: 3034548260161892890}
   Image: {fileID: 971777562, guid: 429e9a5673ca3744d85d814e9dd49c3d, type: 3}
   Speed: 33
 --- !u!212 &6565613033879072981

@@ -33,7 +33,6 @@ public class Weapons : MonoBehaviour
             case "Granade":
                 audioSource.Play();
                 GameObject bomb = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
-
                 break;
 
             case "Shotgun":
@@ -41,15 +40,11 @@ public class Weapons : MonoBehaviour
                 GameObject bullet1 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
                 GameObject bullet2 = Instantiate(Bullet, p.firePoint2.transform.position, p.firePoint2.transform.rotation);
                 GameObject bullet3 = Instantiate(Bullet, p.firePoint3.transform.position, p.firePoint3.transform.rotation);
-
                 break;
 
             case "submachineGun":
                 audioSource.Play();
                 StartCoroutine("submachineGun");
-                
-                
-                
                 break;
         }
     }
@@ -61,15 +56,10 @@ public class Weapons : MonoBehaviour
 
         Debug.Log("teseterrtje");
      
-                    GameObject bullet4 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
-                     yield return new WaitForSeconds(1.2f);
-                     GameObject bullet5 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
-                     
-
-                    
-                
-       
-       
+        GameObject bullet4 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+        yield return new WaitForSeconds(1.2f);
+        GameObject bullet5 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+ 
     }
 
     private void Awake()

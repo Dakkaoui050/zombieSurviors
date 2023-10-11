@@ -32,6 +32,7 @@ TagManager:
   - GameMusic
   - Highscore
   - Gamemaster
+  - zombie bullet
   layers:
   - Default
   - TransparentFX
@@ -43,7 +44,7 @@ TagManager:
   - Map Deco
   - postproses
   - Zombie
-  - 
+  - zombie bullet
   - 
   - 
   - 
