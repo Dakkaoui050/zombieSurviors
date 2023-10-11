@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class MolotovAmmo : bom
 {
     public bool DPS;
+  
+    public bool Done;
 
     public List<Enemy> enemies = new List<Enemy>();
 
@@ -24,6 +27,11 @@ public class MolotovAmmo : bom
             {
                 enemy.HP -= Damage;
             }
+        }
+        if (Done)
+        {
+            Destroy(gameObject);
+
         }
     }
 

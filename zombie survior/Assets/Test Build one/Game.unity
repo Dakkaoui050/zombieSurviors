@@ -1585,6 +1585,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1601718651}
     m_Modifications:
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: Money
+      value: 2342
+      objectReference: {fileID: 0}
+    - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Highscore
       value: 
       objectReference: {fileID: 1620299517}
@@ -2418,6 +2422,14 @@ PrefabInstance:
       objectReference: {fileID: 1035674844}
     - target: {fileID: 2331655276096318160, guid: 3e60a09dd9402eb4a9ee7b466272ac32, type: 3}
       propertyPath: Player
+      value: 
+      objectReference: {fileID: 1828736163}
+    - target: {fileID: 2331655276096318160, guid: 3e60a09dd9402eb4a9ee7b466272ac32, type: 3}
+      propertyPath: Press.Array.data[0]
+      value: 
+      objectReference: {fileID: 1035674844}
+    - target: {fileID: 2331655276096318160, guid: 3e60a09dd9402eb4a9ee7b466272ac32, type: 3}
+      propertyPath: Player.Array.data[0]
       value: 
       objectReference: {fileID: 1828736163}
     - target: {fileID: 2559327497777684455, guid: 3e60a09dd9402eb4a9ee7b466272ac32, type: 3}

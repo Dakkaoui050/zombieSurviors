@@ -11,6 +11,7 @@ public class bom : MonoBehaviour
     public SpriteRenderer Image; // doet nog niks
     public float Speed; // hoe snel hij gaat
     public Animator anim;
+    public bool CanMove = true;
 
 
     private void Awake()
@@ -21,7 +22,13 @@ public class bom : MonoBehaviour
 
     private void Update()
     {
-        // Move the bullet forward
-        transform.Translate(Vector2.right * Speed * Time.deltaTime);
+        if (CanMove)
+        {
+            transform.Translate(Vector2.right * Speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(Vector2.right * 0f);
+        }
     }
 }

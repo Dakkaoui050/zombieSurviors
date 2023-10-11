@@ -7,18 +7,21 @@ public class GranadeAnim : bom
 {
     public List<Enemy> enemies = new List<Enemy>();
     public bool die;
-    private void OnDestroy()
-    {
-       foreach (Enemy enemy in enemies)
-       {
-            enemy.HP -= Damage;
-       }
-    }
+    public bool Done;
+
     private void FixedUpdate()
     {
         if(die)
         {
+            foreach (Enemy enemy in enemies)
+            {
+                enemy.HP -= Damage;
+            }
+        }
+        if(Done)
+        {
             Destroy(gameObject);
+
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
