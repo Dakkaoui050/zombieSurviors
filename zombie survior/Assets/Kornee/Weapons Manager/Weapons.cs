@@ -17,7 +17,7 @@ public class Weapons : MonoBehaviour
     public Sprite image;
     public UIScript script;
     public AudioSource audioSource;
-    bool realoding;
+    
    
     public void Attack()
     {
@@ -47,7 +47,7 @@ public class Weapons : MonoBehaviour
                 break;
 
             case "submachineGun":
-                audioSource.Play();
+               
                 StartCoroutine("submachineGun");
                 
                 
@@ -62,8 +62,8 @@ public class Weapons : MonoBehaviour
     {   
 
         Debug.Log("teseterrtje");
-    // while(!realoding)
-                  
+  
+                    audioSource.Play();
                     GameObject bullet4 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
                     yield return new WaitForSeconds(0.2f);
                     GameObject bullet5 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
@@ -73,8 +73,7 @@ public class Weapons : MonoBehaviour
                     GameObject bullet7 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
                     yield return new WaitForSeconds(0.2f);
                     GameObject bullet8 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
-                   // yield return new WaitForSeconds(0.2f);
-                   // GameObject bullet9 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                   
     
 
 
