@@ -8,14 +8,16 @@ public class Weapons : MonoBehaviour
     public string Type;
     public Transform firePoint;
     public player p;
+    public float AttackSpeed;
     [Header("Not for FireArms")]
     public int Damage;
     public float AttackRange;
     public float AttackSpread;
-    public float AttackSpeed;
+    
     public Sprite image;
     public UIScript script;
     public AudioSource audioSource;
+    bool realoding;
    
     public void Attack()
     {
@@ -60,16 +62,25 @@ public class Weapons : MonoBehaviour
     {   
 
         Debug.Log("teseterrtje");
-     
+    // while(!realoding)
+                  
                     GameObject bullet4 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
-                     yield return new WaitForSeconds(1.2f);
-                     GameObject bullet5 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
-                     
+                    yield return new WaitForSeconds(0.2f);
+                    GameObject bullet5 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                    yield return new WaitForSeconds(0.2f);
+                    GameObject bullet6 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                    yield return new WaitForSeconds(0.2f);
+                    GameObject bullet7 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                    yield return new WaitForSeconds(0.2f);
+                    GameObject bullet8 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                   // yield return new WaitForSeconds(0.2f);
+                   // GameObject bullet9 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+    
 
-                    
-                
-       
-       
+
+
+
+
     }
 
     private void Awake()
