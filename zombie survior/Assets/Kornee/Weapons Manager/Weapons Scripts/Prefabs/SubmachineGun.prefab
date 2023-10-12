@@ -56,10 +56,10 @@ MonoBehaviour:
   Type: submachineGun
   firePoint: {fileID: 0}
   p: {fileID: 0}
+  AttackSpeed: 8
   Damage: 0
   AttackRange: 0
   AttackSpread: 0
-  AttackSpeed: 1
   image: {fileID: 2144707518, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
   script: {fileID: 0}
   audioSource: {fileID: -8767697571960439264}

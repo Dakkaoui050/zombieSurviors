@@ -53,7 +53,7 @@ public class player : MonoBehaviour
     public bool dead;
     public void Awake()
     { // Check if an instance already exists
-        Money += 100;
+        Money += 1000;
         if (playerIndex == 0)
         {
             player2 = false;

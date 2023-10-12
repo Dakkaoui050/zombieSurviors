@@ -7,6 +7,7 @@ using TMPro;
 
 public class ShopInteractions : MonoBehaviour
 {
+    public GameObject shotgunShop;
     [Header("wapens object")]
     Button[] buyButton;
     public GameObject pistol;
@@ -53,6 +54,7 @@ public class ShopInteractions : MonoBehaviour
 
     void Start()
     {
+        shotgunShop.SetActive(true);
     }
     private void Awake()
     {

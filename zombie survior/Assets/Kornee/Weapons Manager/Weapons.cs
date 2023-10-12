@@ -8,14 +8,16 @@ public class Weapons : MonoBehaviour
     public string Type;
     public Transform firePoint;
     public player p;
+    public float AttackSpeed;
     [Header("Not for FireArms")]
     public int Damage;
     public float AttackRange;
     public float AttackSpread;
-    public float AttackSpeed;
+    
     public Sprite image;
     public UIScript script;
     public AudioSource audioSource;
+    
    
     public void Attack()
     {
@@ -33,6 +35,7 @@ public class Weapons : MonoBehaviour
             case "Granade":
                 audioSource.Play();
                 GameObject bomb = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+
                 break;
 
             case "Shotgun":
@@ -40,11 +43,23 @@ public class Weapons : MonoBehaviour
                 GameObject bullet1 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
                 GameObject bullet2 = Instantiate(Bullet, p.firePoint2.transform.position, p.firePoint2.transform.rotation);
                 GameObject bullet3 = Instantiate(Bullet, p.firePoint3.transform.position, p.firePoint3.transform.rotation);
+
                 break;
 
             case "submachineGun":
-                audioSource.Play();
+               
                 StartCoroutine("submachineGun");
+                
+                
+                
+                break;
+
+            case "machineGun":
+
+                StartCoroutine("machineGun");
+
+
+
                 break;
         }
     }
@@ -54,12 +69,44 @@ public class Weapons : MonoBehaviour
     public IEnumerator submachineGun()
     {   
 
-        Debug.Log("teseterrtje");
-     
+  
+                    audioSource.Play();
+                    GameObject bullet4 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                    yield return new WaitForSeconds(0.2f);
+                    GameObject bullet5 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                    yield return new WaitForSeconds(0.2f);
+                    GameObject bullet6 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                    yield return new WaitForSeconds(0.2f);
+                    GameObject bullet7 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                    yield return new WaitForSeconds(0.2f);
+                    GameObject bullet8 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+    }
+
+    public IEnumerator machineGun()
+    {
+
+
         GameObject bullet4 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
-        yield return new WaitForSeconds(1.2f);
+        audioSource.Play();
+        yield return new WaitForSeconds(0.1f);
         GameObject bullet5 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
- 
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet6 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet7 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        audioSource.Play();
+        GameObject bullet8 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet9 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet10 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet11 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet12 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        GameObject bullet13 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
     }
 
     private void Awake()
