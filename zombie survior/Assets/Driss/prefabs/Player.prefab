@@ -6889,7 +6889,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -6977,7 +6977,7 @@ MonoBehaviour:
   Damage: 0
   Nuke: 0
   Nuke_Count: 0
-  Money: 0
+  Money: 2342
   dashDuration: 0.2
   dashSpeed: 10
   DashUnlock: 0
@@ -7293,7 +7293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969044723535079164, guid: f19d5598fe70ef9448816f720e8b4d52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 361
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

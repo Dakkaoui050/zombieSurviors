@@ -27,6 +27,12 @@ public class Enemy_StunZombie : Enemy
         {
             MoveSpeed = 4;
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Call the Coroutine to temporarily reduce the player's moveSpeed
+            StartCoroutine(StunPlayerForSeconds(2f)); 
+            StartCoroutine(ZombieDown(5f));
+        }
 
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -39,16 +45,7 @@ public class Enemy_StunZombie : Enemy
             isPlayerInRange = true;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // Call the Coroutine to temporarily reduce the player's moveSpeed
-            StartCoroutine(StunPlayerForSeconds(2f)); 
-            StartCoroutine(ZombieDown(5f));
-        }
-    }
-
+  
     // Coroutine to temporarily reduce the player's moveSpeed
     private IEnumerator StunPlayerForSeconds(float duration)
     {

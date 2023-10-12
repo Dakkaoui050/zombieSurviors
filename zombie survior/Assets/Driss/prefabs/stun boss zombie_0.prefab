@@ -218,7 +218,7 @@ Transform:
   - {fileID: 8174413598104305287}
   - {fileID: 3896026875921327009}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7405448858996513019
 SpriteRenderer:
@@ -513,7 +513,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3.5531635
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

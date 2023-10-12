@@ -1585,10 +1585,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1601718651}
     m_Modifications:
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
-      propertyPath: Money
-      value: 2342
-      objectReference: {fileID: 0}
-    - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Highscore
       value: 
       objectReference: {fileID: 1620299517}
@@ -1640,13 +1636,9 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1748958523}
-    - target: {fileID: 4539992608410679512, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 348
-      objectReference: {fileID: 0}
-    - target: {fileID: 6610288033026666910, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 1152
+    - target: {fileID: 4322098962300540417, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_MaxValue
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7467828572782795202, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchorMax.y
