@@ -12,11 +12,13 @@ public class bom : MonoBehaviour
     public float Speed; // hoe snel hij gaat
     public Animator anim;
     public bool CanMove = true;
+    public player player;
 
 
     private void Awake()
     {
         //anim.enabled = true;
+        player = GameObject.FindWithTag("Player").GetComponent<player>();
     }
     
 
@@ -24,7 +26,22 @@ public class bom : MonoBehaviour
     {
         if (CanMove)
         {
-            transform.Translate(Vector2.right * Speed * Time.deltaTime);
+            switch (player.poss)
+            {
+                case 1:
+                    transform.Translate(Vector2.right * Speed * Time.deltaTime);
+                    break;
+                case 2:
+                    transform.Translate(Vector2.left * Speed * Time.deltaTime);
+                    break;
+                case 3:
+                    transform.Translate(Vector2.down * Speed * Time.deltaTime);
+                    break;
+                case 4:
+                    transform.Translate(Vector2.up * Speed * Time.deltaTime);
+                    break;
+
+            }
         }
         else
         {

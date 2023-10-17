@@ -14,18 +14,15 @@ public class SaveName : MonoBehaviour
     {
         if (ammount == 1)
         {
-            string temp = player1.text;
-            print(temp);
-            PlayerPrefs.SetString("P1", temp);
+
+            PlayerPrefs.SetString("P1", player1.text);
             SceneManager.LoadScene("Game");
 
         }
         else if (ammount == 2)
         {
-            string temp = player2.text;
-            print(temp);
-            PlayerPrefs.SetString("P2", temp);
-            SceneManager.LoadScene("Game 1");
+            PlayerPrefs.SetString("P2", player2.text);
+            SceneManager.LoadScene("Co-op mode");
         }
 
     }

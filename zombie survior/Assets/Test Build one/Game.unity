@@ -1584,10 +1584,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1601718651}
     m_Modifications:
+    - target: {fileID: 633743475051092591, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: HP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: Nuke
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: Money
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Highscore
       value: 
       objectReference: {fileID: 1620299517}
+    - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: Nuke_Count
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: firePointG
+      value: 
+      objectReference: {fileID: 1708851353}
     - target: {fileID: 2073931145787799328, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1640,12 +1664,28 @@ PrefabInstance:
       propertyPath: m_MaxValue
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4539992608410679512, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 440
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478202740993895786, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7467828572782795202, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7846384529578067867, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 8301540834292049784, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597991530905002337, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9025157525149169232, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
@@ -1654,7 +1694,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2073931145787799328, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 1708851354}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
 --- !u!1 &1280657277
@@ -1825,6 +1868,7 @@ MonoBehaviour:
   - {fileID: 7219689062606606082, guid: c3022990bdf7b544297ffc219d23d539, type: 3}
   - {fileID: 5927504746203937071, guid: 4898e0e4724c90e45b99c0ef0b7b592d, type: 3}
   - {fileID: 908339590822351016, guid: 58213db9b4a10384a865f2247814ce1c, type: 3}
+  p: {fileID: 0}
 --- !u!4 &1412409029
 Transform:
   m_ObjectHideFlags: 0
@@ -1904,6 +1948,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8563245109377210087, guid: 13cbe9dcae70efc4bb7d342b086d3ee6, type: 3}
   m_PrefabInstance: {fileID: 416237620}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1708851353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1708851354}
+  m_Layer: 6
+  m_Name: FirepointG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1708851354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708851353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1828736164}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1746215625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2559327497777684455, guid: 3e60a09dd9402eb4a9ee7b466272ac32, type: 3}

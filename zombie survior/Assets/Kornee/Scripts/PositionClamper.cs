@@ -14,6 +14,7 @@ public class PositionClamper : MonoBehaviour
     {
         Vector3 pos = transform.position;
         Vector3 enps;
+        Vector3 pups;
 
         if (isWrapping)
         {
@@ -28,6 +29,13 @@ public class PositionClamper : MonoBehaviour
                     enemy.transform.position = enps;
                     
                 }
+                foreach(GameObject pick in p.PickUps)
+                {
+                    pups = pick.transform.position;
+                    pups.x += negMapWidth + negMapWidth;
+                    pick.transform.position = pups;
+
+                }
             }
             // Als we de negatieve x-grens van de map bereiken, wrap de positie terug naar positieve mapWidth 
             else if (pos.x < negMapWidth)
@@ -38,6 +46,13 @@ public class PositionClamper : MonoBehaviour
                     enps = enemy.transform.position;
                     enps.x += mapWidth + mapWidth;
                     enemy.transform.position = enps;
+
+                }
+                foreach (GameObject pick in p.PickUps)
+                {
+                    pups = pick.transform.position;
+                    pups.x += mapWidth + mapWidth;
+                    pick.transform.position = pups;
 
                 }
             }
@@ -53,6 +68,13 @@ public class PositionClamper : MonoBehaviour
                     enemy.transform.position = enps;
 
                 }
+                foreach (GameObject pick in p.PickUps)
+                {
+                    pups = pick.transform.position;
+                    pups.y += negMapHeight + negMapHeight;
+                    pick.transform.position = pups;
+
+                }
             }
             else if (pos.y < negMapHeight)
             {
@@ -65,7 +87,13 @@ public class PositionClamper : MonoBehaviour
 
                 }
             }
+            foreach (GameObject pick in p.PickUps)
+            {
+                pups = pick.transform.position;
+                pups.y += mapHeight + mapHeight;
+                pick.transform.position = pups;
 
+            }
         }
         else
         {

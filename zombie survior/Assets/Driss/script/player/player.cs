@@ -15,6 +15,7 @@ public class player : MonoBehaviour
     public GameObject firePoint1;
     public GameObject firePoint2;
     public GameObject firePoint3;
+    public GameObject firePointG;
     public AudioSource source;
 
     //movement
@@ -40,10 +41,12 @@ public class player : MonoBehaviour
     private bool isDashing = false;
     public float dashDuration = 0.2f;
     public float dashSpeed = 10f;
-    private float dashTimer;
+   [SerializeField] private float dashTimer = 10f;
     public bool DashUnlock = false;
+    public int poss;
     public float fadeDuration = 2.0f; // Duration of the fade in seconds
     public List<GameObject> Zombies = new List<GameObject>();
+    public List<GameObject> PickUps = new List<GameObject>();
     // Start is called before the first frame update
 
     public CanvasGroup flash;
@@ -112,13 +115,7 @@ public class player : MonoBehaviour
         {
             defence = 6;
         }
-        if (Input.GetButton("Action 3"))
-        {
-            if (Nuke)
-            {
-                Nuke_Drop();
-            }
-        }
+        
         foreach (var t in Zombies)
         {
             if (t == null)
@@ -140,6 +137,7 @@ public class player : MonoBehaviour
         }
         if (!isDashing)
         {
+            dashTimer -= Time.deltaTime;
             if (!player2)
             {
 
@@ -149,15 +147,18 @@ public class player : MonoBehaviour
                 if (Input.GetAxis("Horizontal") <= -0.1f)
                 {
                     spriteRenderer.flipX = true;
+                    poss = 2;
                     firePoint1.transform.localPosition = new Vector2(-.5f, 0f);
                     firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
                     firePoint2.transform.localPosition = new Vector2(-.5f, 0f);
                     firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
                     firePoint3.transform.localPosition = new Vector2(-.5f, 0f);
                     firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 195f);
+                    firePointG.transform.localPosition = new Vector2(-.5f, 0f);
                 }
                 if (Input.GetAxis("Horizontal") >= .1f)
                 {
+                    poss = 1;
                     spriteRenderer.flipX = false;
                     firePoint1.transform.localPosition = new Vector2(.5f, 0f);
                     firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
@@ -165,24 +166,33 @@ public class player : MonoBehaviour
                     firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
                     firePoint3.transform.localPosition = new Vector2(.5f, 0f);
                     firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
+                    firePointG.transform.localPosition = new Vector2(.5f, 0f);
+
                 }
                 if (Input.GetAxis("Vertical") <= -0.1f)
                 {
+                    poss = 3;
                     firePoint1.transform.localPosition = new Vector2(0f, -.5f);
                     firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, -90f);
                     firePoint2.transform.localPosition = new Vector2(0f, -.5f);
                     firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
                     firePoint3.transform.localPosition = new Vector2(0f, -.5f);
                     firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, -75f);
+                    firePointG.transform.localPosition = new Vector2(0f, -.5f);
+
                 }
                 if (Input.GetAxis("Vertical") >= .1f)
                 {
+                    poss = 4;
+
                     firePoint1.transform.localPosition = new Vector2(0f, .5f);
                     firePoint1.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
                     firePoint2.transform.localPosition = new Vector2(0f, .5f);
                     firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 105f);
                     firePoint3.transform.localPosition = new Vector2(0f, .5f);
                     firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 75f);
+                    firePointG.transform.localPosition = new Vector2(0f, .5f);
+
                 }
             }
             else if (player2)
@@ -231,8 +241,11 @@ public class player : MonoBehaviour
         {
             if (Input.GetButton("Action 2"))
             {
-                // Call the Dash() function when the Fire1 button is pressed
-                Dash();
+                if(dashTimer <= 0)
+                {
+                    dashDuration = 0.2f;
+                    Dash();
+                }
             }
 
         }
@@ -243,12 +256,14 @@ public class player : MonoBehaviour
             // Dash movement
             RB.velocity = new Vector2(MoveH * dashSpeed, MoveV * dashSpeed);
 
-            dashTimer -= Time.deltaTime;
-            if (dashTimer <= 0f)
+            dashDuration -= Time.deltaTime;
+            if (dashDuration <= 0f)
             {
                 // Reset velocity and end the dash after the specified duration
                 RB.velocity = new Vector2(MoveH, MoveV);
+                dashTimer = 10f;
                 isDashing = false;
+                
             }
         }
     }
@@ -315,7 +330,6 @@ public class player : MonoBehaviour
         if (!isDashing)
         {
             isDashing = true;
-            dashTimer = dashDuration;
         }
     }
     private IEnumerator FadePanel()
@@ -350,12 +364,23 @@ public class player : MonoBehaviour
                     Destroy(@object);
                 }
                 Zombies.Clear();
-                Nuke_Count--;
             }
 
 
 
         }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Action 3"))
+        {
+            if (Nuke)
+            {
+                Nuke_Count--;
+                Nuke_Drop();
+            }
+        }
+    }
 }
 
 
