@@ -6984,11 +6984,15 @@ PrefabInstance:
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: source
       value: 
-      objectReference: {fileID: 1828736171}
+      objectReference: {fileID: 1828736174}
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Highscore
       value: 
       objectReference: {fileID: 1620299517}
+    - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: hurtsound
+      value: 
+      objectReference: {fileID: 1828736180}
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Nuke_Count
       value: 0
@@ -7152,7 +7156,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9025157525149169232, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1828736171}
+      addedObject: {fileID: 1828736172}
+    - targetCorrespondingSourceObject: {fileID: 9025157525149169232, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1828736180}
   m_SourcePrefab: {fileID: 100100000, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
 --- !u!1 &1100659230
 GameObject:
@@ -7557,6 +7564,7 @@ MonoBehaviour:
   - {fileID: 7219689062606606082, guid: c3022990bdf7b544297ffc219d23d539, type: 3}
   - {fileID: 5927504746203937071, guid: 4898e0e4724c90e45b99c0ef0b7b592d, type: 3}
   - {fileID: 908339590822351016, guid: 58213db9b4a10384a865f2247814ce1c, type: 3}
+  p: {fileID: 0}
 --- !u!4 &1412409029
 Transform:
   m_ObjectHideFlags: 0
@@ -7897,7 +7905,62 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2073931145787799328, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
   m_PrefabInstance: {fileID: 1096454728}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1828736171
+--- !u!114 &1828736172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151746207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0926a1d418f503e4c863ac3884ffa4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 1828736173}
+  knockbackForce: 16
+  delay: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1828736163}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1828736163}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!50 &1828736173 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1417343599067844670, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+  m_PrefabInstance: {fileID: 1096454728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1828736174 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 484902663788312558, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+  m_PrefabInstance: {fileID: 1096454728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1828736180
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7906,8 +7969,8 @@ AudioSource:
   m_GameObject: {fileID: 1151746207}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 25c3f2e00c3214b47b9a77a9dacc1883, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 56350a8f7e3cada4995c3b7a84d6090a, type: 3}
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bd75f0dbe820c9a4ea75d07759d4fcfa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
