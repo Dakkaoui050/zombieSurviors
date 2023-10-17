@@ -39,7 +39,6 @@ public class MenuScipt : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
-        Debug.Log("Exit complete");
     }
     
     public void Name1()

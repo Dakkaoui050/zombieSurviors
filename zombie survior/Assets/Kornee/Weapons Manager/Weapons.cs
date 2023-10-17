@@ -34,7 +34,7 @@ public class Weapons : MonoBehaviour
 
             case "Granade":
                 audioSource.Play();
-                GameObject bomb = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
+                GameObject bomb = Instantiate(Bullet, p.firePointG.transform.position, p.firePointG.transform.rotation);
 
                 break;
 

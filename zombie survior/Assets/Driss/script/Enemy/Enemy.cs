@@ -147,9 +147,9 @@ public abstract class Enemy : MonoBehaviour
         {
             audiosource.Play();
             blood.Play();
-            var temp = collision.gameObject.GetComponent<Bullets>();
-            HP -= temp.Damage;
-            Destroy(temp.gameObject);
+            var bullet = collision.gameObject.GetComponent<Bullets>();
+            HP -= bullet.Damage;
+            Destroy(bullet.gameObject);
 
         }
         

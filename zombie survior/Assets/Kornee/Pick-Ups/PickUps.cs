@@ -18,10 +18,14 @@ public class PickUps : MonoBehaviour
     public player player_script;
     public void OnTriggerEnter2D(Collider2D collision)
     {
-       player_script = collision.GetComponent<player>();
+       pickUp(collision);
+    }
+    public void pickUp(Collider2D collision )
+    {
+        player_script = collision.GetComponent<player>();
         if (collision.tag == "Player")
         {
-            switch(Tag)
+            switch (Tag)
             {
                 case "Health":
                     player_script.HP += valuePlus;
@@ -34,7 +38,7 @@ public class PickUps : MonoBehaviour
                     {
                         destroy();
                     }
-                    
+
                     break;
                 case "Defence":
                     player_script.defence += valuePlus;
@@ -56,20 +60,25 @@ public class PickUps : MonoBehaviour
                     {
                         destroy();
                     }
-                    break; 
+                    break;
                 case "Money":
                     player_script.Money += valuePlus;
                     destroy();
                     break;
             }
-            
-           
+
+
         }
     }
-       
+
     public void destroy()
     {
-        GameObject.Destroy(me);
+        Destroy(gameObject);
 
+    }
+
+    public void addToList()
+    {
+        player_script.PickUps.Add(gameObject);
     }
 }

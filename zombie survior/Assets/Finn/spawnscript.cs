@@ -1,88 +1,107 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class spawnscript : MonoBehaviour
 {
-    public Transform[] spawnPoints; // Array of spawn points
-    public GameObject[] normalZombiesP; // Array met normale zombie prefabs
-    public GameObject[] bossZombiesP;   // Array met baas zombie prefabs
-    public int waveCooldown = 30;    // Cooldown tussen golven in seconden
-    public int normalZombiesPerWave = 5; // Aantal normale zombies om te spawnen in elke golf
-    public int bossWaveInterval = 6;    // Tijdsinterval voor het spawnen van baas zombies
+    public Transform[] spawnPoints;
+    public GameObject[] normalZombiesP;
+    public GameObject[] bossZombiesP;
+    public Enemy[] enemies;
+    public int waveCooldown = 30;
+    public int normalZombiesPerWave = 2;
+    public int bossWaveInterval = 6;
     public int Diff;
-    public int waveNumber = 0;          // Huidig golftellingnummer
-    private int currentNormalZombie = 0; // Teller voor het aantal normale zombies gespawnd in de huidige golf
+    public int waveNumber = 0;
+    private int currentNormalZombie = 0;
+    public player player;
+
+    public bool isSpawning = false;
+    public float currentCooldownTimer; // Timer for the current cooldown
 
     void Start()
     {
-        StartCoroutine("SpawnWave"); // Start met het spawnen van golven
         Diff = PlayerPrefs.GetInt("Diff");
         bossWaveInterval -= Diff;
         normalZombiesPerWave += Diff;
+        player = gameObject.GetComponentInParent<player>();
+
+        // Start the initial wave spawn
+        StartWaveSpawn();
+    }
+
+    public void Update()
+    {
+        // If not already spawning and all enemies are dead, start the next wave spawn
+        if (!isSpawning && AreAllEnemiesDead())
+        {
+            StartWaveSpawn();
+        }
+        if (currentCooldownTimer <= 0f)
+        {
+            StartWaveSpawn();
+        }
+
+        currentCooldownTimer -= Time.deltaTime;
+        // Update the cooldown timer
+
+    }
+
+    void StartWaveSpawn()
+    {
+        isSpawning = true;
+        currentCooldownTimer = waveCooldown; // Reset the timer
+        StartCoroutine(SpawnWave());
     }
 
     IEnumerator SpawnWave()
     {
+        waveNumber++;
+        normalZombiesPerWave += 2 * Diff;
+        currentNormalZombie = normalZombiesPerWave;
 
-        while (true)
+        for (int i = 0; i < currentNormalZombie; i++)
         {
-            waveNumber++; // Increase the wave number for each new wave
-            currentNormalZombie += 2; // Increase the number of normal zombies by 2 for each new wave
-
-            // Spawn normal zombies for the current wave
-            for (int i = 0; i < currentNormalZombie; i++)
-            {
-                int randomNormalEnemyIndex = Random.Range(0, normalZombiesP.Length);
-                int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
-                SpawnEnemy(normalZombiesP[randomNormalEnemyIndex], spawnPoints[randomSpawnPointIndex]);
-                yield return new WaitForSeconds(1f); // Delay between spawning normal enemies
-            }
-
-            // Check if there are any enemies alive
-            bool allEnemiesDead = AreAllEnemiesDead();
-
-            // If all enemies are dead, increase waveNumber and currentNormalZombie
-            if (allEnemiesDead)
-            {
-                waveNumber++;
-                currentNormalZombie += 2 * Diff;
-            }
-
-            // Controleer of het huidige golftellingnummer een veelvoud is van bossWaveInterval
-            if (waveNumber % bossWaveInterval == 0)
-            {
-                // Spawn a boss zombie for the current wave
-                int randomBossEnemyIndex = Random.Range(0, bossZombiesP.Length);
-                int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
-                SpawnEnemy(bossZombiesP[randomBossEnemyIndex], spawnPoints[randomSpawnPointIndex]);
-            }
-
-            yield return new WaitForSeconds(waveCooldown); // Cooldown between waves
-            
-            //Shop --->
+            int randomNormalEnemyIndex = Random.Range(0, normalZombiesP.Length);
+            int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
+            SpawnEnemy(normalZombiesP[randomNormalEnemyIndex], spawnPoints[randomSpawnPointIndex]);
+            yield return new WaitForSeconds(1f);
         }
 
+        if (waveNumber % bossWaveInterval == 0)
+        {
+            int randomBossEnemyIndex = Random.Range(0, bossZombiesP.Length);
+            int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
+            SpawnEnemy(bossZombiesP[randomBossEnemyIndex], spawnPoints[randomSpawnPointIndex]);
+        }
+
+        while (currentCooldownTimer > 0)
+        {
+            yield return null;
+            isSpawning = false;
+        }
 
     }
+
     private void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint)
     {
-        // Instantiate the enemy at the specified spawn point
         Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
     }
+
     private bool AreAllEnemiesDead()
     {
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        enemies = FindObjectsOfType<Enemy>();
 
-        foreach (Enemy enemy in enemies)
+        if (enemies.Length == 0)
         {
-            if (enemy != null && enemy.gameObject.activeSelf)
-            {
-                return false; // At least one enemy is still alive
-            }
+            return true;
         }
+        else
+        {
+            return false; // All enemies are dead
 
-        return true; // All enemies are dead
+        }
     }
 }
 

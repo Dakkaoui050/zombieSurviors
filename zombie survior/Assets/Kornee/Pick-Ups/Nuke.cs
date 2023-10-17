@@ -9,6 +9,6 @@ public class Nuke : PickUps
         string tempTag = this.tag;
         Tag = tempTag;
         me = GameObject.FindWithTag(tempTag);
-
+        addToList();
     }
 }
