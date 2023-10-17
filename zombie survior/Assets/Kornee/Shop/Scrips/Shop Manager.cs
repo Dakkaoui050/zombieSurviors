@@ -7,7 +7,8 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] private player[] Player;
+    
+    [SerializeField] private player Player;
     
     [SerializeField] private GameObject[] Press;
     [SerializeField] private GameObject Shop;
@@ -25,11 +26,21 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (Input.GetButton("Action 6") && UseShop)
+        if (Player.playerIndex == 0)
         {
-            closeShop();
+            if (Input.GetButton("Action 6") && UseShop)
+            {
+                closeShop();
+            }
+
+        }else if (Player.playerIndex == 1)
+        {
+            if (Input.GetButton("Fire5") && UseShop)
+            {
+                closeShop();
+            }
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -39,18 +50,38 @@ public class ShopManager : MonoBehaviour
             foreach (GameObject item in Press)
             {   
                 item.SetActive(true);
-            } 
-            if (Input.GetButton("Action 1") && !UseShop)
-            {
-                print("test");
-                Shop.SetActive(true);
-                foreach (GameObject item in Press)
-                {
-                    item.SetActive(false);
-                }
-                UseShop = true;
-                Time.timeScale = 0;
             }
+            if(Player.playerIndex == 0)
+            {
+                 if (Input.GetButtonDown("Action 1") && !UseShop)
+                 {
+                    print("test");
+                    Shop.SetActive(true);
+                    foreach (GameObject item in Press)
+                    {
+                        item.SetActive(false);
+                    }
+                    UseShop = true;
+                    Time.timeScale = 0;
+                 }
+
+            }
+            else if (Player.playerIndex == 1)
+            {
+                if (Input.GetButtonDown("Fire1") && !UseShop)
+                {
+                    print("test");
+                    Shop.SetActive(true);
+                    foreach (GameObject item in Press)
+                    {
+                        item.SetActive(false);
+                    }
+                    UseShop = true;
+                    Time.timeScale = 0;
+                }
+
+            }
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

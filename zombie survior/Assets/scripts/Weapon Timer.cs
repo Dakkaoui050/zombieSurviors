@@ -19,10 +19,10 @@ public class WeaponTimer : ShopInteractions
         {
             case 1:
 
-                GameObject temp = weapons.weapons[0].gameObject;
+                GameObject temp = weapons.weaponsP1[0].gameObject;
                 Destroy(temp);
-                weapons.weapons[0] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                weaponchanging.SetActive(false);
+                weapons.weaponsP1[0] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                weaponchangingP1.SetActive(false);
                 Time.timeScale = 1;
                 shopManager.UseShop = false;
 
@@ -31,31 +31,31 @@ public class WeaponTimer : ShopInteractions
 
                 break;
             case 2:
-                GameObject temp1 = weapons.weapons[1].gameObject;
+                GameObject temp1 = weapons.weaponsP1[1].gameObject;
                 Destroy(temp1);
-                weapons.weapons[1] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                weapons.weaponsP1[1] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
                 
-                weaponchanging.SetActive(false);
+                weaponchangingP1.SetActive(false);
                 Time.timeScale = 1;
                 shopManager.UseShop = false;
 
                 break;
             case 3:
-                GameObject temp2 = weapons.weapons[2].gameObject;
+                GameObject temp2 = weapons.weaponsP1[2].gameObject;
                 Destroy(temp2);
-                weapons.weapons[2] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                weapons.weaponsP1[2] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
                
-                weaponchanging.SetActive(false);
+                weaponchangingP1.SetActive(false);
                 Time.timeScale = 1;
                 shopManager.UseShop = false;
 
                 break;
             case 4:
-                GameObject temp3 = weapons.weapons[3].gameObject;
+                GameObject temp3 = weapons.weaponsP1[3].gameObject;
                 Destroy(temp3);
-                weapons.weapons[3] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                weapons.weaponsP1[3] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
                 
-                weaponchanging.SetActive(false);
+                weaponchangingP1.SetActive(false);
                 Time.timeScale = 1;
                 shopManager.UseShop = false;
 

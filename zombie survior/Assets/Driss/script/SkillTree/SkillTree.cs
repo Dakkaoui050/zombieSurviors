@@ -29,16 +29,34 @@ public class SkillTree : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetButtonDown("Action 5") && canvas.activeSelf )
-        {          
-                canvas.SetActive(false);       
-                
-        }
-        else if (Input.GetButtonDown("Action 5"))
+        if(p.playerIndex == 0)
         {
-            canvas.SetActive(true);
+            if (Input.GetButtonDown("Action 5") && canvas.activeSelf )
+            {          
+                    canvas.SetActive(false);       
+                
+            }
+            else if (Input.GetButtonDown("Action 5"))
+            {
+                canvas.SetActive(true);
            
+            }
+
+        }else if (p.playerIndex == 1)
+        {
+            if (Input.GetButtonDown("Fire4") && canvas.activeSelf)
+            {
+                canvas.SetActive(false);
+
+            }
+            else if (Input.GetButtonDown("Fire4"))
+            {
+                canvas.SetActive(true);
+
+            }
+
         }
+        
 
     }
     public void HealthIncreaseButton(int level)

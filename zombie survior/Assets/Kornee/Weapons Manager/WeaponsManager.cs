@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WeaponsManager : MonoBehaviour
 {
-    public Weapons[] weapons;
+    public Weapons[] weaponsP1;
+    public Weapons[] weaponsP2;
 
-    
 }
