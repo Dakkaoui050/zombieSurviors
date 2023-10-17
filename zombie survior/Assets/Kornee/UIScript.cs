@@ -48,20 +48,20 @@ public class UIScript : MonoBehaviour
         Level.text = $"Level: {xp.CurrentLevel.ToString()}";
         Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
         Killcount.text = p.killcount.ToString();
-        //int i = 0;
-        //foreach(var items in weaponsManager.weapons)
-        //{
-        //    slots[i].sprite = weaponsManager.weapons[i].image;
-        //    slots[i].color = new Color(255, 255, 255, 255);
-        //    if(i >= 3)
-        //    {
-        //        i = 0;
-        //    }
-        //    else
-        //    {
-        //        i++;
-        //    }
-        //}
+        int i = 0;
+        foreach (var items in weaponsManager.weapons)
+        {
+            slots[i].sprite = weaponsManager.weapons[i].image;
+            slots[i].color = new Color(255, 255, 255, 255);
+            if (i >= 3)
+            {
+                i = 0;
+            }
+            else
+            {
+                i++;
+            }
+        }
 
     }
 }
