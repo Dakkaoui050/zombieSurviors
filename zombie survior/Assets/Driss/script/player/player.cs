@@ -9,7 +9,7 @@ public class player : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     
     //players
-    public static List<player> Players = new List<player>(); 
+    public static List<player> Players = new List<player>();
     public int playerIndex;
     public bool player2;
 
@@ -43,7 +43,7 @@ public class player : MonoBehaviour
     private bool isDashing = false;
     public float dashDuration = 0.2f;
     public float dashSpeed = 10f;
-   [SerializeField] private float dashTimer = 10f;
+    [SerializeField] private float dashTimer = 10f;
     public bool DashUnlock = false;
     public int poss;
     public float fadeDuration = 2.0f; // Duration of the fade in seconds
@@ -69,20 +69,11 @@ public class player : MonoBehaviour
         {
             player2 = false;
         }
-        else if(playerIndex >= 1) 
+        else if (playerIndex >= 1)
         {
             player2 = true;
         }
-        //if (Instance == null)
-        //{
-        //    // If not, set this as the instance
-        //    Instance = this;
-        //}
-        //else
-        //{
-        //    // If an instance already exists, destroy this duplicate
-        //    Destroy(gameObject);
-        //}
+
 
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
@@ -91,10 +82,7 @@ public class player : MonoBehaviour
         slider.value = HP;
     }
 
-    private void Start()
-    {
 
-    }
     private void Nuke_Drop()
     {
         source.Play();
@@ -109,21 +97,17 @@ public class player : MonoBehaviour
     public void FixedUpdate()
     {
         // Handle input and movement for each player
-       
+
         slider.value = HP;
 
-        //foreach (var playerInstance in Players)
-        //{
-        //    playerInstance.HandleInput();
-        //}
         HandleInput();
-        
+
 
         if (defence > 6)
         {
             defence = 6;
         }
-        
+
         foreach (var t in Zombies)
         {
             if (t == null)
@@ -148,10 +132,6 @@ public class player : MonoBehaviour
             dashTimer -= Time.deltaTime;
             if (!player2)
             {
-
-                
-                
-
                 if (Input.GetAxis("Horizontal") <= -0.1f)
                 {
                     spriteRenderer.flipX = true;
@@ -245,69 +225,106 @@ public class player : MonoBehaviour
                 }
             }
         }
-        if (DashUnlock == true)
+
+        if (playerIndex == 0)
         {
-            if (Input.GetButton("Action 2"))
+            if (DashUnlock == true)
             {
-                if(dashTimer <= 0)
+                if (Input.GetButton("Action 2"))
                 {
-                    dashDuration = 0.2f;
-                    Dash();
+                    if (dashTimer <= 0)
+                    {
+                        dashDuration = 0.2f;
+                        Dash();
+                    }
+                }
+
+            }
+
+        }
+        else if (playerIndex == 1)
+        {
+            if (DashUnlock == true)
+            {
+                if (Input.GetButton("Fire2"))
+                {
+                    if (dashTimer <= 0)
+                    {
+                        dashDuration = 0.2f;
+                        Dash();
+                    }
+                }
+
+            }
+
+
+
+            if (isDashing)
+            {
+                // Dash movement
+                RB.velocity = new Vector2(MoveH * dashSpeed, MoveV * dashSpeed);
+
+                dashDuration -= Time.deltaTime;
+                if (dashDuration <= 0f)
+                {
+                    // Reset velocity and end the dash after the specified duration
+                    RB.velocity = new Vector2(MoveH, MoveV);
+                    dashTimer = 10f;
+                    isDashing = false;
+
                 }
             }
-
-        }
-
-
-        if (isDashing)
+        } 
+    }
+        public void HandleInput()
         {
-            // Dash movement
-            RB.velocity = new Vector2(MoveH * dashSpeed, MoveV * dashSpeed);
-
-            dashDuration -= Time.deltaTime;
-            if (dashDuration <= 0f)
+            if (!player2)
             {
-                // Reset velocity and end the dash after the specified duration
+
+                MoveH = Input.GetAxis("Horizontal") * moveSpeed;
+                MoveV = Input.GetAxis("Vertical") * moveSpeed;
                 RB.velocity = new Vector2(MoveH, MoveV);
-                dashTimer = 10f;
-                isDashing = false;
-                
             }
-        }
-    }
-    public void HandleInput()
-    {
-        if (!player2)
-        {
-            
-              MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-              MoveV = Input.GetAxis("Vertical") * moveSpeed;
-              RB.velocity = new Vector2(MoveH, MoveV);
-        }
-        if (player2)
-        {
-            MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
-            MoveV = Input.GetAxis("Player 2 v") * moveSpeed;
-            RB.velocity = new Vector2(MoveH, MoveV);
-        }
-       
-
-        
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Zombie")
-        {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy != null)
+            if (player2)
             {
-                TakeDamage(enemy.Damage);
+                MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
+                MoveV = Input.GetAxis("Player 2 v") * moveSpeed;
+                RB.velocity = new Vector2(MoveH, MoveV);
+            }
+
+
+
+        }
+
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Zombie")
+            {
+                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    TakeDamage(enemy.Damage);
+                }
+            }
+            // Assuming Enemy script is attached to the enemy GameObject
+        }
+
+        public void TakeDamage(float damage)
+        {
+            // Apply damage reduction based on defence (if needed)
+            float damageTaken = damage - defence;
+            HP -= damageTaken;
+            HP = Mathf.Clamp(HP, 0, MaxHP);
+
+            slider.value = HP;
+            slider.maxValue = MaxHP;
+
+            if (HP <= 0)
+            {
+                Die();
             }
         }
-        // Assuming Enemy script is attached to the enemy GameObject
-    }
 
    
 
@@ -327,51 +344,46 @@ public class player : MonoBehaviour
 
 
         if (HP <= 0)
+        private void Die()
         {
-            Die();
+            // Handle player's death here
+            Highscore.SetActive(true);
+            dead = true;
+            //Destroy(gameObject);
         }
-    }
-
-    private void Die()
-    {
-        // Handle player's death here
-        Highscore.SetActive(true);
-        dead = true;
-        //Destroy(gameObject);
-    }
-    void Dash()
-    {
-        // Perform dash only if the player is not currently dashing
-        if (!isDashing)
+        void Dash()
         {
-            isDashing = true;
+            // Perform dash only if the player is not currently dashing
+            if (!isDashing)
+            {
+                isDashing = true;
+            }
         }
-    }
-    private IEnumerator FadePanel()
-    {
-        float elapsedTime = 0;
-        float startAlpha = 0.75f; // Starting alpha value
-        float targetAlpha = 0.0f; // Ending alpha value
-
-        while (elapsedTime < fadeDuration)
+        private IEnumerator FadePanel()
         {
-            // Calculate the new alpha value based on the elapsed time
-            float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeDuration);
+            float elapsedTime = 0;
+            float startAlpha = 0.75f; // Starting alpha value
+            float targetAlpha = 0.0f; // Ending alpha value
 
-            // Set the alpha value of the CanvasGroup
-            flash.alpha = newAlpha;
+            while (elapsedTime < fadeDuration)
+            {
+                // Calculate the new alpha value based on the elapsed time
+                float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeDuration);
 
-            // Increment the elapsed time
-            elapsedTime += Time.deltaTime;
+                // Set the alpha value of the CanvasGroup
+                flash.alpha = newAlpha;
 
-            yield return null; // Wait for the next frame
+                // Increment the elapsed time
+                elapsedTime += Time.deltaTime;
+
+                yield return null; // Wait for the next frame
+            }
+
+            flash.alpha = targetAlpha;
         }
-
-        flash.alpha = targetAlpha;
-    }
         public void NukeDrop()
         {
-                StartCoroutine(FadePanel());
+            StartCoroutine(FadePanel());
             if (Nuke && Nuke_Count > 0)
             {
                 foreach (GameObject @object in Zombies)
@@ -380,22 +392,37 @@ public class player : MonoBehaviour
                 }
                 Zombies.Clear();
             }
-
-
-
         }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Action 3"))
+        private void Update()
         {
-            if (Nuke)
+            if (playerIndex == 0)
             {
-                Nuke_Count--;
-                Nuke_Drop();
+                if (Input.GetButtonDown("Action 3"))
+                {
+                    if (Nuke)
+                    {
+                        Nuke_Count--;
+                        Nuke_Drop();
+                    }
+                }
+            } else if (playerIndex == 1)
+            {
+                if (Input.GetButtonDown("Fire3"))
+                {
+                    if (Nuke)
+                    {
+                        Nuke_Count--;
+                        Nuke_Drop();
+                    }
+                }
+
             }
+
+
         }
-    }
+    
 }
+
 
 

@@ -121,11 +121,11 @@ public class Weapons : MonoBehaviour
         var temp = GameObject.FindGameObjectWithTag("Player");
         script = temp.GetComponentInChildren<UIScript>();
         WeaponsManager weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
-        for (int i = 0; i <= weapons.weapons.Length;)
+        for (int i = 0; i <= weapons.weaponsP1.Length;)
         {
-            if (weapons.weapons[i] == null)
+            if (weapons.weaponsP1[i] == null)
             {
-                weapons.weapons[i] = this;
+                weapons.weaponsP1[i] = this;
                 break;
             }
             else if (i !=3)

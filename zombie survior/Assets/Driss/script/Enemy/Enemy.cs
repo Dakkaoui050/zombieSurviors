@@ -186,7 +186,7 @@ public abstract class Enemy : MonoBehaviour
         if (other.gameObject.tag == "firepoint")
         {
             print("oke boomer");
-            foreach (Weapons items in wm.weapons)
+            foreach (Weapons items in wm.weaponsP1)
             {
                 switch(items.tag)
                 {

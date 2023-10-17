@@ -15,7 +15,7 @@ public class Test : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.G))
         {
-            if (IsArrayFull(weapons.weapons))
+            if (IsArrayFull(weapons.weaponsP1))
             {
                 // Execute this if the array is full
                 Debug.Log("Array is full. Executing action for full array.");
