@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class player : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
-    
+
     //players
     public static List<player> Players = new List<player>();
     public int playerIndex;
@@ -57,10 +57,10 @@ public class player : MonoBehaviour
 
     public bool dead;
     knockBack kb;
-    
 
 
-    
+
+
     public void Awake()
     { // Check if an instance already exists
         kb = gameObject.GetComponent<knockBack>();
@@ -274,59 +274,41 @@ public class player : MonoBehaviour
 
                 }
             }
-        } 
+        }
     }
-        public void HandleInput()
+    public void HandleInput()
+    {
+        if (!player2)
         {
-            if (!player2)
-            {
 
-                MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-                MoveV = Input.GetAxis("Vertical") * moveSpeed;
-                RB.velocity = new Vector2(MoveH, MoveV);
-            }
-            if (player2)
-            {
-                MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
-                MoveV = Input.GetAxis("Player 2 v") * moveSpeed;
-                RB.velocity = new Vector2(MoveH, MoveV);
-            }
-
-
-
+            MoveH = Input.GetAxis("Horizontal") * moveSpeed;
+            MoveV = Input.GetAxis("Vertical") * moveSpeed;
+            RB.velocity = new Vector2(MoveH, MoveV);
+        }
+        if (player2)
+        {
+            MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
+            MoveV = Input.GetAxis("Player 2 v") * moveSpeed;
+            RB.velocity = new Vector2(MoveH, MoveV);
         }
 
 
-        private void OnCollisionEnter2D(Collision2D collision)
+
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Zombie")
         {
-            if (collision.gameObject.tag == "Zombie")
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
             {
-                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    TakeDamage(enemy.Damage);
-                }
-            }
-            // Assuming Enemy script is attached to the enemy GameObject
-        }
-
-        public void TakeDamage(float damage)
-        {
-            // Apply damage reduction based on defence (if needed)
-            float damageTaken = damage - defence;
-            HP -= damageTaken;
-            HP = Mathf.Clamp(HP, 0, MaxHP);
-
-            slider.value = HP;
-            slider.maxValue = MaxHP;
-
-            if (HP <= 0)
-            {
-                Die();
+                TakeDamage(enemy.Damage);
             }
         }
-
-   
+        // Assuming Enemy script is attached to the enemy GameObject
+    }
 
     public void TakeDamage(float damage)
     {
@@ -338,19 +320,27 @@ public class player : MonoBehaviour
         slider.value = HP;
         slider.maxValue = MaxHP;
 
-
         kb.PlayFeedback(GameObject.FindWithTag("Zombie"));
         hurtsound.Play();
 
-
         if (HP <= 0)
-        private void Die()
         {
-            // Handle player's death here
-            Highscore.SetActive(true);
-            dead = true;
-            //Destroy(gameObject);
+            Die();
         }
+    }
+
+
+
+    
+            
+            private void Die()
+            {
+            if (HP <= 0)
+                // Handle player's death here
+                Highscore.SetActive(true);
+                dead = true;
+                //Destroy(gameObject);
+            }
         void Dash()
         {
             // Perform dash only if the player is not currently dashing
@@ -421,8 +411,9 @@ public class player : MonoBehaviour
 
 
         }
-    
-}
+
+    } 
+
 
 
 
