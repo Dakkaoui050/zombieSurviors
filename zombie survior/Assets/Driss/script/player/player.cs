@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class player : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -17,6 +18,7 @@ public class player : MonoBehaviour
     public GameObject firePoint3;
     public GameObject firePointG;
     public AudioSource source;
+    public AudioSource hurtsound;
 
     //movement
     private Rigidbody2D RB;
@@ -53,8 +55,14 @@ public class player : MonoBehaviour
     public GameObject Highscore;
 
     public bool dead;
+    knockBack kb;
+
+
+
+
     public void Awake()
     { // Check if an instance already exists
+        kb = gameObject.GetComponent<knockBack>();
         Money += 1000;
         if (playerIndex == 0)
         {
@@ -259,65 +267,73 @@ public class player : MonoBehaviour
 
                 }
             }
-        } 
+        }
     }
-        public void HandleInput()
+    public void HandleInput()
+    {
+        if (!player2)
         {
-            if (!player2)
-            {
 
-                MoveH = Input.GetAxis("Horizontal") * moveSpeed;
-                MoveV = Input.GetAxis("Vertical") * moveSpeed;
-                RB.velocity = new Vector2(MoveH, MoveV);
-            }
-            if (player2)
-            {
-                MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
-                MoveV = Input.GetAxis("Player 2 v") * moveSpeed;
-                RB.velocity = new Vector2(MoveH, MoveV);
-            }
-
-
-
+            MoveH = Input.GetAxis("Horizontal") * moveSpeed;
+            MoveV = Input.GetAxis("Vertical") * moveSpeed;
+            RB.velocity = new Vector2(MoveH, MoveV);
+        }
+        if (player2)
+        {
+            MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
+            MoveV = Input.GetAxis("Player 2 v") * moveSpeed;
+            RB.velocity = new Vector2(MoveH, MoveV);
         }
 
 
-        private void OnCollisionEnter2D(Collision2D collision)
+
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Zombie")
         {
-            if (collision.gameObject.tag == "Zombie")
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
             {
-                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    TakeDamage(enemy.Damage);
-                }
+                TakeDamage(enemy.Damage);
             }
-            // Assuming Enemy script is attached to the enemy GameObject
         }
+        // Assuming Enemy script is attached to the enemy GameObject
+    }
 
-        public void TakeDamage(float damage)
+    public void TakeDamage(float damage)
+    {
+        // Apply damage reduction based on defence (if needed)
+        float damageTaken = damage - defence;
+        HP -= damageTaken;
+        HP = Mathf.Clamp(HP, 0, MaxHP);
+
+        slider.value = HP;
+        slider.maxValue = MaxHP;
+
+        kb.PlayFeedback(GameObject.FindWithTag("Zombie"));
+        hurtsound.Play();
+
+        if (HP <= 0)
         {
-            // Apply damage reduction based on defence (if needed)
-            float damageTaken = damage - defence;
-            HP -= damageTaken;
-            HP = Mathf.Clamp(HP, 0, MaxHP);
+            Die();
+        }
+    }
 
-            slider.value = HP;
-            slider.maxValue = MaxHP;
 
+
+    
+            
+            private void Die()
+            {
             if (HP <= 0)
-            {
-                Die();
+                // Handle player's death here
+                Highscore.SetActive(true);
+                dead = true;
+                //Destroy(gameObject);
             }
-        }
-
-        private void Die()
-        {
-            // Handle player's death here
-            Highscore.SetActive(true);
-            dead = true;
-            //Destroy(gameObject);
-        }
         void Dash()
         {
             // Perform dash only if the player is not currently dashing
@@ -355,8 +371,9 @@ public class player : MonoBehaviour
 
 
         }
-    
-}
+
+    } 
+
 
 
 

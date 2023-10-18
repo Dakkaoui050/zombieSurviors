@@ -48,12 +48,28 @@ public abstract class Enemy : MonoBehaviour
     private bool timerActive = false;
     private float timerDuration = 5.0f; // Duration of the timer in seconds
     private float timerStartTime;
+
+    private void Start()
+    {
+    }
     private void Awake()
     {
+        int random = Random.Range(0, 2);
+        Debug.Log("de random nummer = " + random);
+        if (random == 1)
+        {
+            Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+        else if (random == 0)
+        {
+            Target = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>();
+        }
+        
+
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         Anim = GetComponent<Animator>();
         wm = GameObject.FindGameObjectWithTag("Weapons Manager").GetComponent<WeaponsManager>();
-        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+       // Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         wayPointTarget = Target; 
         SR = GetComponent<SpriteRenderer>();
         WayPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -69,7 +85,7 @@ public abstract class Enemy : MonoBehaviour
         slider.maxValue = MaxHP;
     }
 
-  
+    
     private void StopTimer()
     {
         timerActive = false;
