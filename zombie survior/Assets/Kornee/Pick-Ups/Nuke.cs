@@ -8,11 +8,11 @@ public class Nuke : PickUps
 {
     private void Awake()
     {
-        string tempTag = this.tag;
-        Tag = tempTag;
-        me = GameObject.FindWithTag(tempTag);
-        addToList();
+
+        me = GameObject.FindWithTag(this.tag);
+        player_script = GameObject.Find("Player").GetComponent<player>();
+        player_script.PickUps.Add(this.gameObject);
     }
 
-   
+
 }

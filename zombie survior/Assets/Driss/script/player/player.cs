@@ -99,6 +99,14 @@ public class player : MonoBehaviour
                 Zombies.Remove(t);
             }
         }
+        foreach (var t in PickUps)
+        {
+            if (t == null)
+
+            {
+                PickUps.Remove(t);
+            }
+        }
         if (Nuke_Count > 0)
         {
             Nuke = true;

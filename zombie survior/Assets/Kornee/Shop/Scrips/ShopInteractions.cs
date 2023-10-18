@@ -46,7 +46,9 @@ public class ShopInteractions : MonoBehaviour
     public GameObject weaponchangingP2;
 
     public Image chosenweaponToGet;
+    public Image chosenweaponToGet2;
     public GameObject ChosenWeaponToGetGameObject;
+    public GameObject ChosenWeaponToGetGameObject2;
     public Sprite[] weaponImage;
     public ShopManager shopManager;
     public UIScript[] ui;
@@ -74,10 +76,10 @@ public class ShopInteractions : MonoBehaviour
                     GameObject temp = weaponsm[0].weaponsP1[0].gameObject;
                     Destroy(temp);
                     weaponsm[0].weaponsP1[0] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                    Instantiate(ChosenWeaponToGetGameObject);
+                    Instantiate(ChosenWeaponToGetGameObject, Players[0].transform);
                     weaponchangingP1.SetActive(false);
                     Time.timeScale = 1;
-                    shopManager.UseShop = false;
+                    shopManager.closeShop();
                 
                 
                 
@@ -87,30 +89,30 @@ public class ShopInteractions : MonoBehaviour
                     GameObject temp1 = weaponsm[0].weaponsP1[1].gameObject;
                     Destroy(temp1);
                     weaponsm[0].weaponsP1[1] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                    Instantiate(ChosenWeaponToGetGameObject);
+                    Instantiate(ChosenWeaponToGetGameObject, Players[0].transform);
                     weaponchangingP1.SetActive(false);
                     Time.timeScale = 1;
-                    shopManager.UseShop = false;
+                    shopManager.closeShop();
 
                     break;
                 case 3:
                     GameObject temp2 = weaponsm[0].weaponsP1[2].gameObject;
                     Destroy(temp2);
                     weaponsm[0].weaponsP1[2] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                    Instantiate(ChosenWeaponToGetGameObject);
+                    Instantiate(ChosenWeaponToGetGameObject, Players[0].transform);
                     weaponchangingP1.SetActive(false);
                     Time.timeScale = 1;
-                    shopManager.UseShop = false;
+                    shopManager.closeShop();
 
                     break;
                 case 4:
                     GameObject temp3 = weaponsm[0].weaponsP1[3].gameObject;
                     Destroy(temp3);
                     weaponsm[0].weaponsP1[3] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                    Instantiate(ChosenWeaponToGetGameObject);
+                    Instantiate(ChosenWeaponToGetGameObject, Players[0].transform);
                     weaponchangingP1.SetActive(false);
                     Time.timeScale = 1;
-                    shopManager.UseShop = false;
+                    shopManager.closeShop();
 
                     break;
             }
@@ -124,10 +126,10 @@ public class ShopInteractions : MonoBehaviour
                     GameObject temp = weaponsm[1].weaponsP2[0].gameObject;
                     Destroy(temp);
                     weaponsm[1].weaponsP2[0] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                    Instantiate(ChosenWeaponToGetGameObject);
+                    Instantiate(ChosenWeaponToGetGameObject, Players[1].transform);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
-                    shopManager.UseShop = false;
+                    shopManager.closeShop();
 
 
 
@@ -137,30 +139,30 @@ public class ShopInteractions : MonoBehaviour
                     GameObject temp1 = weaponsm[1].weaponsP2[1].gameObject;
                     Destroy(temp1);
                     weaponsm[1].weaponsP2[1] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                    Instantiate(ChosenWeaponToGetGameObject);
+                    Instantiate(ChosenWeaponToGetGameObject, Players[1].transform);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
-                    shopManager.UseShop = false;
+                    shopManager.closeShop();
 
                     break;
                 case 7:
                     GameObject temp2 = weaponsm[1].weaponsP2[2].gameObject;
                     Destroy(temp2);
                     weaponsm[1].weaponsP2[2] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                    Instantiate(ChosenWeaponToGetGameObject);
+                    Instantiate(ChosenWeaponToGetGameObject, Players[1].transform);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
-                    shopManager.UseShop = false;
+                    shopManager.closeShop();
 
                     break;
                 case 8:
                     GameObject temp3 = weaponsm[1].weaponsP2[3].gameObject;
                     Destroy(temp3);
                     weaponsm[1].weaponsP2[3] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
-                    Instantiate(ChosenWeaponToGetGameObject);
+                    Instantiate(ChosenWeaponToGetGameObject, Players[1].transform);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
-                    shopManager.UseShop = false;
+                    shopManager.closeShop();
 
                     break;
             }
@@ -482,12 +484,12 @@ public class ShopInteractions : MonoBehaviour
                         // Execute this if the array is full
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
-                        chosenweaponToGet.sprite = weaponImage[0];
+                        chosenweaponToGet2.sprite = weaponImage[0];
                         ChosenWeaponToGetGameObject = pistol;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
 
@@ -519,12 +521,12 @@ public class ShopInteractions : MonoBehaviour
                         // Execute this if the array is full
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
-                        chosenweaponToGet.sprite = weaponImage[1];
+                        chosenweaponToGet2.sprite = weaponImage[1];
                         ChosenWeaponToGetGameObject = shotgun;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -549,12 +551,12 @@ public class ShopInteractions : MonoBehaviour
                         // Execute this if the array is full
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
-                        chosenweaponToGet.sprite = weaponImage[2];
+                        chosenweaponToGet2.sprite = weaponImage[2];
                         ChosenWeaponToGetGameObject = sword;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -577,12 +579,12 @@ public class ShopInteractions : MonoBehaviour
                         // Execute this if the array is full
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
-                        chosenweaponToGet.sprite = weaponImage[3];
+                        chosenweaponToGet2.sprite = weaponImage[3];
                         ChosenWeaponToGetGameObject = submachineGun;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -606,12 +608,12 @@ public class ShopInteractions : MonoBehaviour
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
 
-                        chosenweaponToGet.sprite = weaponImage[4];
+                        chosenweaponToGet2.sprite = weaponImage[4];
                         ChosenWeaponToGetGameObject = machineGun;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -635,12 +637,12 @@ public class ShopInteractions : MonoBehaviour
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
 
-                        chosenweaponToGet.sprite = weaponImage[5];
+                        chosenweaponToGet2.sprite = weaponImage[5];
                         ChosenWeaponToGetGameObject = Crossbow;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -664,12 +666,12 @@ public class ShopInteractions : MonoBehaviour
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
 
-                        chosenweaponToGet.sprite = weaponImage[6];
+                        chosenweaponToGet2.sprite = weaponImage[6];
                         ChosenWeaponToGetGameObject = Molotov;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -692,12 +694,12 @@ public class ShopInteractions : MonoBehaviour
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
 
-                        chosenweaponToGet.sprite = weaponImage[7];
+                        chosenweaponToGet2.sprite = weaponImage[7];
                         ChosenWeaponToGetGameObject = grenade;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -721,12 +723,12 @@ public class ShopInteractions : MonoBehaviour
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
 
-                        chosenweaponToGet.sprite = weaponImage[8];
+                        chosenweaponToGet2.sprite = weaponImage[8];
                         ChosenWeaponToGetGameObject = bat;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -750,12 +752,12 @@ public class ShopInteractions : MonoBehaviour
                         Debug.Log("Array is full. Executing action for full array.");
                         weaponchange();
 
-                        chosenweaponToGet.sprite = weaponImage[9];
+                        chosenweaponToGet2.sprite = weaponImage[9];
                         ChosenWeaponToGetGameObject = knife;
-                        arrayspace[0].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
-                        arrayspace[1].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
-                        arrayspace[2].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
-                        arrayspace[3].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
+                        arrayspace[4].sprite = weaponsm[1].weaponsP2[0].GetComponent<Image>().sprite;
+                        arrayspace[5].sprite = weaponsm[1].weaponsP2[1].GetComponent<Image>().sprite;
+                        arrayspace[6].sprite = weaponsm[1].weaponsP2[2].GetComponent<Image>().sprite;
+                        arrayspace[7].sprite = weaponsm[1].weaponsP2[3].GetComponent<Image>().sprite;
                         // Place your code here for when the array is full
                     }
                     else
@@ -796,14 +798,14 @@ public class ShopInteractions : MonoBehaviour
 
     public void weaponchange()
     {
-        if (p.playerIndex == 0)
+        if (play == 0)
         {
-            shopManager.closeShop();
+            this.GetComponent<Canvas>().enabled = false;
             weaponchangingP1.SetActive(true);
         }
-        if (p.playerIndex == 1)
+        if (play == 1)
         {
-            shopManager.closeShop();
+            this.GetComponent<Canvas>().enabled = false;
             weaponchangingP2.SetActive(true);
         }
     }

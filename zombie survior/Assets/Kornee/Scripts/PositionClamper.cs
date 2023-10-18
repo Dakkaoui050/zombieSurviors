@@ -86,13 +86,13 @@ public class PositionClamper : MonoBehaviour
                     enemy.transform.position = enps;
 
                 }
-            }
-            foreach (GameObject pick in p.PickUps)
-            {
-                pups = pick.transform.position;
-                pups.y += mapHeight + mapHeight;
-                pick.transform.position = pups;
+                foreach (GameObject pick in p.PickUps)
+                {
+                    pups = pick.transform.position;
+                    pups.y += mapHeight + mapHeight;
+                    pick.transform.position = pups;
 
+                }
             }
         }
         else

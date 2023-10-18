@@ -53,32 +53,7 @@ public class ShopManager : MonoBehaviour
             {
                 item.SetActive(true);
             }
-            if (Player.playerIndex == 0)
-            {
-                if (Input.GetButtonDown("Action 1") && !UseShop)
-                {
-                    print("test");
-                    Shop.SetActive(true);
-                    Shop.GetComponent<ShopInteractions>().play = 0;
-                    Press[0].SetActive(true);
-                    UseShop = true;
-                    Time.timeScale = 0;
-                }
-
-            }
-            else if (Player.playerIndex == 1)
-            {
-                if (Input.GetButtonDown("Fire1") && !UseShop)
-                {
-                    print("test");
-                    Shop.SetActive(true);
-                    Shop.GetComponent<ShopInteractions>().play = 1;
-                    Press[1].SetActive(true);
-                    UseShop = true;
-                    Time.timeScale = 0;
-                }
-
-            }
+            
         }
         
     }
@@ -106,7 +81,7 @@ public class ShopManager : MonoBehaviour
                 if (Input.GetButtonDown("Action 1") && !UseShop)
                 {
                     print("test");
-                    Shop.SetActive(true);
+                    Shop.GetComponent<Canvas>().enabled = true;
                     Shop.GetComponent<ShopInteractions>().play = 0;
                     Press[0].SetActive(true);
                     UseShop = true;
@@ -119,7 +94,7 @@ public class ShopManager : MonoBehaviour
                 if (Input.GetButtonDown("Fire1") && !UseShop)
                 {
                     print("test");
-                    Shop.SetActive(true);
+                    Shop.GetComponent<Canvas>().enabled = true;
                     Shop.GetComponent<ShopInteractions>().play = 1;
                     Press[1].SetActive(true);
                     UseShop = true;
@@ -133,7 +108,7 @@ public class ShopManager : MonoBehaviour
 
     public void closeShop()
     {
-        Shop.SetActive(false);
+        Shop.GetComponent<Canvas>().enabled = false;
         foreach (GameObject item in Press)
         {
             item.SetActive(false);

@@ -11,6 +11,7 @@ public class Health : PickUps
         Tag = tempTag;
         me = GameObject.FindWithTag(tempTag);
         valuePlus = Random.Range(15,36);
-        addToList();
+        player_script = GameObject.Find("Player").GetComponent<player>();
+        player_script.PickUps.Add(this.gameObject);
     }
 }

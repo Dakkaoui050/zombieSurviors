@@ -19,11 +19,13 @@ public class Drop : MonoBehaviour
         if(i > 90)
         {
             Instantiate(pick[2], new Vector3(spawnpoint.position.x, spawnpoint.position.y, spawnpoint.position.z), new Quaternion(0, 0, 0, 0));
-            
+            print("Drop nuke");
         }
         else
         {
             Instantiate(pick[Random.Range(0,2)], new Vector3(spawnpoint.position.x, spawnpoint.position.y, spawnpoint.position.z), new Quaternion(0,0,0,0));
+            print("Drop overig");
+
         }
     }
 }

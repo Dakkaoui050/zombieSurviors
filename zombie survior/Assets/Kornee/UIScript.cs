@@ -47,9 +47,10 @@ public class UIScript : MonoBehaviour
         Level.text = $"Level: {xp.CurrentLevel.ToString()}";
         Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
         Killcount.text = p.killcount.ToString();
-        int i = 0;
+        
         if(p.playerIndex == 0)
         {
+            int i = 0;
             foreach (var items in weaponsManager.weaponsP1)
             {
                 slots[i].sprite = weaponsManager.weaponsP1[i].image;
@@ -70,8 +71,10 @@ public class UIScript : MonoBehaviour
         }
         else if(p.playerIndex == 1)
         {
+            int i = 0;
             foreach (var items in weaponsManager.weaponsP2)
             {
+
                 slots[i].sprite = weaponsManager.weaponsP2[i].image;
                 slots[i].color = new Color(255, 255, 255, 255);
                 timer[i].gameObject.SetActive(true);

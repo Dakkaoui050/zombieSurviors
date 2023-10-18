@@ -36,6 +36,7 @@ public class PickUps : MonoBehaviour
                     }
                     else
                     {
+
                         destroy();
                     }
 
@@ -73,12 +74,10 @@ public class PickUps : MonoBehaviour
 
     public void destroy()
     {
+        player_script.PickUps.Remove(this.gameObject);
         Destroy(gameObject);
 
     }
 
-    public void addToList()
-    {
-        player_script.PickUps.Add(gameObject);
-    }
+
 }

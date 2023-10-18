@@ -11,6 +11,7 @@ public class Defense : PickUps
         Tag = tempTag;
         me = GameObject.FindWithTag(tempTag);
         valuePlus = Random.Range(1,3);
-        addToList();
+        player_script = GameObject.Find("Player").GetComponent<player>();
+        player_script.PickUps.Add(this.gameObject);
     }
 }
