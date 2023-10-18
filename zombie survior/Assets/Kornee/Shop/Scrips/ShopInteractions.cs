@@ -60,7 +60,6 @@ public class ShopInteractions : MonoBehaviour
     {
 
         //shopManager = GameObject.FindWithTag("Shop").GetComponent<ShopManager>();
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
        
 
     }
