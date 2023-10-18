@@ -1,6 +1,8 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Nuke : PickUps
 {
@@ -11,4 +13,6 @@ public class Nuke : PickUps
         me = GameObject.FindWithTag(tempTag);
         addToList();
     }
+
+   
 }

@@ -33,6 +33,7 @@ public abstract class Enemy : MonoBehaviour
     Transform temp;
     protected private Transform wayPointTarget;
     public Drop drop;
+    public nukedrop nukedrop;
     public AudioSource audiosource;
     public ParticleSystem blood;
 
@@ -59,8 +60,9 @@ public abstract class Enemy : MonoBehaviour
         p.Zombies.Add(gameObject);
         xp = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
         drop = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent <Drop>();
+        nukedrop = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent<nukedrop>();
         HP = MaxHP;
-       
+        nukedrop.Zombies.Add(gameObject);
         introduction();
 
         slider.value = HP;

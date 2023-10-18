@@ -263,6 +263,7 @@ Transform:
   - {fileID: 2181518473771558989}
   - {fileID: 541844498632094309}
   - {fileID: 7732348244429186434}
+  - {fileID: 5700694752007877937}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -432,7 +433,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648412914426228530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96f4a7f33ebd6534c9c345a2ab32f491, type: 3}
   m_Name: 
@@ -461,6 +462,7 @@ MonoBehaviour:
   firePoint1: {fileID: 6860304323759642252}
   firePoint2: {fileID: 7632684677748173052}
   firePoint3: {fileID: 170512290713321771}
+  firePointG: {fileID: 1342881330570657856}
   source: {fileID: 0}
   moveSpeed: 25
   lookRight: 0
@@ -475,9 +477,12 @@ MonoBehaviour:
   Money: 0
   dashDuration: 0.2
   dashSpeed: 10
+  dashTimer: 10
   DashUnlock: 0
+  poss: 0
   fadeDuration: 2
   Zombies: []
+  PickUps: []
   flash: {fileID: 0}
   Highscore: {fileID: 0}
   dead: 0
@@ -578,6 +583,90 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1342881330570657856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5700694752007877937}
+  - component: {fileID: 7386430541135669985}
+  m_Layer: 6
+  m_Name: FirePoint (3)
+  m_TagString: firepoint
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5700694752007877937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342881330570657856}
+  m_LocalRotation: {x: 0, y: 0, z: 0.13052616, w: 0.9914449}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 11288601568127374}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
+--- !u!212 &7386430541135669985
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342881330570657856}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1459252224, guid: 46a1e520a95e6f045ae5956e34a139e6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.28, y: 0.28}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1769822369271785270
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,11 +878,15 @@ MonoBehaviour:
   - {fileID: 3798225043912199193, guid: 5c87c21af62a9f945aec731a90e47ff0, type: 3}
   - {fileID: 3225860657888714654, guid: 746027c6ef2495844b6fc668dede000e, type: 3}
   - {fileID: 8602864245680413668, guid: d7511e4c53f255a488ab7105b1b02951, type: 3}
+  enemies: []
   waveCooldown: 30
   normalZombiesPerWave: 5
   bossWaveInterval: 5
   Diff: 0
   waveNumber: 0
+  player: {fileID: 0}
+  isSpawning: 0
+  currentCooldownTimer: 0
 --- !u!1 &3442799031555608065
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,11 +931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e118384c946847e4f95daaeaf376b4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  weaponsP1: []
+  weaponsP2: []
 --- !u!1 &3442949510253795882
 GameObject:
   m_ObjectHideFlags: 0

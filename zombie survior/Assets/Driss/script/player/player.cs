@@ -36,6 +36,7 @@ public class player : MonoBehaviour
     public bool Nuke;
     public int Nuke_Count;
     public int Money;
+    public nukedrop nuke;
 
     //dash verables
     private bool isDashing = false;
@@ -44,12 +45,10 @@ public class player : MonoBehaviour
     [SerializeField] private float dashTimer = 10f;
     public bool DashUnlock = false;
     public int poss;
-    public float fadeDuration = 2.0f; // Duration of the fade in seconds
     public List<GameObject> Zombies = new List<GameObject>();
     public List<GameObject> PickUps = new List<GameObject>();
     // Start is called before the first frame update
 
-    public CanvasGroup flash;
 
     public GameObject Highscore;
 
@@ -66,7 +65,7 @@ public class player : MonoBehaviour
             player2 = true;
         }
 
-
+        nuke = GameObject.FindWithTag("Gamemaster").GetComponent<nukedrop>();
         RB = GetComponent<Rigidbody2D>();
         HP = MaxHP;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -75,16 +74,6 @@ public class player : MonoBehaviour
     }
 
 
-    private void Nuke_Drop()
-    {
-        source.Play();
-        foreach (GameObject enemy in Zombies)
-        {
-            enemy.GetComponent<Enemy>().Play();
-            Invoke(nameof(NukeDrop), 2);
-
-        }
-    }
 
     public void FixedUpdate()
     {
@@ -186,6 +175,7 @@ public class player : MonoBehaviour
                     firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 165f);
                     firePoint3.transform.localPosition = new Vector2(-.5f, 0f);
                     firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 195f);
+                    firePointG.transform.localPosition = new Vector2(-.5f, 0f);
                 }
                 if (Input.GetAxis("Player 2 h") >= .1f)
                 {
@@ -196,6 +186,7 @@ public class player : MonoBehaviour
                     firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
                     firePoint3.transform.localPosition = new Vector2(.5f, 0f);
                     firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
+                    firePointG.transform.localPosition = new Vector2(.5f, 0f);
                 }
                 if (Input.GetAxis("Player 2 v") <= -0.1f)
                 {
@@ -205,6 +196,7 @@ public class player : MonoBehaviour
                     firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, -105f);
                     firePoint3.transform.localPosition = new Vector2(0f, -.5f);
                     firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, -75f);
+                    firePointG.transform.localPosition = new Vector2(0f, -.5f);
                 }
                 if (Input.GetAxis("Player 2 v") >= .1f)
                 {
@@ -214,6 +206,7 @@ public class player : MonoBehaviour
                     firePoint2.transform.localRotation = Quaternion.Euler(0f, 0f, 105f);
                     firePoint3.transform.localPosition = new Vector2(0f, .5f);
                     firePoint3.transform.localRotation = Quaternion.Euler(0f, 0f, 75f);
+                    firePointG.transform.localPosition = new Vector2(0f, .5f);
                 }
             }
         }
@@ -333,40 +326,6 @@ public class player : MonoBehaviour
                 isDashing = true;
             }
         }
-        private IEnumerator FadePanel()
-        {
-            float elapsedTime = 0;
-            float startAlpha = 0.75f; // Starting alpha value
-            float targetAlpha = 0.0f; // Ending alpha value
-
-            while (elapsedTime < fadeDuration)
-            {
-                // Calculate the new alpha value based on the elapsed time
-                float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeDuration);
-
-                // Set the alpha value of the CanvasGroup
-                flash.alpha = newAlpha;
-
-                // Increment the elapsed time
-                elapsedTime += Time.deltaTime;
-
-                yield return null; // Wait for the next frame
-            }
-
-            flash.alpha = targetAlpha;
-        }
-        public void NukeDrop()
-        {
-            StartCoroutine(FadePanel());
-            if (Nuke && Nuke_Count > 0)
-            {
-                foreach (GameObject @object in Zombies)
-                {
-                    Destroy(@object);
-                }
-                Zombies.Clear();
-            }
-        }
 
         private void Update()
         {
@@ -377,7 +336,7 @@ public class player : MonoBehaviour
                     if (Nuke)
                     {
                         Nuke_Count--;
-                        Nuke_Drop();
+                        nuke.Nuke_Drop(this);
                     }
                 }
             } else if (playerIndex == 1)
@@ -387,9 +346,10 @@ public class player : MonoBehaviour
                     if (Nuke)
                     {
                         Nuke_Count--;
-                        Nuke_Drop();
-                    }
+                        nuke.Nuke_Drop(this);
+
                 }
+            }
 
             }
 

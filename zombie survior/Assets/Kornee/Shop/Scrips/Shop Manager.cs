@@ -33,7 +33,8 @@ public class ShopManager : MonoBehaviour
                 closeShop();
             }
 
-        }else if (Player.playerIndex == 1)
+        }
+        else if (Player.playerIndex == 1)
         {
             if (Input.GetButton("Fire5") && UseShop)
             {
@@ -47,23 +48,22 @@ public class ShopManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Player = other.gameObject.GetComponent<player>();
             foreach (GameObject item in Press)
-            {   
+            {
                 item.SetActive(true);
             }
-            if(Player.playerIndex == 0)
+            if (Player.playerIndex == 0)
             {
-                 if (Input.GetButtonDown("Action 1") && !UseShop)
-                 {
+                if (Input.GetButtonDown("Action 1") && !UseShop)
+                {
                     print("test");
                     Shop.SetActive(true);
-                    foreach (GameObject item in Press)
-                    {
-                        item.SetActive(false);
-                    }
+                    Shop.GetComponent<ShopInteractions>().play = 0;
+                    Press[0].SetActive(true);
                     UseShop = true;
                     Time.timeScale = 0;
-                 }
+                }
 
             }
             else if (Player.playerIndex == 1)
@@ -72,17 +72,15 @@ public class ShopManager : MonoBehaviour
                 {
                     print("test");
                     Shop.SetActive(true);
-                    foreach (GameObject item in Press)
-                    {
-                        item.SetActive(false);
-                    }
+                    Shop.GetComponent<ShopInteractions>().play = 1;
+                    Press[1].SetActive(true);
                     UseShop = true;
                     Time.timeScale = 0;
                 }
 
             }
-
         }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -98,18 +96,37 @@ public class ShopManager : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if(Input.GetButton("Action 1")&&  !UseShop)
+            Player = collision.gameObject.GetComponent<player>();
+            foreach (GameObject item in Press)
             {
-                print("test");
-                Shop.SetActive(true);
-                foreach (GameObject item in Press)
-                {
-                    item.SetActive(false);
-                }
-                UseShop = true;
-                Time.timeScale = 0;
+                item.SetActive(true);
             }
-           
+            if (Player.playerIndex == 0)
+            {
+                if (Input.GetButtonDown("Action 1") && !UseShop)
+                {
+                    print("test");
+                    Shop.SetActive(true);
+                    Shop.GetComponent<ShopInteractions>().play = 0;
+                    Press[0].SetActive(true);
+                    UseShop = true;
+                    Time.timeScale = 0;
+                }
+
+            }
+            else if (Player.playerIndex == 1)
+            {
+                if (Input.GetButtonDown("Fire1") && !UseShop)
+                {
+                    print("test");
+                    Shop.SetActive(true);
+                    Shop.GetComponent<ShopInteractions>().play = 1;
+                    Press[1].SetActive(true);
+                    UseShop = true;
+                    Time.timeScale = 0;
+                }
+
+            }
         }
     }
    

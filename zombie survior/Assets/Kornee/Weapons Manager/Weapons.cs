@@ -17,6 +17,7 @@ public class Weapons : MonoBehaviour
     public Sprite image;
     public UIScript script;
     public AudioSource audioSource;
+
     
    
     public void Attack()
@@ -116,26 +117,50 @@ public class Weapons : MonoBehaviour
 
     public void Begin(float Attackspeed)
     {
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+        p = GetComponentInParent<player>();
         InvokeRepeating("Attack", 0f, Attackspeed);
         var temp = GameObject.FindGameObjectWithTag("Player");
         script = temp.GetComponentInChildren<UIScript>();
         WeaponsManager weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
-        for (int i = 0; i <= weapons.weaponsP1.Length;)
+        
+        if (GetComponentInParent<player>().playerIndex == 0)
         {
-            if (weapons.weaponsP1[i] == null)
+            for (int i = 0; i <= weapons.weaponsP1.Length;)
             {
-                weapons.weaponsP1[i] = this;
-                break;
-            }
-            else if (i !=3)
-            {
-                i++;
+                if (weapons.weaponsP1[i] == null)
+                {
+                    weapons.weaponsP1[i] = this;
+                    break;
+                }
+                else if (i !=3)
+                {
+                    i++;
 
+                }
+                else
+                {
+                    break;
+                }
             }
-            else
+        }
+        else if (GetComponentInParent<player>().playerIndex == 1)
+        {
+            for (int i = 0; i <= weapons.weaponsP2.Length;)
             {
-                break;
+                if (weapons.weaponsP2[i] == null)
+                {
+                    weapons.weaponsP2[i] = this;
+                    break;
+                }
+                else if (i != 3)
+                {
+                    i++;
+
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }

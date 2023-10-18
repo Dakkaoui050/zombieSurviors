@@ -7,7 +7,6 @@ using TMPro;
 
 public class ShopInteractions : MonoBehaviour
 {
-    public GameObject shotgunShop;
     [Header("wapens object")]
     Button[] buyButton;
     public GameObject pistol;
@@ -22,6 +21,9 @@ public class ShopInteractions : MonoBehaviour
     public GameObject knife;
     public Transform player;
     public WeaponsManager weapons;
+
+    public GameObject[] Players;
+    public int play;
 
     [Header("wapenImgages")]
     public Image pistolImg;
@@ -53,12 +55,11 @@ public class ShopInteractions : MonoBehaviour
 
     void Start()
     {
-        shotgunShop.SetActive(true);
     }
     private void Awake()
     {
 
-        shopManager = GameObject.FindWithTag("Shop").GetComponent<ShopManager>();
+        //shopManager = GameObject.FindWithTag("Shop").GetComponent<ShopManager>();
         weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
        
@@ -66,7 +67,7 @@ public class ShopInteractions : MonoBehaviour
     }
     public void replaceWeapon(int number)
     {
-        if (p.playerIndex == 0)
+        if (play == 0)
         { 
             switch(number)
             {
@@ -116,7 +117,7 @@ public class ShopInteractions : MonoBehaviour
                     break;
             }
         }
-        if(p.playerIndex == 1)
+        if(play == 1)
         {
             switch (number)
             {
@@ -124,7 +125,7 @@ public class ShopInteractions : MonoBehaviour
 
                     GameObject temp = weapons.weaponsP2[0].gameObject;
                     Destroy(temp);
-                    weapons.weaponsP1[0] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    weapons.weaponsP2[0] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
                     Instantiate(ChosenWeaponToGetGameObject);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
@@ -137,7 +138,7 @@ public class ShopInteractions : MonoBehaviour
                 case 6:
                     GameObject temp1 = weapons.weaponsP2[1].gameObject;
                     Destroy(temp1);
-                    weapons.weaponsP1[1] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    weapons.weaponsP2[1] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
                     Instantiate(ChosenWeaponToGetGameObject);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
@@ -147,7 +148,7 @@ public class ShopInteractions : MonoBehaviour
                 case 7:
                     GameObject temp2 = weapons.weaponsP2[2].gameObject;
                     Destroy(temp2);
-                    weapons.weaponsP1[2] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    weapons.weaponsP2[2] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
                     Instantiate(ChosenWeaponToGetGameObject);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
@@ -157,7 +158,7 @@ public class ShopInteractions : MonoBehaviour
                 case 8:
                     GameObject temp3 = weapons.weaponsP2[3].gameObject;
                     Destroy(temp3);
-                    weapons.weaponsP1[3] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    weapons.weaponsP2[3] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
                     Instantiate(ChosenWeaponToGetGameObject);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
@@ -169,7 +170,7 @@ public class ShopInteractions : MonoBehaviour
     }
     public void ButtonBuy(string type)
     {
-       if(p.playerIndex == 0)
+       if(play == 0)
        {
             switch (type)
             {
@@ -193,7 +194,7 @@ public class ShopInteractions : MonoBehaviour
                         if(p.Money >= 100)
                         {
                         // Execute this if the array is not full
-                        Instantiate(pistol, player);
+                        Instantiate(pistol, Players[play].transform);
                             // Place your code here for when the array is not full
                             moneyUpdate(100);
 
@@ -229,7 +230,7 @@ public class ShopInteractions : MonoBehaviour
                         if(p.Money >= 200)
                         {
                         // Execute this if the array is not full
-                        Instantiate(shotgun, player);
+                        Instantiate(shotgun, Players[play].transform);
                         moneyUpdate(200);
                         // Place your code here for when the array is not full
 
@@ -259,7 +260,7 @@ public class ShopInteractions : MonoBehaviour
                         if(p.Money >= 250)
                         {
                         // Execute this if the array is not full
-                        Instantiate(sword, player);
+                        Instantiate(sword, Players[play].transform);
                             moneyUpdate(250);
                         // Place your code here for when the array is not full
                          }
@@ -287,7 +288,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 600)
                         {
                             // Execute this if the array is not full
-                            Instantiate(submachineGun, player);
+                            Instantiate(submachineGun, Players[play].transform);
                             moneyUpdate(600);
                             // Place your code here for when the array is not full
                         }
@@ -316,7 +317,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 1000)
                         {
                             // Execute this if the array is not full
-                            Instantiate(machineGun, player);
+                            Instantiate(machineGun, Players[play].transform);
                             moneyUpdate(1000);
                             // Place your code here for when the array is not full
                         }
@@ -345,7 +346,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 400)
                         {
                             // Execute this if the array is not full
-                            Instantiate(Crossbow, player);
+                            Instantiate(Crossbow, Players[play].transform);
                             moneyUpdate(400);
                             // Place your code here for when the array is not full
                         }
@@ -374,7 +375,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 700)
                         {
                             // Execute this if the array is not full
-                            Instantiate(Molotov, player);
+                            Instantiate(Molotov, Players[play].transform);
                             moneyUpdate(700);
                             // Place your code here for when the array is not full
                         }
@@ -402,7 +403,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 800)
                         {
                             // Execute this if the array is not full
-                            Instantiate(grenade, player);
+                            Instantiate(grenade, Players[play].transform);
                             moneyUpdate(800);
                             // Place your code here for when the array is not full
                         }
@@ -431,7 +432,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 150)
                         {
                             // Execute this if the array is not full
-                            Instantiate(bat, player);
+                            Instantiate(bat, Players[play].transform);
                             moneyUpdate(150);
                             // Place your code here for when the array is not full
                         }
@@ -460,7 +461,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 50)
                         {
                             // Execute this if the array is not full
-                            Instantiate(knife, player);
+                            Instantiate(knife, Players[play].transform);
                             moneyUpdate(50);
                             // Place your code here for when the array is not full
                         }
@@ -473,7 +474,7 @@ public class ShopInteractions : MonoBehaviour
             }
 
        }
-        if (p.playerIndex == 1)
+       if (play == 1)
         {
             switch (type)
             {
@@ -497,7 +498,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 100)
                         {
                             // Execute this if the array is not full
-                            Instantiate(pistol, player);
+                            Instantiate(pistol, Players[play].transform);
                             // Place your code here for when the array is not full
                             moneyUpdate(100);
 
@@ -533,7 +534,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 200)
                         {
                             // Execute this if the array is not full
-                            Instantiate(shotgun, player);
+                            Instantiate(shotgun, Players[play].transform);
                             moneyUpdate(200);
                             // Place your code here for when the array is not full
 
@@ -563,7 +564,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 250)
                         {
                             // Execute this if the array is not full
-                            Instantiate(sword, player);
+                            Instantiate(sword, Players[play].transform);
                             moneyUpdate(250);
                             // Place your code here for when the array is not full
                         }
@@ -591,7 +592,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 600)
                         {
                             // Execute this if the array is not full
-                            Instantiate(submachineGun, player);
+                            Instantiate(submachineGun, Players[play].transform);
                             moneyUpdate(600);
                             // Place your code here for when the array is not full
                         }
@@ -620,7 +621,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 1000)
                         {
                             // Execute this if the array is not full
-                            Instantiate(machineGun, player);
+                            Instantiate(machineGun, Players[play].transform);
                             moneyUpdate(1000);
                             // Place your code here for when the array is not full
                         }
@@ -649,7 +650,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 400)
                         {
                             // Execute this if the array is not full
-                            Instantiate(Crossbow, player);
+                            Instantiate(Crossbow, Players[play].transform);
                             moneyUpdate(400);
                             // Place your code here for when the array is not full
                         }
@@ -678,7 +679,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 700)
                         {
                             // Execute this if the array is not full
-                            Instantiate(Molotov, player);
+                            Instantiate(Molotov, Players[play].transform);
                             moneyUpdate(700);
                             // Place your code here for when the array is not full
                         }
@@ -706,7 +707,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 800)
                         {
                             // Execute this if the array is not full
-                            Instantiate(grenade, player);
+                            Instantiate(grenade, Players[play].transform);
                             moneyUpdate(800);
                             // Place your code here for when the array is not full
                         }
@@ -735,7 +736,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 150)
                         {
                             // Execute this if the array is not full
-                            Instantiate(bat, player);
+                            Instantiate(bat, Players[play].transform);
                             moneyUpdate(150);
                             // Place your code here for when the array is not full
                         }
@@ -764,7 +765,7 @@ public class ShopInteractions : MonoBehaviour
                         if (p.Money >= 50)
                         {
                             // Execute this if the array is not full
-                            Instantiate(knife, player);
+                            Instantiate(knife, Players[play].transform);
                             moneyUpdate(50);
                             // Place your code here for when the array is not full
                         }
@@ -797,16 +798,16 @@ public class ShopInteractions : MonoBehaviour
 
     public void weaponchange()
     {
-        if(p.playerIndex == 0)
-        {
+        //if(p.playerIndex == 0)
+        //{
            shopManager.closeShop();
            weaponchangingP1.SetActive(true);
-        }
-        if (p.playerIndex == 1)
-        {
-            shopManager.closeShop();
-            weaponchangingP2.SetActive(true);
-        }
+        //}
+        //if (p.playerIndex == 1)
+        //{
+        //    shopManager.closeShop();
+        //    weaponchangingP2.SetActive(true);
+        //}
     }
 
     private void moneyUpdate(int cost)

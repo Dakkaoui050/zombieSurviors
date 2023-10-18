@@ -33,6 +33,7 @@ TagManager:
   - Highscore
   - Gamemaster
   - zombie bullet
+  - Player2
   layers:
   - Default
   - TransparentFX
