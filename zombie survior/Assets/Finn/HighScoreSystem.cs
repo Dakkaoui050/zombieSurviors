@@ -32,19 +32,17 @@ public class HighScoreSystem : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        foreach (player Player in p)
-        {
-            if (Player.dead)
+        
+            if (p[0].dead || p[1].dead)
             {   
                 LoadLeaderboard();
                 AddEntry();
                 SortLeaderboard();
                 DisplayLeaderboard();
-                Player.dead = false;
                 Time.timeScale = 0;
             }
 
-        }
+        
     }
 
     public void SaveLeaderboard()
@@ -135,10 +133,19 @@ public class HighScoreSystem : MonoBehaviour
     public void AddEntry()
     {
         // Create a new player data entry
-        PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P1"), score = (p[0].killcount + p[1].killcount * Spawnscript.waveNumber + (int)xP.CurrentLevel)};
-        print(newEntry.name + newEntry.score);
+        if (p[0].player2)
+        {
+            PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P1"), score = (p[0].killcount + p[1].killcount * Spawnscript.waveNumber + (int)xP.CurrentLevel)};
+            print(newEntry.name + newEntry.score);
+            leaderboardEntries.Add(newEntry);
+        }
+        else
+        {
+            PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P1"), score = (p[0].killcount * Spawnscript.waveNumber + (int)xP.CurrentLevel) };
+            print(newEntry.name + newEntry.score);
+            leaderboardEntries.Add(newEntry);
+        }
         // Add the entry to the leaderboard
-        leaderboardEntries.Add(newEntry);
 
         // Sort the leaderboard with the new entry
         SortLeaderboard();

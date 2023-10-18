@@ -313,11 +313,17 @@ MonoBehaviour:
   HP: 150
   MaxHP: 150
   Damage: 35
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
   Distance: 10
   WayPoint: {fileID: 0}
+  Traget: {fileID: 0}
   drop: {fileID: 0}
+  nukedrop: {fileID: 0}
   audiosource: {fileID: -6127321963296804717}
   blood: {fileID: 5956776898932336581}
+  Boss: 1
   Anim: {fileID: 0}
   rate: 75
   tom: 0

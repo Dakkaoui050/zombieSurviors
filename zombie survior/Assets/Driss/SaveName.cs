@@ -19,10 +19,10 @@ public class SaveName : MonoBehaviour
             SceneManager.LoadScene("Game");
 
         }
-        else if (ammount == 2)
+        if (ammount == 2)
         {
             PlayerPrefs.SetString("P2", player2.text);
-            SceneManager.LoadScene("Co-op mode");
+            SceneManager.LoadScene("2Player");
         }
 
     }

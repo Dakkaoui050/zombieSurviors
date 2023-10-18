@@ -27,16 +27,17 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] public float Damage;
    
     //Target 
-    protected private Transform Target;
+    [SerializeField] private GameObject[] players = new GameObject[2];
     [SerializeField] protected private float Distance;
     [SerializeField] public Transform WayPoint;
+    [SerializeField] private Transform Traget;
     Transform temp;
     protected private Transform wayPointTarget;
     public Drop drop;
     public nukedrop nukedrop;
     public AudioSource audiosource;
     public ParticleSystem blood;
-
+    public bool Boss;
     //Animation
     public Animator Anim;
 
@@ -54,26 +55,37 @@ public abstract class Enemy : MonoBehaviour
     }
     private void Awake()
     {
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+        if(p.player2)
+        {
+            players[0] = GameObject.Find("Player");
+            players[1] = GameObject.Find("Player 2");
+
+        }
+        else
+        {
+            players[0] = GameObject.Find("Player");
+            players[1] = GameObject.Find("Player");
+        }
         int random = Random.Range(0, 2);
         Debug.Log("de random nummer = " + random);
         if (random == 1)
         {
-            Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            Traget = players[1].transform;
         }
         else if (random == 0)
         {
-            Target = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>();
+            Traget = players[0].transform;
         }
-        
 
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+
         Anim = GetComponent<Animator>();
         wm = GameObject.FindGameObjectWithTag("Weapons Manager").GetComponent<WeaponsManager>();
-       // Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        wayPointTarget = Target; 
+        // Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        wayPointTarget = Traget;
         SR = GetComponent<SpriteRenderer>();
-        WayPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         p.Zombies.Add(gameObject);
+        WayPoint = GameObject.FindWithTag("Player").GetComponent<Transform>();
         xp = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
         drop = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent <Drop>();
         nukedrop = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent<nukedrop>();
@@ -122,12 +134,12 @@ public abstract class Enemy : MonoBehaviour
     private void Move()
     {
        
-        float playerDistance = Vector2.Distance(transform.position, Target.position);
+        float playerDistance = Vector2.Distance(transform.position, Traget.position);
 
         if (playerDistance < Distance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, Target.position, MoveSpeed * Time.deltaTime);
-            wayPointTarget = Target;
+            transform.position = Vector2.MoveTowards(transform.position, Traget.position, MoveSpeed * Time.deltaTime);
+            wayPointTarget = Traget;
             
         }
         else
@@ -142,7 +154,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void Flip()
     {
-        if (transform.position.x > Target.position.x)
+        if (transform.position.x > Traget.position.x)
         {
             SR.flipX = true;
         }
@@ -241,10 +253,20 @@ public abstract class Enemy : MonoBehaviour
     }
     public void OnDestroy()
     {
-        xp.Experience();
-        reward = Random.Range(4,26);
-        p.Money = p.Money + reward;
-        p.killcount++;
+        if (!Boss)
+        {
+            xp.Experience();
+            reward = Random.Range(25,36 );
+            p.Money = p.Money + reward;
+            p.killcount++;
+        }
+        else
+        {
+            xp.Experience();
+            reward = Random.Range(45, 71);
+            p.Money = p.Money + reward;
+            p.killcount++;
+        }
     }
 }
 

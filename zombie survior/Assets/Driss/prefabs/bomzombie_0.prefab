@@ -247,9 +247,13 @@ MonoBehaviour:
   HP: 100
   MaxHP: 100
   Damage: 5
+  Target:
+  - {fileID: 0}
+  - {fileID: 0}
   Distance: 0
   WayPoint: {fileID: 0}
   drop: {fileID: 0}
+  nukedrop: {fileID: 0}
   audiosource: {fileID: 1447577452274696513}
   blood: {fileID: 1540430838434009995}
   Anim: {fileID: 0}

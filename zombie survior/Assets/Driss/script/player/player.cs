@@ -63,7 +63,7 @@ public class player : MonoBehaviour
     public void Awake()
     { // Check if an instance already exists
         kb = gameObject.GetComponent<knockBack>();
-        Money += 1000;
+        Money += 200;
         if (playerIndex == 0)
         {
             player2 = false;
