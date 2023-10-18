@@ -49,7 +49,7 @@ public class ShopInteractions : MonoBehaviour
     public GameObject ChosenWeaponToGetGameObject;
     public Sprite[] weaponImage;
     public ShopManager shopManager;
-    public UIScript ui;
+    public UIScript[] ui;
 
     public Image[] arrayspace;
 
@@ -812,7 +812,15 @@ public class ShopInteractions : MonoBehaviour
 
     private void moneyUpdate(int cost)
     {
-        p.Money -= cost;
-        ui.UpdateMoney();
+        if(p.playerIndex == 0)
+        {
+            Players[0].GetComponent<player>().Money -= cost;
+            ui[0].UpdateMoney();
+        }
+        else if (p.playerIndex == 1)
+        {
+            Players[1].GetComponent<player>().Money -= cost;
+            ui[1].UpdateMoney();
+        }
     }
 }

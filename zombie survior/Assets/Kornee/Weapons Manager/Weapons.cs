@@ -9,13 +9,15 @@ public class Weapons : MonoBehaviour
     public Transform firePoint;
     public player p;
     public float AttackSpeed;
+    public float AttackTime;
+    public float AttackTimerValue;
     [Header("Not for FireArms")]
     public int Damage;
     public float AttackRange;
     public float AttackSpread;
     
     public Sprite image;
-    public UIScript script;
+    public UIScript UIScript;
     public AudioSource audioSource;
 
     
@@ -64,8 +66,18 @@ public class Weapons : MonoBehaviour
                 break;
         }
     }
-    
-    
+
+    private void Update()
+    {
+        if(AttackTimerValue <= 0)
+        {
+            AttackTimerValue = AttackSpeed;
+        }
+        else
+        {
+            AttackTimerValue -= Time.deltaTime;      
+        }
+    }
 
     public IEnumerator submachineGun()
     {   
@@ -119,9 +131,8 @@ public class Weapons : MonoBehaviour
     {
         p = GetComponentInParent<player>();
         InvokeRepeating("Attack", 0f, Attackspeed);
-        var temp = GameObject.FindGameObjectWithTag("Player");
-        script = temp.GetComponentInChildren<UIScript>();
-        WeaponsManager weapons = GameObject.FindWithTag("Weapons Manager").GetComponent<WeaponsManager>();
+        UIScript = p.GetComponentInChildren<UIScript>();
+        WeaponsManager weapons = p.GetComponentInChildren<WeaponsManager>();
         
         if (GetComponentInParent<player>().playerIndex == 0)
         {

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class UIScript : MonoBehaviour
 {
@@ -13,16 +14,17 @@ public class UIScript : MonoBehaviour
     public spawnscript spawn;
     public XP_points xp;
     public WeaponsManager weaponsManager;
-    public GameObject[] invertory;
     [Header("Varibles")]
     public TextMeshProUGUI money;
     public TextMeshProUGUI Nuke;
     public TextMeshProUGUI Level;
     public TextMeshProUGUI Wave;
     public TextMeshProUGUI Killcount;
+
+
     //inventory
     public Image[] slots;
-
+    public Slider[] timer; 
 
     public void back()
     {
@@ -31,10 +33,7 @@ public class UIScript : MonoBehaviour
     }
     private void Awake()
     {
-        //p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>().playerIndex[0];
-        //spawn = GameObject.FindGameObjectWithTag("Spawn").GetComponent<spawnscript>();
-        //xp = gameObject.GetComponent<XP_points>();
-        //weaponsManager = GameObject.FindGameObjectWithTag("Weapons Manager").GetComponent<WeaponsManager>();
+        
     }
 
     public void UpdateMoney()
@@ -48,20 +47,46 @@ public class UIScript : MonoBehaviour
         Level.text = $"Level: {xp.CurrentLevel.ToString()}";
         Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
         Killcount.text = p.killcount.ToString();
-        //int i = 0;
-        //foreach(var items in weaponsManager.weapons)
-        //{
-        //    slots[i].sprite = weaponsManager.weapons[i].image;
-        //    slots[i].color = new Color(255, 255, 255, 255);
-        //    if(i >= 3)
-        //    {
-        //        i = 0;
-        //    }
-        //    else
-        //    {
-        //        i++;
-        //    }
-        //}
+        int i = 0;
+        if(p.playerIndex == 0)
+        {
+            foreach (var items in weaponsManager.weaponsP1)
+            {
+                slots[i].sprite = weaponsManager.weaponsP1[i].image;
+                slots[i].color = new Color(255, 255, 255, 255);
+                timer[i].gameObject.SetActive(true);
+                timer[i].maxValue = weaponsManager.weaponsP1[i].AttackSpeed;
+                timer[i].value = weaponsManager.weaponsP1[i].AttackTimerValue;
+                if (i >= 3)
+                {
+                    i = 0;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+        }
+        else if(p.playerIndex == 1)
+        {
+            foreach (var items in weaponsManager.weaponsP2)
+            {
+                slots[i].sprite = weaponsManager.weaponsP2[i].image;
+                slots[i].color = new Color(255, 255, 255, 255);
+                timer[i].gameObject.SetActive(true);
+                timer[i].maxValue = weaponsManager.weaponsP2[i].AttackSpeed;
+                timer[i].value = weaponsManager.weaponsP2[i].AttackTimerValue;
+                if (i >= 3)
+                {
+                    i = 0;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+        }
 
     }
 }

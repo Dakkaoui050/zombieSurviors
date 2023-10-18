@@ -22,26 +22,28 @@ public class HighScoreSystem : MonoBehaviour
     public ScrollRect scrollRect;
     public spawnscript Spawnscript;
     public XP_points xP;
-    public player p;
+    public player[] p;
     public int maxEntries = 5; // Maximum number of entries to keep in the leaderboard
     private List<PlayerData> leaderboardEntries = new List<PlayerData>();
 
     void Start()
     {
-        Spawnscript = GameObject.FindGameObjectWithTag("Spawn").GetComponent<spawnscript>();
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
-        xP = GameObject.FindGameObjectWithTag("UIScript").GetComponent<XP_points>();
+        
     }
     private void FixedUpdate()
     {
-        if(p.dead)
-        {   
-            LoadLeaderboard();
-            AddEntry();
-            SortLeaderboard();
-            DisplayLeaderboard();
-            p.dead = false;
-            Time.timeScale = 0;
+        foreach (player Player in p)
+        {
+            if (Player.dead)
+            {   
+                LoadLeaderboard();
+                AddEntry();
+                SortLeaderboard();
+                DisplayLeaderboard();
+                Player.dead = false;
+                Time.timeScale = 0;
+            }
+
         }
     }
 
@@ -133,7 +135,7 @@ public class HighScoreSystem : MonoBehaviour
     public void AddEntry()
     {
         // Create a new player data entry
-        PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P1"), score = (p.killcount * Spawnscript.waveNumber + (int)xP.CurrentLevel)};
+        PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P1"), score = (p[0].killcount + p[1].killcount * Spawnscript.waveNumber + (int)xP.CurrentLevel)};
         print(newEntry.name + newEntry.score);
         // Add the entry to the leaderboard
         leaderboardEntries.Add(newEntry);
