@@ -63,15 +63,9 @@ public class player : MonoBehaviour
     public void Awake()
     { // Check if an instance already exists
         kb = gameObject.GetComponent<knockBack>();
-        Money += 200;
-        if (playerIndex == 0)
-        {
-            player2 = false;
-        }
-        else if (playerIndex >= 1)
-        {
-            player2 = true;
-        }
+        
+        
+        
 
         nuke = GameObject.FindWithTag("Gamemaster").GetComponent<nukedrop>();
         RB = GetComponent<Rigidbody2D>();
@@ -119,7 +113,7 @@ public class player : MonoBehaviour
         if (!isDashing)
         {
             dashTimer -= Time.deltaTime;
-            if (!player2)
+            if (playerIndex == 0)
             {
                 if (Input.GetAxis("Horizontal") <= -0.1f)
                 {
@@ -172,7 +166,7 @@ public class player : MonoBehaviour
 
                 }
             }
-            else if (player2)
+            else if (playerIndex == 1)
             {
                 if (Input.GetAxis("Player 2 h") <= -0.1f)
                 {
@@ -271,14 +265,14 @@ public class player : MonoBehaviour
     }
     public void HandleInput()
     {
-        if (!player2)
+        if (playerIndex == 0)
         {
 
             MoveH = Input.GetAxis("Horizontal") * moveSpeed;
             MoveV = Input.GetAxis("Vertical") * moveSpeed;
             RB.velocity = new Vector2(MoveH, MoveV);
         }
-        if (player2)
+        if (playerIndex == 1)
         {
             MoveH = Input.GetAxis("Player 2 h") * moveSpeed;
             MoveV = Input.GetAxis("Player 2 v") * moveSpeed;

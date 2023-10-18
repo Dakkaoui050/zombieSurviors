@@ -131,7 +131,6 @@ public class Weapons : MonoBehaviour
     {
         p = GetComponentInParent<player>();
         InvokeRepeating("Attack", 0f, Attackspeed);
-        UIScript = p.GetComponentInChildren<UIScript>();
         WeaponsManager weapons = p.GetComponentInChildren<WeaponsManager>();
         
         if (GetComponentInParent<player>().playerIndex == 0)
