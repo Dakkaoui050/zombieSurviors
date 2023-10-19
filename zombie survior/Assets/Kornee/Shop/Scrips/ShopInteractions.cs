@@ -4,6 +4,7 @@ using UnityEngine;
 //using UnityEngine.UIElements;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ShopInteractions : MonoBehaviour
 {
@@ -73,9 +74,9 @@ public class ShopInteractions : MonoBehaviour
             {
                 case 1:
                
-                    GameObject temp = weaponsm[0].weaponsP1[0].gameObject;
-                    Destroy(temp);
-                    weaponsm[0].weaponsP1[0] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    var temp = weaponsm[0].weaponsP1[0];
+                    Array.Clear(weaponsm[0].weaponsP1, Array.IndexOf(weaponsm[0].weaponsP1, temp),1);
+                    Destroy(temp.gameObject);
                     Instantiate(ChosenWeaponToGetGameObject, Players[0].transform);
                     weaponchangingP1.SetActive(false);
                     Time.timeScale = 1;
@@ -86,9 +87,9 @@ public class ShopInteractions : MonoBehaviour
 
                     break;
                 case 2:
-                    GameObject temp1 = weaponsm[0].weaponsP1[1].gameObject;
-                    Destroy(temp1);
-                    weaponsm[0].weaponsP1[1] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    var temp1 = weaponsm[0].weaponsP1[1];
+                    Array.Clear(weaponsm[0].weaponsP1, Array.IndexOf(weaponsm[0].weaponsP1, temp1), 1);
+                    Destroy(temp1.gameObject);
                     Instantiate(ChosenWeaponToGetGameObject, Players[0].transform);
                     weaponchangingP1.SetActive(false);
                     Time.timeScale = 1;
@@ -96,9 +97,9 @@ public class ShopInteractions : MonoBehaviour
 
                     break;
                 case 3:
-                    GameObject temp2 = weaponsm[0].weaponsP1[2].gameObject;
-                    Destroy(temp2);
-                    weaponsm[0].weaponsP1[2] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    var temp2 = weaponsm[0].weaponsP1[2];
+                    Array.Clear(weaponsm[0].weaponsP1, Array.IndexOf(weaponsm[0].weaponsP1, temp2), 1);
+                    Destroy(temp2.gameObject);
                     Instantiate(ChosenWeaponToGetGameObject, Players[0].transform);
                     weaponchangingP1.SetActive(false);
                     Time.timeScale = 1;
@@ -106,9 +107,9 @@ public class ShopInteractions : MonoBehaviour
 
                     break;
                 case 4:
-                    GameObject temp3 = weaponsm[0].weaponsP1[3].gameObject;
-                    Destroy(temp3);
-                    weaponsm[0].weaponsP1[3] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    var temp3 = weaponsm[0].weaponsP1[3];
+                    Array.Clear(weaponsm[0].weaponsP1, Array.IndexOf(weaponsm[0].weaponsP1, temp3), 1);
+                    Destroy(temp3.gameObject);
                     Instantiate(ChosenWeaponToGetGameObject, Players[0].transform);
                     weaponchangingP1.SetActive(false);
                     Time.timeScale = 1;
@@ -123,9 +124,9 @@ public class ShopInteractions : MonoBehaviour
             {
                 case 5:
 
-                    GameObject temp = weaponsm[1].weaponsP2[0].gameObject;
-                    Destroy(temp);
-                    weaponsm[1].weaponsP2[0] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    var temp = weaponsm[1].weaponsP2[0];
+                    Array.Clear(weaponsm[1].weaponsP2, Array.IndexOf(weaponsm[1].weaponsP2, temp), 1);
+                    Destroy(temp.gameObject);
                     Instantiate(ChosenWeaponToGetGameObject, Players[1].transform);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
@@ -136,9 +137,9 @@ public class ShopInteractions : MonoBehaviour
 
                     break;
                 case 6:
-                    GameObject temp1 = weaponsm[1].weaponsP2[1].gameObject;
-                    Destroy(temp1);
-                    weaponsm[1].weaponsP2[1] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    var temp1 = weaponsm[1].weaponsP2[1];
+                    Array.Clear(weaponsm[1].weaponsP2, Array.IndexOf(weaponsm[1].weaponsP2, temp1), 1);
+                    Destroy(temp1.gameObject);
                     Instantiate(ChosenWeaponToGetGameObject, Players[1].transform);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
@@ -146,9 +147,9 @@ public class ShopInteractions : MonoBehaviour
 
                     break;
                 case 7:
-                    GameObject temp2 = weaponsm[1].weaponsP2[2].gameObject;
-                    Destroy(temp2);
-                    weaponsm[1].weaponsP2[2] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    var temp2 = weaponsm[1].weaponsP2[2];
+                    Array.Clear(weaponsm[1].weaponsP2, Array.IndexOf(weaponsm[1].weaponsP2, temp2), 1);
+                    Destroy(temp2.gameObject);
                     Instantiate(ChosenWeaponToGetGameObject, Players[1].transform);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;
@@ -156,9 +157,9 @@ public class ShopInteractions : MonoBehaviour
 
                     break;
                 case 8:
-                    GameObject temp3 = weaponsm[1].weaponsP2[3].gameObject;
-                    Destroy(temp3);
-                    weaponsm[1].weaponsP2[3] = ChosenWeaponToGetGameObject.GetComponent<Weapons>();
+                    var temp3 = weaponsm[1].weaponsP2[3];
+                    Array.Clear(weaponsm[1].weaponsP2, Array.IndexOf(weaponsm[1].weaponsP2, temp3), 1);
+                    Destroy(temp3.gameObject);
                     Instantiate(ChosenWeaponToGetGameObject, Players[1].transform);
                     weaponchangingP2.SetActive(false);
                     Time.timeScale = 1;

@@ -14,6 +14,8 @@ public class Knife : Weapons
         firePoint = GameObject.FindWithTag("firepoint").GetComponent<Transform>();  // afvuur punt voor de fire arms
         Begin(AttackSpeed); // start de attack pattern
         anim.SetBool("mesPlay", true);
+        AttackTimerValue = AttackTime;
+        uiScript.slider();
 
     }
 }

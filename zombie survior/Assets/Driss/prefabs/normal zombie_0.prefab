@@ -51,7 +51,6 @@ GameObject:
   - component: {fileID: 7892000466248227060}
   - component: {fileID: 5844202957311692391}
   - component: {fileID: 8921783438503240127}
-  - component: {fileID: 8217309595759096739}
   - component: {fileID: -1534045645623301205}
   - component: {fileID: 6605208787192143728}
   m_Layer: 6
@@ -221,15 +220,17 @@ MonoBehaviour:
   HP: 100
   MaxHP: 100
   Damage: 10
-  Target:
+  players:
   - {fileID: 0}
   - {fileID: 0}
   Distance: 10
   WayPoint: {fileID: 0}
+  Traget: {fileID: 0}
   drop: {fileID: 0}
   nukedrop: {fileID: 0}
   audiosource: {fileID: 6605208787192143728}
   blood: {fileID: 400059685727277878}
+  Boss: 0
   Anim: {fileID: 0}
   rate: 25
   tom: 0
@@ -260,24 +261,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8217309595759096739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2660732139877634596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f4a7f33ebd6534c9c345a2ab32f491, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapWidth: 45
-  mapHeight: 45
-  negMapWidth: 0
-  negMapHeight: 0
-  isWrapping: 1
-  p: {fileID: 0}
 --- !u!82 &-1534045645623301205
 AudioSource:
   m_ObjectHideFlags: 0

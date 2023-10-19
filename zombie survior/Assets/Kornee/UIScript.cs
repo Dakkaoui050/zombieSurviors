@@ -40,6 +40,61 @@ public class UIScript : MonoBehaviour
     {
            money.text = p.Money.ToString();
     }
+
+    public void slider()
+    {
+        if (p.playerIndex == 0)
+        {
+            foreach (var items in weaponsManager.weaponsP1)
+            {
+                if(items != null)
+                {
+                    int i = Array.IndexOf(weaponsManager.weaponsP1, items);
+                    timer[i].maxValue = weaponsManager.weaponsP1[i].AttackSpeed;
+                    timer[i].value = weaponsManager.weaponsP1[i].AttackTimerValue;
+                }
+            }
+        }
+        else if (p.playerIndex == 1)
+        {
+            foreach (var items in weaponsManager.weaponsP2)
+            {
+                if (items != null)
+                {
+                    int i = Array.IndexOf(weaponsManager.weaponsP2, items);
+                    timer[i].maxValue = weaponsManager.weaponsP2[i].AttackSpeed;
+                    timer[i].value = weaponsManager.weaponsP2[i].AttackTimerValue;
+                }
+            }
+        }
+    }
+    private void Update()
+    {
+        if (p.playerIndex == 0)
+        {
+            foreach (var items in weaponsManager.weaponsP1)
+            {
+                if (items != null)
+                {
+                    int i = Array.IndexOf(weaponsManager.weaponsP1, items);
+                    timer[i].maxValue = weaponsManager.weaponsP1[i].AttackSpeed;
+                    timer[i].value = weaponsManager.weaponsP1[i].AttackTimerValue;
+                }
+            }
+        }
+        else if (p.playerIndex == 1)
+        {
+            foreach (var items in weaponsManager.weaponsP2)
+            {
+                if (items != null)
+                {
+                    int i = Array.IndexOf(weaponsManager.weaponsP2, items);
+                    timer[i].maxValue = weaponsManager.weaponsP2[i].AttackSpeed;
+                    timer[i].value = weaponsManager.weaponsP2[i].AttackTimerValue;
+                }
+            }
+        }
+    }
     private void FixedUpdate()
     {
         money.text = p.Money.ToString();
@@ -50,43 +105,32 @@ public class UIScript : MonoBehaviour
         
         if(p.playerIndex == 0)
         {
-            int i = 0;
             foreach (var items in weaponsManager.weaponsP1)
             {
-                slots[i].sprite = weaponsManager.weaponsP1[i].image;
-                slots[i].color = new Color(255, 255, 255, 255);
-                timer[i].gameObject.SetActive(true);
-                timer[i].maxValue = weaponsManager.weaponsP1[i].AttackSpeed;
-                timer[i].value = weaponsManager.weaponsP1[i].AttackTimerValue;
-                if (i >= 3)
+                if(items != null)
                 {
-                    i = 0;
-                }
-                else
-                {
-                    i++;
+                    for (int i = 0; i < weaponsManager.weaponsP1.Length; i++)
+                    {
+                        slots[i].sprite = weaponsManager.weaponsP1[i].image;
+                        slots[i].color = new Color(255, 255, 255, 255);
+                        timer[i].gameObject.SetActive(true);
+                    }
                 }
             }
 
         }
         else if(p.playerIndex == 1)
         {
-            int i = 0;
             foreach (var items in weaponsManager.weaponsP2)
             {
-
-                slots[i].sprite = weaponsManager.weaponsP2[i].image;
-                slots[i].color = new Color(255, 255, 255, 255);
-                timer[i].gameObject.SetActive(true);
-                timer[i].maxValue = weaponsManager.weaponsP2[i].AttackSpeed;
-                timer[i].value = weaponsManager.weaponsP2[i].AttackTimerValue;
-                if (i >= 3)
+                if(items != null)
                 {
-                    i = 0;
-                }
-                else
-                {
-                    i++;
+                    for (int i = 0; i < weaponsManager.weaponsP2.Length; i++)
+                    {
+                        slots[i].sprite = weaponsManager.weaponsP2[i].image;
+                        slots[i].color = new Color(255, 255, 255, 255);
+                        timer[i].gameObject.SetActive(true);
+                    }
                 }
             }
         }

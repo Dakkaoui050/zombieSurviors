@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapons : MonoBehaviour
@@ -17,7 +19,7 @@ public class Weapons : MonoBehaviour
     public float AttackSpread;
     
     public Sprite image;
-    public UIScript UIScript;
+    public UIScript uiScript;
     public AudioSource audioSource;
 
     
@@ -67,11 +69,11 @@ public class Weapons : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Update()
     {
         if(AttackTimerValue <= 0)
         {
-            AttackTimerValue = AttackSpeed;
+            AttackTimerValue = AttackTime;
         }
         else
         {
@@ -122,10 +124,6 @@ public class Weapons : MonoBehaviour
         GameObject bullet13 = Instantiate(Bullet, p.firePoint1.transform.position, p.firePoint1.transform.rotation);
     }
 
-    private void Awake()
-    {
-        
-    }
 
     public void Begin(float Attackspeed)
     {
@@ -173,5 +171,8 @@ public class Weapons : MonoBehaviour
                 }
             }
         }
+        uiScript = p.GetComponentInChildren<UIScript>();
+        
+       
     }
 }

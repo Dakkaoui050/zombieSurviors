@@ -56,12 +56,14 @@ MonoBehaviour:
   Type: 
   firePoint: {fileID: 0}
   p: {fileID: 0}
+  AttackSpeed: 5
+  AttackTime: 5
+  AttackTimerValue: 0
   Damage: 0
   AttackRange: 0
   AttackSpread: 0
-  AttackSpeed: 5
   image: {fileID: -321683043, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
-  script: {fileID: 0}
+  uiScript: {fileID: 0}
   audioSource: {fileID: 861901438934307289}
 --- !u!222 &1297624231702338789
 CanvasRenderer:

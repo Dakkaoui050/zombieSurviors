@@ -216,30 +216,34 @@ public abstract class Enemy : MonoBehaviour
         if (other.gameObject.tag == "firepoint")
         {
             print("oke boomer");
-            foreach (Weapons items in wm.weaponsP1)
+            foreach (var items in wm.weaponsP1)
             {
-                switch(items.tag)
+                if (items != null)
                 {
-                    case "Bat":
-                        audiosource.Play();
-                        blood.Play();
-                        HP -= items.Damage;
-                        print(items.Damage);
+
+                    switch(items.tag)
+                    {
+                        case "Bat":
+                            audiosource.Play();
+                            blood.Play();
+                            HP -= items.Damage;
+                            print(items.Damage);
+                                break;
+                        case "Knife":
+                            audiosource.Play();
+                            blood.Play();
+                            HP -= items.Damage;
+                            print(items.Damage);
                             break;
-                    case "Knife":
-                        audiosource.Play();
-                        blood.Play();
-                        HP -= items.Damage;
-                        print(items.Damage);
-                        break;
-                    case "Sword":
-                        audiosource.Play();
-                        blood.Play();
-                        HP -= items.Damage; 
-                        print(items.Damage);
-                        break;
-                    default:
-                        break;
+                        case "Sword":
+                            audiosource.Play();
+                            blood.Play();
+                            HP -= items.Damage; 
+                            print(items.Damage);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }

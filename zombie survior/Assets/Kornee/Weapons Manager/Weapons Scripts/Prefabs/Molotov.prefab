@@ -56,12 +56,14 @@ MonoBehaviour:
   Type: Granade
   firePoint: {fileID: 0}
   p: {fileID: 0}
+  AttackSpeed: 8
+  AttackTime: 8
+  AttackTimerValue: 0
   Damage: 40
   AttackRange: 10
   AttackSpread: 13
-  AttackSpeed: 8
   image: {fileID: -2007877540, guid: 3e0007cdb8b77064498cc06f2fc77fed, type: 3}
-  script: {fileID: 0}
+  uiScript: {fileID: 0}
   audioSource: {fileID: -220534163517198618}
   anim: {fileID: 0}
 --- !u!222 &7545374128014691340

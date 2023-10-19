@@ -12,6 +12,8 @@ public class Sword : Weapons
         AttackSpeed = 5;  // interfall tussen de attacks
         firePoint = GameObject.FindWithTag("firepoint").GetComponent<Transform>();  // afvuur punt voor de fire arms
         Begin(AttackSpeed); // start de attack pattern
+        AttackTimerValue = AttackTime;
+        uiScript.slider();
 
     }
 }

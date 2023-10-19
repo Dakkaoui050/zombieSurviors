@@ -11,7 +11,9 @@ public class Grenade : Weapons
         AttackSpread = 10; // alleen voor shotgun en granades
         firePoint = GameObject.FindWithTag("firepoint").GetComponent<Transform>();  // afvuur punt voor de fire arms
         Begin(AttackSpeed); // start de attack pattern
-       
+        AttackTimerValue = AttackTime;
+        uiScript.slider();
+
 
     }
 }
