@@ -22,7 +22,6 @@ public class PickUps : MonoBehaviour
     }
     public void pickUp(Collider2D collision )
     {
-        player_script = collision.GetComponent<player>();
         if (collision.tag == "Player")
         {
             switch (Tag)

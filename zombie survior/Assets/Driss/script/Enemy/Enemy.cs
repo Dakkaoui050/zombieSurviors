@@ -171,7 +171,7 @@ public abstract class Enemy : MonoBehaviour
         if (playerScript != null)
         {
             playerScript.TakeDamage(Damage);
-            StartTimer();
+           
         }
         if (collision.gameObject.tag == "Bullet")
         {
@@ -185,32 +185,8 @@ public abstract class Enemy : MonoBehaviour
         
     }
 
-    private IEnumerator CountdownTimer()
-    {
-        while (timerActive && Time.time - timerStartTime < timerDuration)
-        {
-           
-            yield return null;
-        }
-
-        // Timer has finished
-        timerActive = false;
-
-        // Perform actions or logic you want when the timer finishes
-        Debug.Log("Timer finished!");
-        p.TakeDamage(Damage);
-    }
-    private void StartTimer()
-    {
-        timerActive = true;
-        timerStartTime = Time.time;
-        StartCoroutine(CountdownTimer());
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        keepdamage = false;
-        StopTimer();
-    }
+    
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "firepoint")
@@ -261,15 +237,15 @@ public abstract class Enemy : MonoBehaviour
         {
             xp.Experience();
             reward = Random.Range(25,36 );
-            p.Money = p.Money + reward;
-            p.killcount++;
+            players[0].GetComponent<player>().Money = players[0].GetComponent<player>().Money + reward;
+            players[0].GetComponent<player>().killcount++;
         }
         else
         {
             xp.Experience();
             reward = Random.Range(45, 71);
-            p.Money = p.Money + reward;
-            p.killcount++;
+            players[0].GetComponent<player>().Money = players[0].GetComponent<player>().Money + reward;
+            players[0].GetComponent<player>().killcount++;
         }
     }
 }

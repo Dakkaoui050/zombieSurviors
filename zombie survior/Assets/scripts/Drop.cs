@@ -11,7 +11,7 @@ public class Drop : MonoBehaviour
 
     private void Awake()
     {
-        p = GameObject.FindWithTag("Player").GetComponent<player>();
+        //p = GameObject.FindWithTag("Player").GetComponent<player>();
     }
     public void Droping()
     {

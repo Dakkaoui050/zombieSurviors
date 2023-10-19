@@ -820,8 +820,8 @@ public class ShopInteractions : MonoBehaviour
         }
         else if (p.playerIndex == 1)
         {
-            Players[1].GetComponent<player>().Money -= cost;
-            ui[1].UpdateMoney();
+            Players[0].GetComponent<player>().Money -= cost;
+            ui[0].UpdateMoney();
         }
     }
 }

@@ -21,8 +21,8 @@ public class player : MonoBehaviour
     public AudioSource hurtsound;
 
     //movement
-    private Rigidbody2D RB;
-    private float MoveH, MoveV;
+    public Rigidbody2D RB;
+    public float MoveH, MoveV;
     public float moveSpeed;
     public bool lookRight = false;
     public int killcount = 0;
@@ -41,7 +41,7 @@ public class player : MonoBehaviour
     public nukedrop nuke;
 
     //dash verables
-    private bool isDashing = false;
+    [SerializeField] private bool isDashing = false;
     public float dashDuration = 0.2f;
     public float dashSpeed = 10f;
     [SerializeField] private float dashTimer = 10f;
@@ -232,6 +232,10 @@ public class player : MonoBehaviour
                         dashDuration = 0.2f;
                         Dash();
                     }
+                    else
+                    {
+                        Dash();
+                    }
                 }
 
             }
@@ -248,12 +252,17 @@ public class player : MonoBehaviour
                         dashDuration = 0.2f;
                         Dash();
                     }
+                    else
+                    {
+                        Dash();
+                    }
                 }
 
             }
 
 
 
+        }
             if (isDashing)
             {
                 // Dash movement
@@ -269,7 +278,6 @@ public class player : MonoBehaviour
 
                 }
             }
-        }
     }
     public void HandleInput()
     {

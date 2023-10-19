@@ -7,9 +7,8 @@ public class Health : PickUps
 {
     public void Awake()
     {
-        string tempTag = this.tag;
-        Tag = tempTag;
-        me = GameObject.FindWithTag(tempTag);
+        Tag = gameObject.tag;
+        me = gameObject;
         valuePlus = Random.Range(15,36);
         player_script = GameObject.Find("Player").GetComponent<player>();
         player_script.PickUps.Add(this.gameObject);

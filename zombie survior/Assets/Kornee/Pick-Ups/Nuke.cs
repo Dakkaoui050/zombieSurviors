@@ -9,7 +9,8 @@ public class Nuke : PickUps
     private void Awake()
     {
 
-        me = GameObject.FindWithTag(this.tag);
+        me = gameObject;
+        Tag = gameObject.tag;
         player_script = GameObject.Find("Player").GetComponent<player>();
         player_script.PickUps.Add(this.gameObject);
     }

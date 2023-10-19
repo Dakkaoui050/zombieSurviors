@@ -38,7 +38,10 @@ public class UIScript : MonoBehaviour
 
     public void UpdateMoney()
     {
+        if (p.playerIndex == 0)
+        {
            money.text = p.Money.ToString();
+        }
     }
 
     public void slider()
@@ -97,14 +100,17 @@ public class UIScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        money.text = p.Money.ToString();
-        Nuke.text = p.Nuke_Count.ToString();
-        Level.text = $"Level: {xp.CurrentLevel.ToString()}";
-        Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
-        Killcount.text = p.killcount.ToString();
+       
+
+       
         
         if(p.playerIndex == 0)
         {
+            money.text = p.Money.ToString();
+            Nuke.text = p.Nuke_Count.ToString();
+            Level.text = $"Level: {xp.CurrentLevel.ToString()}";
+            Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
+            Killcount.text = p.killcount.ToString();
             foreach (var items in weaponsManager.weaponsP1)
             {
                 if(items != null)
