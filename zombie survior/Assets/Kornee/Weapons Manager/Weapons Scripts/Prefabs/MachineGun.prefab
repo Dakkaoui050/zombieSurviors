@@ -62,7 +62,7 @@ MonoBehaviour:
   Damage: 0
   AttackRange: 0
   AttackSpread: 0
-  image: {fileID: -349165164, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
+  image: {fileID: -627037819, guid: b01f9719c6d5ff04d93b8d3a061e92bd, type: 3}
   uiScript: {fileID: 0}
   audioSource: {fileID: 7811592654273215344}
 --- !u!222 &6413171665858640406
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -349165164, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: -627037819, guid: b01f9719c6d5ff04d93b8d3a061e92bd, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

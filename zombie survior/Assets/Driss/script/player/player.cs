@@ -257,11 +257,7 @@ public class player : MonoBehaviour
                         Dash();
                     }
                 }
-
             }
-
-
-
         }
             if (isDashing)
             {
