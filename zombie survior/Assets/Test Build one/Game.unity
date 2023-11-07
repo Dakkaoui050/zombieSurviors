@@ -2021,7 +2021,7 @@ PrefabInstance:
       objectReference: {fileID: 1620299517}
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: Nuke_Count
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 736767041875542147, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: firePointG
@@ -2093,7 +2093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4539992608410679512, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 440
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5478202740993895786, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2171,7 +2171,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6790300354114323411, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4867566867371470591, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
     - {fileID: 5823395639341983050, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
