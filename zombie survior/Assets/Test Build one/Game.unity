@@ -2027,6 +2027,10 @@ PrefabInstance:
       propertyPath: firePointG
       value: 
       objectReference: {fileID: 1708851353}
+    - target: {fileID: 1818288882769171410, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: Diff
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2032494554517206406, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 42.99991

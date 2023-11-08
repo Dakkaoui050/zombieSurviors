@@ -12,7 +12,7 @@ public class spawnscript : MonoBehaviour
     public int waveCooldown = 30;
     public int normalZombiesPerWave = 2;
     public int bossWaveInterval = 6;
-    public int Diff;
+    public int Diff = 1;
     public int waveNumber = 0;
     private int currentNormalZombie = 0;
     public player player;
@@ -20,9 +20,15 @@ public class spawnscript : MonoBehaviour
     public bool isSpawning = false;
     public float currentCooldownTimer; // Timer for the current cooldown
 
+    
+
     void Start()
     {
         Diff = PlayerPrefs.GetInt("Diff");
+        if(Diff == 0)
+        {
+            Diff = 1;
+        }
         bossWaveInterval -= Diff;
         normalZombiesPerWave += Diff;
         player = gameObject.GetComponentInParent<player>();
@@ -33,6 +39,8 @@ public class spawnscript : MonoBehaviour
 
     public void Update()
     {
+       
+
         // If not already spawning and all enemies are dead, start the next wave spawn
         if (!isSpawning && AreAllEnemiesDead())
         {
@@ -57,6 +65,7 @@ public class spawnscript : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
+        Debug.Log($"de normal zombies per wave is {normalZombiesPerWave}" );
         waveNumber++;
         normalZombiesPerWave += 2 * Diff;
         currentNormalZombie = normalZombiesPerWave;
