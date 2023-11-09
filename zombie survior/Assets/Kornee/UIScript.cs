@@ -20,6 +20,7 @@ public class UIScript : MonoBehaviour
     public TextMeshProUGUI Level;
     public TextMeshProUGUI Wave;
     public TextMeshProUGUI Killcount;
+    public nukedrop nuke;
 
 
     //inventory
@@ -107,7 +108,7 @@ public class UIScript : MonoBehaviour
         if(p.playerIndex == 0)
         {
             money.text = p.Money.ToString();
-            Nuke.text = p.Nuke_Count.ToString();
+            Nuke.text = nuke.Nuke_count.ToString();
             Level.text = $"Level: {xp.CurrentLevel.ToString()}";
             Wave.text = $"Wave: {spawn.waveNumber.ToString()}";
             Killcount.text = p.killcount.ToString();
