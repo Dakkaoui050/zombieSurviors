@@ -42,12 +42,12 @@ public class Enemy_StunZombie : Enemy
             Anim.SetBool("isAttacking", false);
             Anim.Play("stun zombie");
             MoveSpeed = 4; 
-            isPlayerInRange = true;
+            isPlayerInRange = false;
         }
     }
   
     // Coroutine to temporarily reduce the player's moveSpeed
-    private IEnumerator StunPlayerForSeconds(float duration)
+    public IEnumerator StunPlayerForSeconds(float duration)
     {
         // Save the original player moveSpeed to restore it later
         float originalMoveSpeed = p.moveSpeed;
@@ -62,11 +62,11 @@ public class Enemy_StunZombie : Enemy
         p.moveSpeed = originalMoveSpeed; 
        
     }
-    private IEnumerator ZombieDown( float ZombieDuration)
+    public IEnumerator ZombieDown( float ZombieDuration = 5f)
     { 
         float originalZombieMoveSpeed = MoveSpeed;
         
-        MoveSpeed = 0f;
+      //  MoveSpeed = 0f;
 
         // Wait for the specified duration
         yield return new WaitForSeconds(ZombieDuration);
@@ -75,8 +75,8 @@ public class Enemy_StunZombie : Enemy
         if (isPlayerInRange)
         {
             MoveSpeed = originalZombieMoveSpeed;
-        }
+        }     
     }
-
+    
 
 }
