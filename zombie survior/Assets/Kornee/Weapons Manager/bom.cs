@@ -13,20 +13,39 @@ public class bom : MonoBehaviour
     public Animator anim;
     public bool CanMove = true;
     public player player;
+    public int dir;
+   
 
 
     private void Awake()
     {
         //anim.enabled = true;
         player = GameObject.FindWithTag("Player").GetComponent<player>();
-    }
-    
+        if (CanMove)
+        {
+            switch (player.poss)
+            {
+                case 1:
+                    dir = 1;
+                    break;
+                case 2:
+                    dir = 2;
+                    break;
+                case 3:
+                    dir = 3;
+                    break;
+                case 4:
+                    dir = 4;
+                    break;
 
+            }
+        }
+    }
     private void Update()
     {
         if (CanMove)
         {
-            switch (player.poss)
+            switch(dir)
             {
                 case 1:
                     transform.Translate(Vector2.right * Speed * Time.deltaTime);
@@ -40,12 +59,7 @@ public class bom : MonoBehaviour
                 case 4:
                     transform.Translate(Vector2.up * Speed * Time.deltaTime);
                     break;
-
             }
-        }
-        else
-        {
-            transform.Translate(Vector2.right * 0f);
         }
     }
 }
