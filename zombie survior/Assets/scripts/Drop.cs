@@ -16,7 +16,7 @@ public class Drop : MonoBehaviour
     public void Droping()
     {
         int i = Random.Range(0,101);
-        if(i > 90)
+        if(i > 0)
         {
             Instantiate(pick[2], new Vector3(spawnpoint.position.x, spawnpoint.position.y, spawnpoint.position.z), new Quaternion(0, 0, 0, 0));
             print("Drop nuke");

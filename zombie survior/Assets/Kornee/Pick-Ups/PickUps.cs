@@ -14,6 +14,7 @@ public class PickUps : MonoBehaviour
     public string Tag;
     public CircleCollider2D circleCollider;
     public GameObject me;
+    public nukedrop nuke;
 
     public player player_script;
     public void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +25,7 @@ public class PickUps : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            player_script = collision.gameObject.GetComponent<player>();
             switch (Tag)
             {
                 case "Health":
@@ -45,15 +47,15 @@ public class PickUps : MonoBehaviour
                     destroy();
                     break;
                 case "Nuke":
-                    if (player_script.Nuke == false && player_script.Nuke_Count < 3)
+                    if (nuke.Nuke == false && nuke.Nuke_count  < 3)
                     {
-                        player_script.Nuke = true;
-                        player_script.Nuke_Count++;
+                        nuke.Nuke = true;
+                        nuke.Nuke_count++;
                         destroy();
                     }
-                    else if (player_script.Nuke_Count < 3)
+                    else if (nuke.Nuke_count < 3)
                     {
-                        player_script.Nuke_Count++;
+                        nuke.Nuke_count++;
                         destroy();
                     }
                     else

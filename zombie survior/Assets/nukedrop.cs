@@ -9,6 +9,8 @@ public class nukedrop : MonoBehaviour
     public List<GameObject> Zombies = new List<GameObject>();
     public AudioSource source;
     public player p;
+    public int Nuke_count;
+    public bool Nuke;
 
 
 
@@ -34,9 +36,8 @@ public class nukedrop : MonoBehaviour
 
         flash.alpha = targetAlpha;
     }
-    public void Nuke_Drop(player invoke)
+    public void Nuke_Drop()
     {
-        p = invoke;
         source.Play();
         foreach (GameObject enemy in Zombies)
         {
@@ -58,6 +59,14 @@ public class nukedrop : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (Nuke_count > 0)
+        {
+            Nuke = true;
+        }
+        else
+        {
+            Nuke = false;
+        }
         foreach (var t in Zombies)
         {
             if (t == null)
@@ -65,6 +74,15 @@ public class nukedrop : MonoBehaviour
             {
                 Zombies.Remove(t);
             }
+        }
+
+    }
+    public void action()
+    {
+        if (Nuke)
+        {
+            Nuke_count--;
+            Nuke_Drop();
         }
     }
 

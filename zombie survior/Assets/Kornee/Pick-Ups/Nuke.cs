@@ -13,6 +13,8 @@ public class Nuke : PickUps
         Tag = gameObject.tag;
         player_script = GameObject.Find("Player").GetComponent<player>();
         player_script.PickUps.Add(this.gameObject);
+        nuke = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent<nukedrop>();
+
     }
 
 

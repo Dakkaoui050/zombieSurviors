@@ -35,8 +35,7 @@ public class player : MonoBehaviour
     public float Damage;
 
     // pick-ups
-    public bool Nuke;
-    public int Nuke_Count;
+    
     public int Money;
     public nukedrop nuke;
 
@@ -107,17 +106,7 @@ public class player : MonoBehaviour
                 PickUps.Remove(t);
             }
         }
-        if (Nuke_Count > 0)
-        {
-            Nuke = true;
-        }
-        else
-        {
-            Nuke = false;
-        }
-        {
 
-        }
         if (!isDashing)
         {
             dashTimer -= Time.deltaTime;
@@ -355,24 +344,15 @@ public class player : MonoBehaviour
             {
                 if (Input.GetButtonDown("Action 3"))
                 {
-                    if (Nuke)
-                    {
-                        Nuke_Count--;
-                        nuke.Nuke_Drop(this);
-                    }
+                    nuke.action();
                 }
-            } else if (playerIndex == 1)
+            } 
+            else if (playerIndex == 1)
             {
                 if (Input.GetButtonDown("Fire3"))
                 {
-                    if (Nuke)
-                    {
-                        Nuke_Count--;
-                        nuke.Nuke_Drop(this);
-
+                    nuke.action();
                 }
-            }
-
             }
 
 
