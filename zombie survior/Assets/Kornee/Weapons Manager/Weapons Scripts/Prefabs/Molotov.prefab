@@ -33,7 +33,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -59,9 +59,9 @@ MonoBehaviour:
   AttackSpeed: 8
   AttackTime: 8
   AttackTimerValue: 0
-  Damage: 40
-  AttackRange: 10
-  AttackSpread: 13
+  Damage: 0
+  AttackRange: 0
+  AttackSpread: 0
   image: {fileID: -2007877540, guid: 3e0007cdb8b77064498cc06f2fc77fed, type: 3}
   uiScript: {fileID: 0}
   audioSource: {fileID: -220534163517198618}

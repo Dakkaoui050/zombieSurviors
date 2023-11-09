@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Molotov : Weapons
 {
-    public Animator anim;
     private void Awake()
     {
 
@@ -14,7 +13,5 @@ public class Molotov : Weapons
         Begin(AttackSpeed); // start de attack pattern
         AttackTimerValue = AttackTime;
         uiScript.slider();
-
-        anim.SetBool("MolotovPlay", true);
     }
 }

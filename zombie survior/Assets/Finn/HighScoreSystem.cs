@@ -135,7 +135,7 @@ public class HighScoreSystem : MonoBehaviour
         // Create a new player data entry
         if (p[0].player2)
         {
-            PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P2"), score = (p[0].killcount + p[1].killcount * Spawnscript.waveNumber + (int)xP.CurrentLevel)};
+            PlayerData newEntry = new PlayerData { name = PlayerPrefs.GetString("P2"), score = (p[0].killcount * Spawnscript.waveNumber + (int)xP.CurrentLevel)};
             print(newEntry.name + newEntry.score);
             leaderboardEntries.Add(newEntry);
         }
