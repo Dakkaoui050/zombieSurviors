@@ -96,7 +96,7 @@ public class ShopManager : MonoBehaviour
                     print("test");
                     Shop.GetComponent<Canvas>().enabled = true;
                     Shop.GetComponent<ShopInteractions>().play = 1;
-                    Press[1].SetActive(true);
+                    Press[0].SetActive(true);
                     UseShop = true;
                     Time.timeScale = 0;
                 }
