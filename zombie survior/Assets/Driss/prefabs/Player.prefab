@@ -12319,7 +12319,6 @@ GameObject:
   - component: {fileID: 484902663788312558}
   - component: {fileID: 261272488574726349}
   - component: {fileID: -973878203341753466}
-  - component: {fileID: 6790300354114323411}
   - component: {fileID: 1532888519998352962}
   m_Layer: 6
   m_Name: Player
@@ -12354,7 +12353,7 @@ Transform:
   - {fileID: 1721582447344863920}
   - {fileID: 5860079095689962868}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8597991530905002337
 SpriteRenderer:
@@ -12575,6 +12574,9 @@ MonoBehaviour:
   firePointG: {fileID: 1066197804270870058}
   source: {fileID: 484902663788312558}
   hurtsound: {fileID: 1532888519998352962}
+  RB: {fileID: 0}
+  MoveH: 0
+  MoveV: 0
   moveSpeed: 25
   lookRight: 1
   killcount: 0
@@ -12583,10 +12585,9 @@ MonoBehaviour:
   MaxHP: 100
   defence: 0
   Damage: 0
-  Nuke: 0
-  Nuke_Count: 0
   Money: 0
   nuke: {fileID: 0}
+  isDashing: 0
   dashDuration: 0.2
   dashSpeed: 10
   dashTimer: 10
@@ -12789,51 +12790,6 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!114 &-973878203341753466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9025157525149169232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0926a1d418f503e4c863ac3884ffa4e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb2d: {fileID: 1417343599067844670}
-  knockbackForce: 16
-  delay: 0.15
-  OnBegin:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 736767041875542147}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDone:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 736767041875542147}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &6790300354114323411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

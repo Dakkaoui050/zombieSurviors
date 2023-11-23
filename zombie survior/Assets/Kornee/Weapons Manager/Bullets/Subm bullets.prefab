@@ -137,4 +137,4 @@ MonoBehaviour:
   Range: 16
   Collider: {fileID: 3975341131083769339}
   Image: {fileID: -532364099, guid: 429e9a5673ca3744d85d814e9dd49c3d, type: 3}
-  Speed: 35
+  Speed: 60

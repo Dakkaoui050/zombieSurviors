@@ -56,8 +56,8 @@ MonoBehaviour:
   Type: 
   firePoint: {fileID: 0}
   p: {fileID: 0}
-  AttackSpeed: 2
-  AttackTime: 2
+  AttackSpeed: 1
+  AttackTime: 1
   AttackTimerValue: 0
   Damage: 0
   AttackRange: 0
