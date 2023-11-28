@@ -39,6 +39,7 @@ public class nukedrop : MonoBehaviour
     public void Nuke_Drop()
     {
         source.Play();
+        
         foreach (GameObject enemy in Zombies)
         {
             enemy.GetComponent<Enemy>().Play();

@@ -31,13 +31,13 @@ public class SkillTree : MonoBehaviour
         {
             if (Input.GetButtonDown("Action 5") && canvas.activeSelf )
             {          
-                    canvas.SetActive(false);       
-                
+               canvas.SetActive(false);
+                Time.timeScale = 1;
             }
             else if (Input.GetButtonDown("Action 5"))
             {
                 canvas.SetActive(true);
-           
+                Time.timeScale = 0;
             }
 
         }else if (p.playerIndex == 1)
@@ -45,12 +45,12 @@ public class SkillTree : MonoBehaviour
             if (Input.GetButtonDown("Fire4") && canvas.activeSelf)
             {
                 canvas.SetActive(false);
-
+                Time.timeScale = 1;
             }
             else if (Input.GetButtonDown("Fire4"))
             {
                 canvas.SetActive(true);
-
+                Time.timeScale = 0;
             }
 
         }
