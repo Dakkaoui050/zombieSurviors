@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Test Build one/Start Screen.unity
+    path: Assets/BuildFolder/Start Screen.unity
     guid: 140985041d38ff3418f07c94a2f83365
   - enabled: 1
-    path: Assets/Test Build one/Game.unity
+    path: Assets/BuildFolder/Game.unity
     guid: 214a14ad5b3ce2448a5647525c13fee1
   - enabled: 1
-    path: Assets/Test Build one/2Player.unity
+    path: Assets/BuildFolder/2Player.unity
     guid: ae1e883bc951d084793bbdd0bdc499c5
   m_configObjects: {}
