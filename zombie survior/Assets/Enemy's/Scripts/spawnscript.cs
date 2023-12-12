@@ -8,6 +8,7 @@ public class spawnscript : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject[] normalZombiesP;
     public GameObject[] bossZombiesP;
+    public GameObject WaveTemplate;
     public Enemy[] enemies;
     public int waveCooldown = 30;
     public int normalZombiesPerWave = 2;
@@ -69,6 +70,8 @@ public class spawnscript : MonoBehaviour
         waveNumber++;
         normalZombiesPerWave += 2 * Diff;
         currentNormalZombie = normalZombiesPerWave;
+        
+
 
         for (int i = 0; i < currentNormalZombie; i++)
         {
@@ -91,6 +94,10 @@ public class spawnscript : MonoBehaviour
             isSpawning = false;
         }
 
+    }
+    private void InstanciateWave()
+    {
+        Instantiate(WaveTemplate);
     }
 
     private void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint)
