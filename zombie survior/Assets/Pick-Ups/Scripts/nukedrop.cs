@@ -11,6 +11,7 @@ public class nukedrop : MonoBehaviour
     public player p;
     public int Nuke_count;
     public bool Nuke;
+    [SerializeField] private spawnscript spawnscript;
 
 
 
