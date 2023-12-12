@@ -56,12 +56,14 @@ MonoBehaviour:
   Type: 
   firePoint: {fileID: 0}
   p: {fileID: 0}
+  AttackSpeed: 0
+  AttackTime: 0
+  AttackTimerValue: 0
   Damage: 30
   AttackRange: 0
   AttackSpread: 0
-  AttackSpeed: 0
   image: {fileID: 127405598, guid: 89bbabadd0aea9241b4a72479f7b6289, type: 3}
-  script: {fileID: 0}
+  uiScript: {fileID: 0}
   audioSource: {fileID: -5420233646212836980}
 --- !u!222 &756334432812985848
 CanvasRenderer:
@@ -113,7 +115,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 25c3f2e00c3214b47b9a77a9dacc1883, type: 2}
   m_audioClip: {fileID: 8300000, guid: b065a256913ddda42a324a27d5af48a8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

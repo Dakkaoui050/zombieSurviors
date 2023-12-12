@@ -65,7 +65,6 @@ MonoBehaviour:
   image: {fileID: -2007877540, guid: 3e0007cdb8b77064498cc06f2fc77fed, type: 3}
   uiScript: {fileID: 0}
   audioSource: {fileID: -220534163517198618}
-  anim: {fileID: 0}
 --- !u!222 &7545374128014691340
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -116,7 +115,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 25c3f2e00c3214b47b9a77a9dacc1883, type: 2}
   m_audioClip: {fileID: 8300000, guid: e3fe3f3dbddc70b4f933bf1bbe71dee6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

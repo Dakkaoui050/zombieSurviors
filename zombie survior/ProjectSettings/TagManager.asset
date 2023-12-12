@@ -34,6 +34,7 @@ TagManager:
   - Gamemaster
   - zombie bullet
   - Player2
+  - WaveParrent
   layers:
   - Default
   - TransparentFX

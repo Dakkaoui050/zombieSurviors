@@ -90,7 +90,7 @@ public abstract class Enemy : MonoBehaviour
         drop = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent <Drop>();
         nukedrop = GameObject.FindGameObjectWithTag("Gamemaster").GetComponent<nukedrop>();
         HP = MaxHP;
-        nukedrop.Zombies.Add(gameObject);
+        GetComponentInParent<WaveManegar>().Zombies.Add(gameObject);
         introduction();
 
         slider.value = HP;

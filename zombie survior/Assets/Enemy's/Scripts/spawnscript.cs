@@ -70,14 +70,14 @@ public class spawnscript : MonoBehaviour
         waveNumber++;
         normalZombiesPerWave += 2 * Diff;
         currentNormalZombie = normalZombiesPerWave;
-        
+        GameObject Parrent = InstanciateWave();
 
 
         for (int i = 0; i < currentNormalZombie; i++)
         {
             int randomNormalEnemyIndex = Random.Range(0, normalZombiesP.Length);
             int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
-            SpawnEnemy(normalZombiesP[randomNormalEnemyIndex], spawnPoints[randomSpawnPointIndex]);
+            SpawnEnemy(normalZombiesP[randomNormalEnemyIndex], spawnPoints[randomSpawnPointIndex], Parrent);
             yield return new WaitForSeconds(1f);
         }
 
@@ -85,7 +85,7 @@ public class spawnscript : MonoBehaviour
         {
             int randomBossEnemyIndex = Random.Range(0, bossZombiesP.Length);
             int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
-            SpawnEnemy(bossZombiesP[randomBossEnemyIndex], spawnPoints[randomSpawnPointIndex]);
+            SpawnEnemy(bossZombiesP[randomBossEnemyIndex], spawnPoints[randomSpawnPointIndex], Parrent);
         }
 
         while (currentCooldownTimer > 0)
@@ -95,14 +95,14 @@ public class spawnscript : MonoBehaviour
         }
 
     }
-    private void InstanciateWave()
+    private GameObject InstanciateWave()
     {
-        Instantiate(WaveTemplate);
+       return Instantiate(WaveTemplate);       
     }
 
-    private void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint)
+    private void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint, GameObject Parrent)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+        Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity, Parrent.transform);
     }
 
     private bool AreAllEnemiesDead()
