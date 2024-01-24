@@ -57,6 +57,7 @@ MonoBehaviour:
   anim: {fileID: -898765497009174362}
   CanMove: 1
   player: {fileID: 0}
+  dir: 0
   enemies: []
   die: 0
   Done: 0
@@ -202,7 +203,7 @@ Animator:
   m_GameObject: {fileID: 8734008461417166900}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6bf8871ca81447f48abb1756ddcebe54, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5926f6ea79337b04488b55524166e013, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

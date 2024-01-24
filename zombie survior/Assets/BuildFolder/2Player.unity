@@ -3110,11 +3110,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6645698598565167424, guid: a41ac5ab13736f24d91494d1edc65ed0, type: 3}
   m_PrefabInstance: {fileID: 2068450142}
   m_PrefabAsset: {fileID: 0}
---- !u!225 &393989280 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 6412544205917945404, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
-  m_PrefabInstance: {fileID: 1096454728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &412149293
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,6 +3294,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4303686893367571009, guid: 13cbe9dcae70efc4bb7d342b086d3ee6, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022357252232343165, guid: 13cbe9dcae70efc4bb7d342b086d3ee6, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6014704017214044349, guid: 13cbe9dcae70efc4bb7d342b086d3ee6, type: 3}
@@ -7720,13 +7719,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2eb5ff78161304fbfb99fc35d3c5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flash: {fileID: 393989280}
-  fadeDuration: 2
-  Zombies: []
-  source: {fileID: 1412409031}
   p: {fileID: 0}
   Nuke_count: 0
   Nuke: 0
+  spawnscript: {fileID: 0}
+  Waves: []
 --- !u!82 &1412409031
 AudioSource:
   m_ObjectHideFlags: 0
