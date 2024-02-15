@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,11 @@ public class SkillTree : MonoBehaviour
     private int requiredXp = 0;
     public bool on;
     public GameObject canvas;
+    private int healthStage;
+    private int defanceStage;
+    private int movementStage;
+    private int dashStage;
+    public Sprite Check;
 
     //Relive varable
     public GameObject[] Relive;
@@ -27,6 +33,18 @@ public class SkillTree : MonoBehaviour
     }
     public void Update()
     {
+        //switch (healthStage)
+        //{
+        //    case 0:
+        //        heathIncease[0].
+
+        //        break;
+        //        case 1:
+        //        case 2:
+        //            case 3:
+        //        case 4:
+        //        case 5:
+        //}
         if(p.playerIndex == 0)
         {
             if (Input.GetButtonDown("Action 5") && canvas.activeSelf )
@@ -57,33 +75,33 @@ public class SkillTree : MonoBehaviour
         
 
     }
-    public void HealthIncreaseButton(int level)
+    public void HealthIncreaseButton(int level, Button button)
     {
 
         switch (level)
         {
             case 0:
                 requiredXp = 1;
-                p.MaxHP += 20;
-                
+                healthStage = 1;
+                p.MaxHP += (p.MaxHP / 100) * 20;
                 break;
             case 1:
+
                 requiredXp = 2;
-                p.MaxHP += 40;
+                healthStage = 2;
+                p.MaxHP += (p.MaxHP / 100) * 40;
                 break;
             case 2:
                 requiredXp = 3;
-                p.MaxHP += 60;
+                p.MaxHP += (p.MaxHP / 100) * 60;
                 break;
             case 3:
                 requiredXp = 4;
-                p.MaxHP += 80;
+                p.MaxHP += (p.MaxHP / 100) * 80;
                 break;
             case 4:
                 requiredXp = 5;
-                p.MaxHP += 100;
-                break;
-            default:
+                p.MaxHP += (p.MaxHP / 100) * 100;
                 break;
         }
         Debug.Log(p.MaxHP);
@@ -91,10 +109,12 @@ public class SkillTree : MonoBehaviour
         if (Xp.ExpPoints >= requiredXp && heathIncease.Length >= level)
         {
             Xp.ExpPoints -= requiredXp;
+            button.interactable = false;
+
 
         }
     }
-    public void DefenceInceaseButton(int DefenceLevel)
+    public void DefenceInceaseButton(int DefenceLevel, Button button)
     {
         switch (DefenceLevel)
         {
@@ -127,10 +147,11 @@ public class SkillTree : MonoBehaviour
         if (Xp.ExpPoints >= requiredXp && defenceIncease.Length >= DefenceLevel)
         {
             Xp.ExpPoints -= requiredXp;
+            button.interactable = false;
 
         }
     }
-    public void MovementIncease(int MovementLevel)
+    public void MovementIncease(int MovementLevel, Button button)
     {
         switch (MovementLevel)
         {
@@ -162,10 +183,11 @@ public class SkillTree : MonoBehaviour
         if (Xp.ExpPoints >= requiredXp && MovementSpeed.Length >= MovementLevel)
         {
             Xp.ExpPoints -= requiredXp;
+            button.interactable = false;
 
         }
     }
-    public void live(int relive)
+    public void live(int relive, Button button)
     {
         if(islive == true)
         {   
@@ -191,10 +213,11 @@ public class SkillTree : MonoBehaviour
         if (Xp.ExpPoints >= requiredXp && Relive.Length >= relive)
         {
             Xp.ExpPoints -= requiredXp;
+            button.interactable = false;
 
         }
     }
-    public void DashFuction(int DashIncease)
+    public void DashFuction(int DashIncease, Button button)
     {
         switch (DashIncease)
         {
@@ -222,6 +245,7 @@ public class SkillTree : MonoBehaviour
         if (Xp.ExpPoints >= requiredXp && Dash.Length >= DashIncease)
         {
             Xp.ExpPoints -= requiredXp;
+            button.interactable = false;
 
         }
     }

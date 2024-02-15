@@ -77,7 +77,9 @@ public class HighScoreSystem : MonoBehaviour
             // You can create an empty JSON file here or initialize it with some data.
             // For example, you can create an empty JSON object and save it.
             string emptyJsonData = "{}";
-            File.WriteAllText(filePath, emptyJsonData);
+            byte[] ArrayToEncode = Encoding.UTF8.GetBytes(emptyJsonData);
+            string EmptyArryBase64 = Convert.ToBase64String(ArrayToEncode);
+            File.WriteAllText(filePath, EmptyArryBase64);
             Debug.Log("JSON File created: " + filePath);
         }
         else

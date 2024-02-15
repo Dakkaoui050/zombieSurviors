@@ -46,6 +46,7 @@ public class spawnscript : MonoBehaviour
         if (!isSpawning && AreAllEnemiesDead())
         {
             StartWaveSpawn();
+           
         }
         if (currentCooldownTimer <= 0f)
         {
@@ -61,38 +62,41 @@ public class spawnscript : MonoBehaviour
     {
         isSpawning = true;
         currentCooldownTimer = waveCooldown; // Reset the timer
-        StartCoroutine(SpawnWave());
+     
+            StartCoroutine(SpawnWave());
     }
 
     IEnumerator SpawnWave()
     {
-        Debug.Log($"de normal zombies per wave is {normalZombiesPerWave}" );
-        waveNumber++;
-        normalZombiesPerWave += 2 * Diff;
-        currentNormalZombie = normalZombiesPerWave;
-        GameObject Parrent = InstanciateWave();
+       
+            Debug.Log($"de normal zombies per wave is {normalZombiesPerWave}");
+            waveNumber++;
+            normalZombiesPerWave += 2 * Diff;
+            currentNormalZombie = normalZombiesPerWave;
+            GameObject Parrent = InstanciateWave();
 
 
-        for (int i = 0; i < currentNormalZombie; i++)
-        {
-            int randomNormalEnemyIndex = Random.Range(0, normalZombiesP.Length);
-            int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
-            SpawnEnemy(normalZombiesP[randomNormalEnemyIndex], spawnPoints[randomSpawnPointIndex], Parrent);
-            yield return new WaitForSeconds(1f);
-        }
+            for (int i = 0; i < currentNormalZombie; i++)
+            {
+                int randomNormalEnemyIndex = Random.Range(0, normalZombiesP.Length);
+                int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
+                SpawnEnemy(normalZombiesP[randomNormalEnemyIndex], spawnPoints[randomSpawnPointIndex], Parrent);
+                yield return new WaitForSeconds(1f);
+            }
 
-        if (waveNumber % bossWaveInterval == 0)
-        {
-            int randomBossEnemyIndex = Random.Range(0, bossZombiesP.Length);
-            int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
-            SpawnEnemy(bossZombiesP[randomBossEnemyIndex], spawnPoints[randomSpawnPointIndex], Parrent);
-        }
+            if (waveNumber % bossWaveInterval == 0)
+            {
+                int randomBossEnemyIndex = Random.Range(0, bossZombiesP.Length);
+                int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
+                SpawnEnemy(bossZombiesP[randomBossEnemyIndex], spawnPoints[randomSpawnPointIndex], Parrent);
+            }
 
-        while (currentCooldownTimer > 0)
-        {
-            yield return null;
-            isSpawning = false;
-        }
+            while (currentCooldownTimer > 0)
+            {
+                yield return null;
+                isSpawning = false;
+            }
+        
 
     }
     private GameObject InstanciateWave()
@@ -111,11 +115,11 @@ public class spawnscript : MonoBehaviour
 
         if (enemies.Length == 0)
         {
-            return true;
+            return true;// All enemies are dead
         }
         else
         {
-            return false; // All enemies are dead
+            return false; 
 
         }
     }

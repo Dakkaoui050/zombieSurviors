@@ -326,6 +326,7 @@ public class player : MonoBehaviour
             if (HP <= 0)
                 // Handle player's death here
                 Highscore.SetActive(true);
+                Time.timeScale = 0;
                 dead = true;
                 //Destroy(gameObject);
             }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 
@@ -10,9 +11,11 @@ public class WaveManegar : MonoBehaviour
     public float fadeDuration = 2.0f; // Duration of the fade in seconds
     public AudioSource source;
     [SerializeField] private nukedrop nd;
+    public spawnscript ss;
 
     private void Awake()
     {
+        ss = GameObject.FindWithTag("Spawn").GetComponent<spawnscript>();
         nd = GameObject.FindWithTag("Gamemaster").GetComponent<nukedrop>();
         nd.Waves.Add(gameObject);
         flash = GameObject.Find("Player").GetComponentInChildren<CanvasGroup>();
@@ -38,7 +41,10 @@ public class WaveManegar : MonoBehaviour
         }
 
         flash.alpha = targetAlpha;
-        Destroy(gameObject);
+        if(!source.isPlaying)
+        {
+            Destroy(gameObject);
+        }
     }
     public void Nuke_Drop()
     {
@@ -54,12 +60,13 @@ public class WaveManegar : MonoBehaviour
     public void NukeDrop()
     {
         StartCoroutine(FadePanel());
-
+        ss.enemies.DefaultIfEmpty();
         foreach (GameObject zombie in Zombies)
         {
             Destroy(zombie);
         }
         Zombies.Clear();
+
     }
 
     private void FixedUpdate()

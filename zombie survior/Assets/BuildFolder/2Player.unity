@@ -6295,6 +6295,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 261272488574726349, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -8634177532707833912, guid: 4a595042ef4154747a3b707692301edc, type: 2}
     - target: {fileID: 568056924291289818, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -630
@@ -6339,6 +6343,14 @@ PrefabInstance:
       propertyPath: Nuke_Count
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1532888519998352962, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -8634177532707833912, guid: 4a595042ef4154747a3b707692301edc, type: 2}
+    - target: {fileID: 1818288882769171410, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
+      propertyPath: WaveTemplate
+      value: 
+      objectReference: {fileID: 2085688326508315035, guid: aeec0dcf39dac544d86c0baec36cb493, type: 3}
     - target: {fileID: 2032494554517206406, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -6433,7 +6445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5683885905741321727, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15
+      value: -14.999878
       objectReference: {fileID: 0}
     - target: {fileID: 6390633485024524636, guid: db73add1633b9e547ab3de2567f7c18e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -7720,7 +7732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 0}
-  Nuke_count: 0
+  Nuke_count: 1
   Nuke: 0
   spawnscript: {fileID: 0}
   Waves: []
@@ -7733,8 +7745,8 @@ AudioSource:
   m_GameObject: {fileID: 1412409027}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 25c3f2e00c3214b47b9a77a9dacc1883, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 56350a8f7e3cada4995c3b7a84d6090a, type: 3}
+  OutputAudioMixerGroup: {fileID: -8634177532707833912, guid: 4a595042ef4154747a3b707692301edc, type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -9788,8 +9800,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3343555932003266222, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1022.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343555932003266222, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -515.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343555932003266222, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 510.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343555932003266222, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 286
+      value: 259.68
       objectReference: {fileID: 0}
     - target: {fileID: 3580698128194237408, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
       propertyPath: m_MatchWidthOrHeight
@@ -9893,11 +9917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136797337454210920, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9170791141434157360, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -561.78
+      value: -509.39
       objectReference: {fileID: 0}
     - target: {fileID: 9170791141434157360, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9905,7 +9929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9170791141434157360, guid: 6ba9cb273d3eb9142b48f994032aee7b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 288.875
+      value: 262.68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -11291,6 +11315,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6775477588687703144, guid: dc9890efb084000469235e8006adb786, type: 3}
+      propertyPath: WaveTemplate
+      value: 
+      objectReference: {fileID: 2085688326508315035, guid: aeec0dcf39dac544d86c0baec36cb493, type: 3}
     - target: {fileID: 6819989206578093185, guid: dc9890efb084000469235e8006adb786, type: 3}
       propertyPath: m_Interactable
       value: 0
